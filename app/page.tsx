@@ -163,8 +163,8 @@ function About() {
 				<div className='w-full flex flex-col gap-y-5 self-center'>
 					<Typography variant='h4' fontWeight={500}>{title}</Typography>
 					<Divider color='#db001d' />
-					{body.map((text) => (
-						<Typography variant='body1'>{text}</Typography>
+					{body.map((text, i) => (
+						<Typography key={i} variant='body1'>{text}</Typography>
 					))}
 				</div>
 			</div>
@@ -230,8 +230,8 @@ function Rules() {
 				<div className='w-full flex flex-col gap-y-5 self-center'>
 					<Typography variant='h4' fontWeight={500}>{title}</Typography>
 					<Divider color='#db001d' />
-					{body.map((text) => (
-						<Typography variant='body1'>{text}</Typography>
+					{body.map((text, i) => (
+						<Typography key={i} variant='body1'>{text}</Typography>
 					))}
 				</div>
 			</div>
