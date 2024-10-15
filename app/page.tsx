@@ -1,101 +1,117 @@
-import Image from "next/image";
+import Link from 'next/link'
+import Image from 'next/image'
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+import * as Icon from '@mui/icons-material'
+import { Button, IconButton, Typography, Divider } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+import UnitTheme from '@/themes/unit'
+
+
+import YearsOfExperience from '@/public/images/home/yearsofexperience.jpg'
+import DynamicGameplay from '@/public/images/home/dynamicgameplay.jpg'
+
+
+
+export default function Page() {
+	return (
+		<ThemeProvider theme={UnitTheme}>
+			<div className='h-screen w-full'>
+
+				<div
+					className='h-[80vh] w-full bg-cover bg-center absolute'
+					style={{
+						zIndex: -1,
+						backgroundImage: 'url(/images/home/PHQ2.png)',
+						filter: 'blur(1px)'
+					}}
+				/>
+
+				<div className='h-[80%] pt-[80px] flex flex-col justify-center items-center select-none'>
+
+					<div className='max-w-[1000px] mx-24 flex flex-col justify-center gap-5'>
+						<div style={{
+							backgroundColor: 'rgba(0, 0, 0, 0.5)',
+							backdropFilter: 'blur(10px)',
+							border: '2px solid #db001d',
+							padding: '10px'
+						}}>
+							<Typography variant='h2' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+								AUSTRALIAN SPECIAL OPERATIONS TASKFORCE
+							</Typography>
+						</div>
+
+						{/* <div className='w-full flex flex-row justify-between gap-5'>
+							<div className='flex-grow' style={{
+								backgroundColor: 'rgba(0, 0, 0, 0.5)',
+								backdropFilter: 'blur(10px)',
+								border: '2px solid #db001d',
+								padding: '10px'
+							}}>
+								<Button>Enlist Now</Button>
+							</div>
+
+							<div className='flex-grow' style={{
+								backgroundColor: 'rgba(0, 0, 0, 0.5)',
+								backdropFilter: 'blur(10px)',
+								border: '2px solid #db001d',
+								padding: '10px'
+							}}>
+								<Button>Enlist Now</Button>
+							</div>
+						</div> */}
+					</div>
+
+				</div>
+
+
+				<div className='w-full flex flex-row justify-center py-5' style={{
+					borderTop: '1px solid #db001d'
+				}}>
+					<div className='px-28 w-fit'>
+						<div className='p-8 w-full bg-[#0e0a0a] flex flex-row justify-center gap-x-14'>
+							<div className='max-w-[600px] self-center'>
+								<Image className='rounded-lg' src={YearsOfExperience} alt='Years of Experience' style={{
+								}} />
+							</div>
+
+							<div className='max-w-[500px] flex flex-col gap-y-8 self-center'>
+								<Typography variant='h4' fontWeight={500}>Years of Experience</Typography>
+								<Divider color='#db001d' />
+								<Typography variant='body1'>Our staff and members have a wealth of knowledge and experience behind them in running a community and of course, lots of hours within ARMA.</Typography>
+								<Typography variant='body1'>We have a number of previous and currently serving members of the armed forces who have helped develop our game play into a good balance of realism and playability.</Typography>
+							</div>
+						</div>
+
+						<Divider className='mx-8' />
+
+						<div className='p-8 w-full bg-[#0e0a0a] flex flex-row justify-center gap-x-14'>
+							<div className='max-w-[500px] flex flex-col gap-y-8 self-center'>
+								<Typography variant='h4' align='left' fontWeight={500}>Dynamic and Varied Gameplay</Typography>
+								<Divider color='#db001d' />
+								<Typography variant='body1' align='left'>Our missions are created with both realism and enjoyment in mind. Our full time Zeus team ensures we experience well-balanced, challenging and dynamic missions each week.</Typography>
+								<Typography variant='body1' align='left'>We use a multitude of different weapons, equipment, vehicles and aircraft to create a truly combined arms approach to game play. There’s something for everyone.</Typography>
+							</div>
+
+							<div className='max-w-[600px] self-center'>
+								<Image className='rounded-lg' src={DynamicGameplay} alt='Dynamic and Varied Gameplay' style={{
+								}} />
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div className='p-8 px-28 w-full bg-[#131313] flex flex-col justify-center gap-y-2'
+					style={{
+						borderTop: '2px solid #db001d'
+					}}>
+					<Typography variant='h6' align='center' fontWeight={600}>DISCLAIMER</Typography>
+					<Divider />
+					<Typography variant='body1' align='center'>ARMA 2™ ARMA 3™ and Bohemia Interactive™ are trademarks of Bohemia Interactive. Australian Special Operations Taskforce is an ArmA 3 online gaming community. We are not, in any way, affiliated, associated, authorized, endorsed by or officially connected with the Australian Defense Force or the Australian Government.</Typography>
+				</div>
+
+			</div>
+		</ThemeProvider>
+	)
 }
