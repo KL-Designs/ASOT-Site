@@ -39,9 +39,11 @@ export default function Navbar() {
             >
 
                 <div className='min-w-[50px] self-center flex flex-row items-center gap-x-3'>
-                    <IconButton style={{ padding: 0 }}>
-                        <Image src={Logo} width={50} alt='Logo' />
-                    </IconButton>
+                    <Link href='/'>
+                        <IconButton style={{ padding: 0 }}>
+                            <Image src={Logo} width={50} alt='Logo' />
+                        </IconButton>
+                    </Link>
                     {/* <Typography variant='h5' fontWeight={800} letterSpacing={3}>ASOT</Typography> */}
                 </div>
 
