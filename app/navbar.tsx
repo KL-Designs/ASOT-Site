@@ -17,7 +17,8 @@ export default function Navbar() {
 
     const Links = [
         { name: 'Home', href: '/', icon: <Icon.Home /> },
-        { name: 'ORBAT', href: '/orbat', icon: <Icon.Group /> },
+        { name: 'About Us', href: '/about', icon: <Icon.School /> },
+        { name: 'ORBAT', href: 'https://docs.google.com/spreadsheets/d/1rkzQSPimBYV3UDp-CFHUfQo59yww_xbj9UTPGWBzSL0/edit?usp=sharing', icon: <Icon.Group /> },
         { name: 'MILPACS', href: '/milpacs', icon: <Icon.MilitaryTech /> },
         { name: 'Gallery', href: '/gallery', icon: <Icon.Collections /> },
     ]
@@ -55,7 +56,13 @@ export default function Navbar() {
                     ))}
                 </div>
 
-                <div className='self-center'>
+                <div className='flex self-center gap-x-5'>
+                    <Link href='/donate'>
+                        <IconButton>
+                            <Icon.VolunteerActivism />
+                        </IconButton>
+                    </Link>
+
                     <IconButton>
                         <Icon.AccountCircle />
                     </IconButton>
