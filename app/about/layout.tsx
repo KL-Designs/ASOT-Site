@@ -34,22 +34,24 @@ export default function AboutLayout({ children }: Readonly<{ children: React.Rea
 
 				<Banner />
 
-				<div className='w-full flex flex-row justify-center py-5' style={{
+				<div className="w-full flex justify-center" style={{
 					borderTop: '1px solid #db001d'
 				}}>
-					<div>
+					<div className='max-w-[1200px] flex flex-row justify-center py-5'>
+						<div>
 
-						<div className='w-full flex flex-row justify-center gap-x-5'>
-							<Navigation />
+							<div className='px-10 py-3 w-full flex flex-row flex-wrap justify-center gap-5'>
+								<Navigation />
+							</div>
+
+							{children}
+
 						</div>
-
-						{children}
-
 					</div>
 				</div>
 
 
-				<div className='p-8 px-28 w-full bg-[#131313] flex flex-col justify-center gap-y-2'
+				<div className='p-8 px-10 w-full bg-[#131313] flex flex-col justify-center gap-y-2'
 					style={{
 						borderTop: '2px solid #db001d'
 					}}>

@@ -4,9 +4,9 @@ import { Button, IconButton, Typography, Divider } from '@mui/material'
 
 
 
-export default function ContentText({ children, title }: { children: React.ReactNode, title: string }) {
+export default function ContentText({ children, title, className }: { children: React.ReactNode, title: string, className?: string }) {
     return (
-        <div className='p-8 w-full bg-[#0e0a0a] flex flex-row justify-center gap-x-14'>
+        <div className={`p-8 w-full bg-[#0e0a0a] flex flex-row justify-center gap-x-14 ${className}`}>
             <div className='w-full flex flex-col gap-y-5 self-center'>
                 <Typography variant='h4' fontWeight={500}>{title}</Typography>
                 <Divider color='#db001d' />
@@ -31,8 +31,8 @@ export function ContentWithImage({ children, title, images, imageSide, imagePos,
 
 
     return (
-        <div className='p-8 w-full bg-[#0e0a0a] flex flex-row justify-center gap-x-14'>
-            {imageSide === 'left' || !imageSide ? <ImageWrapper /> : null}
+        <div className='p-8 w-full bg-[#0e0a0a] flex md:flex-row flex-col justify-center gap-14'>
+            <div className='hidden md:flex'>{imageSide === 'left' || !imageSide ? <ImageWrapper /> : null}</div>
 
             <div className='max-w-[500px] flex flex-col gap-y-8 self-center'>
                 <Typography variant='h4' fontWeight={500} align={titlePos || 'left'}>{title}</Typography>
@@ -42,7 +42,9 @@ export function ContentWithImage({ children, title, images, imageSide, imagePos,
                 </div>
             </div>
 
-            {imageSide === 'right' ? <ImageWrapper /> : null}
+            <div className='visible md:hidden'><ImageWrapper /></div>
+
+            <div className='hidden md:flex'>{imageSide === 'right' ? <ImageWrapper /> : null}</div>
         </div>
     )
 }

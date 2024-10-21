@@ -21,7 +21,7 @@ export default function Page() {
 			<div className='h-screen w-full'>
 
 				<div
-					className='h-[80vh] w-full bg-cover bg-center absolute'
+					className='h-[60vh] md:h-[80vh] w-full bg-cover bg-center absolute'
 					style={{
 						zIndex: -1,
 						backgroundImage: `url('/images/home/PHQ2.png')`,
@@ -29,16 +29,20 @@ export default function Page() {
 					}}
 				/>
 
-				<div className='h-[80%] pt-[80px] flex flex-col justify-center items-center select-none'>
+				<div className='h-[60%] md:h-[80%] pt-[80px] flex flex-col justify-center items-center select-none'>
 
-					<div className='max-w-[1000px] mx-24 flex flex-col justify-center gap-5'>
+					<div className='max-w-[1000px] mx-10 flex flex-col justify-center gap-5'>
 						<div style={{
 							backgroundColor: 'rgba(0, 0, 0, 0.5)',
 							backdropFilter: 'blur(10px)',
 							border: '2px solid #db001d',
 							padding: '10px'
 						}}>
-							<Typography variant='h2' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+							<Typography className='hidden md:flex' variant='h2' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+								AUSTRALIAN SPECIAL OPERATIONS TASKFORCE
+							</Typography>
+
+							<Typography className='flex md:hidden' variant='h4' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
 								AUSTRALIAN SPECIAL OPERATIONS TASKFORCE
 							</Typography>
 						</div>
@@ -48,7 +52,7 @@ export default function Page() {
 
 
 				<div className='w-full flex flex-row justify-center py-5' style={{ borderTop: '1px solid #db001d' }}>
-					<div className='px-28 w-fit'>
+					<div className='w-fit'>
 
 						<ContentWithImage title='Years of Experience' images={[YearsOfExperience]}>
 							<Typography>Our staff and members have a wealth of knowledge and experience behind them in running a community and of course, lots of hours within ARMA.</Typography>
@@ -72,7 +76,7 @@ export default function Page() {
 				</div>
 
 
-				<div className='p-8 px-28 w-full bg-[#131313] flex flex-col justify-center gap-y-2'
+				<div className='p-8 px-10 w-full bg-[#131313] flex flex-col justify-center gap-y-2'
 					style={{
 						borderTop: '2px solid #db001d'
 					}}>

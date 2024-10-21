@@ -10,7 +10,7 @@ import Content from '../content'
 
 export default function Tab() {
 	return (
-		<div className='px-28 w-fit flex flex-col max-w-[1100px]'>
+		<div className='w-full flex flex-col'>
 
 			<Content title='WORK IN PROGRESS'>
 				<Typography>PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT</Typography>

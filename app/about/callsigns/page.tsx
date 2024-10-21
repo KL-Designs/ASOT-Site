@@ -24,7 +24,7 @@ import Image_R from '@/public/images/home/callsigns/R.jpg'
 
 export default function Tab() {
 	return (
-		<div className='px-28 w-fit'>
+		<div className='w-fit'>
 
 			<ContentWithImage title='0-A' images={[Image_0A]} imageSide='left' imagePos='center' titlePos='center'>
 				<Typography>India 0-A is the headquarters commander and unit owner callsign that oversees management and operation of the entire unit.</Typography>

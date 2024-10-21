@@ -10,7 +10,7 @@ import Content from './content'
 
 export default function Tab() {
 	return (
-		<div className='px-28 w-fit flex flex-col max-w-[1100px]'>
+		<div className='w-full flex flex-col'>
 
 			<Content title='WHO ARE WE?'>
 				<Typography>We are an ARMA 3 community that aims to achieve realistic yet enjoyable game play in what we call a semi-hardcore game style. What this means is we use real to life military tactics, procedures and structure whilst still maintaining a relaxed approach. We do not expect members to address staff by rank or ‘Sir/Ma’am’.</Typography>
@@ -44,7 +44,7 @@ export default function Tab() {
 				<br />
 				<Typography>If you wish to check the times for your state, you can use the link below to assist.</Typography>
 				<br />
-				<Link className='underline' href='https://www.timeanddate.com/worldclock/converter.html' target='_blank'>https://www.timeanddate.com/worldclock/converter.html</Link>
+				<Typography><Link className='underline' style={{ wordBreak: 'break-all' }} href='https://www.timeanddate.com/worldclock/converter.html' target='_blank'>https://www.timeanddate.com/worldclock/converter.html</Link></Typography>
 			</Content>
 
 			<Divider className='mx-8 my-10' />

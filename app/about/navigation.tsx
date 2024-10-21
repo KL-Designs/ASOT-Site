@@ -18,6 +18,11 @@ const Pages = [
         background: '/images/home/Gopro3.png',
     },
     {
+        href: '/about/contact',
+        title: 'CONTACT US',
+        background: '/images/home/Mike1440.png',
+    },
+    {
         href: '/about/rules',
         title: 'RULES & EXPECTATIONS',
         background: '/images/home/ADFField1.png',
@@ -38,8 +43,8 @@ export function Navigation() {
     return (
         <>
             {Pages.map((p, i) => (
-                <Link key={i} href={p.href}>
-                    <Button variant='contained' disabled={page?.href === p.href ? true : false}>{p.title}</Button>
+                <Link className='flex-grow' key={i} href={p.href}>
+                    <Button fullWidth variant='contained' disabled={page?.href === p.href ? true : false}>{p.title}</Button>
                 </Link>
             ))}
         </>
@@ -56,7 +61,7 @@ export function Banner() {
     return (
         <>
             <div
-                className='h-[60vh] w-full bg-cover bg-center absolute'
+                className='h-[40vh] md:h-[60vh] w-full bg-cover bg-center absolute'
                 style={{
                     zIndex: -1,
                     backgroundImage: `url(${page?.background})`,
@@ -64,9 +69,9 @@ export function Banner() {
                 }}
             />
 
-            <div className='h-[60%] pt-[80px] flex flex-col justify-center items-center select-none'>
+            <div className='h-[40%] md:h-[60%] pt-[80px] flex flex-col justify-center items-center select-none'>
 
-                <div className='max-w-[1000px] mx-24 flex flex-col justify-center gap-5'>
+                <div className='max-w-[1000px] mx-10 flex flex-col justify-center gap-5'>
                     <div style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                         backdropFilter: 'blur(10px)',
@@ -74,7 +79,11 @@ export function Banner() {
                         padding: '10px'
                     }}>
 
-                        <Typography variant='h2' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+                        <Typography className='hidden md:flex' variant='h2' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+                            {page?.title}
+                        </Typography>
+
+                        <Typography className='flex md:hidden' variant='h4' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
                             {page?.title}
                         </Typography>
 
