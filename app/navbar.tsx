@@ -67,7 +67,7 @@ export default function Navbar() {
                         </IconButton>
                     </Link>
 
-                    <Link href='/login'>
+                    <Link href='/account'>
                         <IconButton>
                             <Icon.AccountCircle />
                         </IconButton>

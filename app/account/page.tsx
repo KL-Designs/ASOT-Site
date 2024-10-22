@@ -1,3 +1,5 @@
+'use server'
+
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
@@ -11,18 +13,21 @@ import UnitTheme from '@/themes/unit'
 
 export default async function Page() {
 
+    const cookieStore = await cookies()
+    const token = cookieStore.get('token')?.value
+
     let user: User
 
     try {
-        const token = (await cookies()).get('token')?.value
-        if (!token) return redirect('/login')
+        if (!token) throw new Error('No token found')
 
-        user = await FetchUser(token)
-        if (!user) return redirect('/login')
+        user = await FetchUser(token as string)
+        if (!user) throw new Error('User not found')
     }
 
     catch (error) {
-        return redirect('/login')
+        console.error('Error fetching user:', error)
+        return redirect(`/login`)
     }
 
     return (
