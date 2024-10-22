@@ -67,9 +67,11 @@ export default function Navbar() {
                         </IconButton>
                     </Link>
 
-                    <IconButton>
-                        <Icon.AccountCircle />
-                    </IconButton>
+                    <Link href='/login'>
+                        <IconButton>
+                            <Icon.AccountCircle />
+                        </IconButton>
+                    </Link>
 
                     <IconButton className='visible sm:hidden' onClick={() => setSideMenuOpen(true)}>
                         <Icon.Menu />
