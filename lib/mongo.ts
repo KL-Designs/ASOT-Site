@@ -1,17 +1,16 @@
-import config from '@/config'
 import { MongoClient, Collection as MongoCollection } from 'mongodb'
 
 
 
-const client = new MongoClient(config.mongo.uri)
+const client = new MongoClient(process.env.MONGO_URI!)
 client.connect().catch(console.error)
 
-client.on('connectionReady', () => console.info(`MongoDB Connected with "${config.mongo.uri}" using "${config.mongo.db}"`))
+client.on('connectionReady', () => console.info(`MongoDB Connected with "${process.env.MONGO_URI!}" using "${process.env.MONGO_DB!}"`))
 
 
 
 export default {
-    stats: () => client.db(config.mongo.db).stats().then(console.table).catch(console.error),
+    stats: () => client.db(process.env.MONGO_DB!).stats().then(console.table).catch(console.error),
 
-    users: client.db(config.mongo.db).collection('users') as MongoCollection<User>,
+    users: client.db(process.env.MONGO_DB!).collection('users') as MongoCollection<User>,
 }

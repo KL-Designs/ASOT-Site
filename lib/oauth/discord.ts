@@ -1,7 +1,3 @@
-import config from "@/config"
-
-
-
 export function ExchangeToken(code: string): Promise<User['oauth']> {
     return new Promise((resolve, reject) => {
 
@@ -12,10 +8,10 @@ export function ExchangeToken(code: string): Promise<User['oauth']> {
             },
             body: new URLSearchParams({
                 grant_type: 'authorization_code',
-                client_id: config.discord.client_id,
-                client_secret: config.discord.client_secret,
+                client_id: process.env.DISCORD_CLIENT_ID!,
+                client_secret: process.env.DISCORD_CLIENT_SECRET!,
                 code: code as string,
-                redirect_uri: config.baseUrl + config.discord.redirect_uri,
+                redirect_uri: process.env.NEXT_PUBLIC_BASEURL! + process.env.DISCORD_REDIRECT_URI!,
             })
         })
             .then(res => res.json())

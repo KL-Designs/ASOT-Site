@@ -1,5 +1,3 @@
-import config from "@/config"
-
 import { NextRequest, NextResponse } from "next/server"
 
 import Db from '@/lib/mongo'
@@ -11,7 +9,7 @@ import { GenerateToken } from "../encryption"
 
 export async function GET(request: NextRequest) {
 
-    const response = NextResponse.redirect(`${config.baseUrl}/account`)
+    const response = NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASEURL!}/account`)
 
     const code = request.nextUrl.searchParams.get('code')
     if (!code) NextResponse.json({ error: 'No code provided' }, { status: 400 })
