@@ -44,7 +44,6 @@ export default async function Page() {
                             <p>Id: {user.discord.id}</p>
                             <p>Username: {user.discord.username}</p>
                             <p>Created: {user.created.toDateString()}</p>
-
                         </div>
                     </Paper>
 
