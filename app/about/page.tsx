@@ -9,6 +9,19 @@ import Content from './content'
 
 
 export default function Tab() {
+
+	const localTime = new Date()
+	localTime.setHours(18, 0, 0, 0)
+	
+	const formattedTime = new Intl.DateTimeFormat('en-AU', {
+		hour: '2-digit',
+		minute: '2-digit',
+		timeZone: 'Australia/Sydney',
+		timeZoneName: 'short',
+	}).format(localTime)
+
+	const Times = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })
+
 	return (
 		<div className='w-full flex flex-col'>
 
