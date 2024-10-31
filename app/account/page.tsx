@@ -35,8 +35,6 @@ export default async function Page() {
 
         roles = await GetGuildMemberRoles(user.discord.id)
         if (!roles) throw new Error('Roles not found')
-
-        console.log(roles)
     }
 
     catch (error) {
