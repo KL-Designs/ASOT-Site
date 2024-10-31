@@ -56,7 +56,7 @@ export default function Page() {
 			<div className="w-full" style={{ borderTop: '1px solid #db001d' }}>
 				<div className='py-5 m-auto'>
 
-					<Typography>Test</Typography>
+					<Typography></Typography>
 
 				</div>
 			</div>

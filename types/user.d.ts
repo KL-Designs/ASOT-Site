@@ -37,7 +37,7 @@ declare global {
             mfa_enabled: boolean
             locale: string
             premium_type: number
-            email: string
+            email: never
             verified: boolean
         }
     }
