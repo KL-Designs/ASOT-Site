@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from "next"
+import { redirect } from 'next/navigation'
+
+import { Member } from "@/lib/auth"
+
 import { ThemeProvider } from "@mui/material"
 
 import UnitTheme from '@/themes/unit'
 
 import Navbar from '@/app/navbar'
-import Footer from "./footer"
 
 
 
@@ -13,7 +16,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-	title: "Australian Special Operations Taskforce",
+	title: "Dashboard | Australian Special Operations Taskforce",
 	description: "Australia's premiere ARMA 3 mil sim community. Recruiting now! 17+ unless vouched for by a current member. Any experience level welcome and no DLC is required.",
 	keywords: ["arma", "arma 3", "australian", "special", "operations", "taskforce", "asot", "milsim"],
 	twitter: {
@@ -26,7 +29,12 @@ export const metadata: Metadata = {
 
 
 
-export default function LandingLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function DashboardLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+
+	const user = await new Member().fetchUser()
+	if (!user) return redirect('/login')
+
+
 	return (
 		<ThemeProvider theme={UnitTheme}>
 			<div className="h-full flex flex-col">
@@ -36,8 +44,6 @@ export default function LandingLayout({ children }: Readonly<{ children: React.R
 				<div className="flex-grow">
 					{children}
 				</div>
-
-				<Footer />
 
 			</div>
 		</ThemeProvider>

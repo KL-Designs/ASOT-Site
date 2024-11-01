@@ -5,6 +5,11 @@ export { }
 
 declare global {
 
+    // interface Permissions {
+
+    // }
+
+
     interface User {
         _id: ObjectId
 
