@@ -1,4 +1,5 @@
 import { Member } from '@/lib/auth'
+import { connection } from 'next/server'
 import { redirect } from 'next/navigation'
 
 import ConvertColor from '@/lib/discord/color'
@@ -9,9 +10,11 @@ import { Paper, Divider, Typography } from '@mui/material'
 
 export default async function Page() {
 
+    await connection()
+
     const auth = new Member()
-    const member = await auth.fetchDiscord().catch(() => null)
-    const roles = await auth.fetchRoles().catch(() => null)
+    const member = await auth.fetchDiscord().catch(console.warn)
+    const roles = await auth.fetchRoles().catch(console.warn)
 
     if (!member || !roles) return redirect('/login')
 

@@ -1,4 +1,5 @@
 import { Member } from '@/lib/auth'
+import { connection } from 'next/server'
 import { redirect } from 'next/navigation'
 
 import Link from 'next/link'
@@ -10,7 +11,9 @@ import { Person, MilitaryTech, Collections } from '@mui/icons-material'
 
 export default async function Page() {
 
-    const roles = await new Member().fetchRoles().catch(() => null)
+    await connection()
+
+    const roles = await new Member().fetchRoles().catch(console.warn)
     if (!roles) return redirect('/login')
 
     return (

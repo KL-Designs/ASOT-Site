@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next"
+import { connection } from 'next/server'
 import { redirect } from 'next/navigation'
 
 import { Member } from "@/lib/auth"
@@ -31,7 +32,9 @@ export const metadata: Metadata = {
 
 export default async function DashboardLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 
-	const user = await new Member().fetchUser().catch(() => null)
+	await connection()
+
+	const user = await new Member().fetchUser().catch(console.warn)
 	if (!user) return redirect('/login')
 
 
