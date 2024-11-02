@@ -10,8 +10,8 @@ import { Paper, Divider, Typography } from '@mui/material'
 export default async function Page() {
 
     const auth = new Member()
-    const member = await auth.fetchDiscord()
-    const roles = await auth.fetchRoles()
+    const member = await auth.fetchDiscord().catch(() => null)
+    const roles = await auth.fetchRoles().catch(() => null)
 
     if (!member || !roles) return redirect('/login')
 

@@ -10,7 +10,7 @@ import { Person, MilitaryTech, Collections } from '@mui/icons-material'
 
 export default async function Page() {
 
-    const roles = await new Member().fetchRoles()
+    const roles = await new Member().fetchRoles().catch(() => null)
     if (!roles) return redirect('/login')
 
     return (

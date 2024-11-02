@@ -9,7 +9,7 @@ import { GenerateToken } from "../encryption"
 
 export async function GET(request: NextRequest) {
 
-    const response = NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASEURL!}/account`)
+    const response = NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASEURL!}/dashboard`)
 
     const code = request.nextUrl.searchParams.get('code')
     if (!code) NextResponse.json({ error: 'No code provided' }, { status: 400 })

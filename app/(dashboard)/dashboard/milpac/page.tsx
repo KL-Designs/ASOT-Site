@@ -9,7 +9,7 @@ import { Person, MilitaryTech, Collections } from '@mui/icons-material'
 export default async function Page() {
 
     const auth = new Member()
-    await auth.fetchRoles()
+    await auth.fetchRoles().catch(() => null)
     if (!auth.roles) return redirect('/login')
 
     if (!auth.hasRoles(['J5 - Milpac Staff', 'Dedi Admin'])) return redirect('/dashboard')

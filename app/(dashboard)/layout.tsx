@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default async function DashboardLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 
-	const user = await new Member().fetchUser()
+	const user = await new Member().fetchUser().catch(() => null)
 	if (!user) return redirect('/login')
 
 
