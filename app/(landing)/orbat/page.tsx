@@ -40,21 +40,13 @@ export default function Page() {
 						padding: '15px'
 					}}>
 
-						<Typography className='hidden md:flex text-[60px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
-							OUR ORBAT
-						</Typography>
-
-						<Typography className='flex md:hidden text-[34px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+						<Typography className='text-[34px] md:text-[60px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
 							OUR ORBAT
 						</Typography>
 
 						<Divider flexItem color='#db001d' />
 
-						<Typography className='hidden md:flex max-w-[700px] text-[15px]' variant='h5' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={1}>
-							Our order of battle (ORBAT) is based around the current Australian Defense Force (ADF) structure with some custom changes that suit our style of game play and desires.
-						</Typography>
-
-						<Typography className='flex md:hidden max-w-[400px] text-[12px]' variant='h5' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={1}>
+						<Typography className='max-w-[400px] text-[12px] md:max-w-[700px] md:text-[15px]' variant='h5' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={1}>
 							Our order of battle (ORBAT) is based around the current Australian Defense Force (ADF) structure with some custom changes that suit our style of game play and desires.
 						</Typography>
 

@@ -68,15 +68,9 @@ export default function Page() {
 						border: '2px solid #db001d',
 						padding: '15px'
 					}}>
-
-						<Typography className='hidden md:flex text-[60px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+						<Typography className='text-[34px] md:text-[60px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
 							ASOT SUPPORT
 						</Typography>
-
-						<Typography className='flex md:hidden text-[34px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
-							ASOT SUPPORT
-						</Typography>
-
 					</div>
 				</div>
 			</div>
