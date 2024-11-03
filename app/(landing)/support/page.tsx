@@ -137,12 +137,12 @@ export default function Page() {
 				</SupportCard>
 
 				<SupportCard name="Lifeline Australia" phone="13 11 14" link="https://www.lifeline.org.au" available="24/7" image="/images/support/lifeline.png">
-					<Typography align="center">They are a national charity providing all Australians experiencing emotional distress with access to 24 hour crisis support and suicide prevention services. They exist so that no person in Australia has to face their darkest moments alone.</Typography>
+					<Typography align="center">They are a national charity providing all Australian’s experiencing emotional distress with access to 24 hour crisis support and suicide prevention services. They exist so that no person in Australia has to face their darkest moments alone.</Typography>
 				</SupportCard>
 
 				<SupportCard name="Beyond Blue" phone="1300 224 636" link="https://www.beyondblue.org.au" available="24/7" image="/images/support/BeyondBlue.png">
 					<Typography align="center">Your mental health is important. Some days are better than others and we all need a helping hand from time to time.</Typography>
-					<Typography align="center">Wherever you are in your mental health journey, we'll be here to help.</Typography>
+					<Typography align="center">Wherever you are in your mental health journey, we’ll be here to help.</Typography>
 				</SupportCard>
 
 				<SupportCard name="SuicideLine" phone="1300 651 251" link="https://suicideline.org.au" available="24/7" image="/images/support/SLV.png">
