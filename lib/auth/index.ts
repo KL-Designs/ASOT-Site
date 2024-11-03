@@ -97,8 +97,7 @@ export class Member {
 
 
 
-    async hasRoles(check: string[]): Promise<boolean> {
-        if (!this.roles) await this.fetchRoles()
+    hasRoles(check: string[]): boolean {
         return this.roles.some(r => check.includes(r.name))
     }
 

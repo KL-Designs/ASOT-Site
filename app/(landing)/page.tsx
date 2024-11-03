@@ -7,7 +7,7 @@ import { ThemeProvider } from '@mui/material'
 
 import UnitTheme from '@/themes/unit'
 
-import { ContentWithImage } from './about/content'
+import { ContentText, ContentWithImage } from './about/content'
 
 
 import Banner from '@/public/images/home/PHQ2.png'
@@ -43,6 +43,12 @@ export default function Page() {
 				</div>
 
 				<div className='py-5 m-auto max-w-[1200px]' style={{ borderTop: '1px solid #db001d' }}>
+
+					<ContentText title='Recruiting Now!'>
+						<Typography>If you’re looking for a real to life and serious, yet fun approach to ARMA 3 military simulation game play, then your search is over!</Typography>
+						<br />
+						<Link href="https://discord.gg/asot" target='_blank'><Button className='bg-[#5d64ef]' variant='contained' size='large' fullWidth>Join our Discord</Button></Link>
+					</ContentText>
 
 					<ContentWithImage title='Years of Experience' images={[YearsOfExperience]}>
 						<Typography>Our staff and members have a wealth of knowledge and experience behind them in running a community and of course, lots of hours within ARMA.</Typography>

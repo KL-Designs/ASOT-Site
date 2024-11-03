@@ -66,14 +66,14 @@ export default function Page() {
 			<div className="w-full" style={{ borderTop: '1px solid #db001d' }}>
 				<div className='py-5 px-10 m-auto'>
 
-					<div className="m-auto mb-5 flex justify-center max-w-[1400px]">
+					<div className="m-auto mb-5 flex justify-center max-w-[1350px]">
 						<Link className="w-full" href='https://docs.google.com/spreadsheets/d/1rkzQSPimBYV3UDp-CFHUfQo59yww_xbj9UTPGWBzSL0/edit?usp=sharing' target="_blank">
 							<Button variant="contained" fullWidth>Open ORBAT</Button>
 						</Link>
 					</div>
 
 					<div style={{ zoom: 0.7, scrollbarWidth: 'none' }} className="max-w-full overflow-scroll">
-						<iframe className="m-auto w-[2000px] h-[1650px] select-none pointer-events-none cursor-pointer" src="https://docs.google.com/spreadsheets/d/1rkzQSPimBYV3UDp-CFHUfQo59yww_xbj9UTPGWBzSL0/edit?usp=sharing" />
+						<iframe className="m-auto w-[1900px] h-[1450px] select-none pointer-events-none cursor-pointer" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSblfrp4eHK6O0P73vF1vTxwEp_QkqTh52UEXPPiGSlwv6ba39UltnhAvqahEz1-hhfxC80qMsMxuJL/pubhtml?gid=275180000&amp;single=true&amp;widget=true&amp;headers=false" />
 					</div>
 
 				</div>

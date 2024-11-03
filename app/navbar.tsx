@@ -1,12 +1,13 @@
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 import { useState } from 'react'
 
 import * as Icon from '@mui/icons-material'
-import { Button, IconButton, Typography, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider } from '@mui/material'
+import { Button, IconButton, Typography, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Menu, MenuItem } from '@mui/material'
 import { ThemeProvider } from '@mui/material'
 
 import DarkTheme from '@/themes/dark'
@@ -21,10 +22,12 @@ export default function Navbar() {
 
     const Links = [
         { name: 'Home', href: '/', icon: <Icon.Home /> },
-        { name: 'About Us', href: '/about', icon: <Icon.School /> },
+        { name: 'About Us', href: '/about', icon: <Icon.School />, subLinks: ['/callsigns', '/contact', '/rules', '/faq'] },
         { name: 'ORBAT', href: '/orbat', icon: <Icon.Group /> },
-        { name: 'MILPACS', href: '/milpacs', icon: <Icon.MilitaryTech /> },
-        { name: 'Gallery', href: '/gallery', icon: <Icon.Collections /> },
+        { name: 'MILPACS', href: 'https://www.australianspecialoperationstaskforce.com/milpacs', target: '_blank', icon: <Icon.MilitaryTech /> },
+        { name: 'Gallery', href: 'https://www.australianspecialoperationstaskforce.com/gallery', target: '_blank', icon: <Icon.Collections /> },
+        { name: 'Partners', href: '/partnerships', icon: <Icon.Handshake /> },
+        { name: 'Support', href: '/support', icon: <Icon.Support /> },
     ]
 
 
@@ -32,7 +35,7 @@ export default function Navbar() {
     return (
         <ThemeProvider theme={DarkTheme}>
             <div
-                className='z-50 py-3 px-10 flex flex-row justify-between'
+                className='z-50 py-3 px-10 flex flex-row justify-between gap-10'
                 style={{
                     width: '100%',
                     // height: '80px',
@@ -49,19 +52,20 @@ export default function Navbar() {
                             <Image src={Logo} width={50} alt='Logo' />
                         </IconButton>
                     </Link>
-                    {/* <Typography variant='h5' fontWeight={800} letterSpacing={3}>ASOT</Typography> */}
                 </div>
 
-                <div className='hidden sm:flex flex-row flex-wrap justify-end gap-x-10 self-center'>
+                <div className='hidden md:flex flex-row flex-wrap justify-end gap-x-10 gap-y-1 self-center'>
                     {Links.map((link) => (
-                        <Link href={link.href} key={link.name}>
-                            <Button color='inherit' startIcon={link.icon}>{link.name}</Button>
-                        </Link>
+                        <React.Fragment key={link.name}>
+                            <Link href={link.href} target={link.target || '_self'} >
+                                <Button color='inherit' startIcon={link.icon}>{link.name}</Button>
+                            </Link>
+                        </React.Fragment>
                     ))}
                 </div>
 
                 <div className='flex self-center gap-x-5'>
-                    <Link href='https://www.paypal.com/donate?token=K6QBGrif2tPtO278lLAx8GQeZkhHzjSUdbZqAav6ZOe6fgbxksYoR501L7NhpbOfzta9GmBCWoXbc8_G' target='_blank' title='Donate'>
+                    <Link href='https://www.paypal.com/donate?business=JLAN3RDW9BEAJ&no_recurring=0&item_name=Thankyou from the bottom of our hearts for supporting ASOT. Every cents goes towards ASOT costs or other features.&currency_code=AUD' target='_blank' title='Donate'>
                         <IconButton>
                             <Icon.VolunteerActivism />
                         </IconButton>
@@ -73,7 +77,7 @@ export default function Navbar() {
                         </IconButton>
                     </Link>
 
-                    <IconButton className='visible sm:hidden' onClick={() => setSideMenuOpen(true)}>
+                    <IconButton className='visible md:hidden' onClick={() => setSideMenuOpen(true)}>
                         <Icon.Menu />
                     </IconButton>
                 </div>

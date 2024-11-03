@@ -13,7 +13,8 @@ export default async function Page() {
 
     await connection()
 
-    const roles = await new Member().fetchRoles().catch(console.warn)
+    const auth = new Member()
+    const roles = await auth.fetchRoles()
     if (!roles) return redirect('/login')
 
     return (
@@ -21,8 +22,8 @@ export default async function Page() {
             <div className='m-auto max-w-[500px] flex flex-col justify-center gap-5'>
 
                 <Link href='/account'><Button variant='contained' fullWidth startIcon={<Person />}>My Account</Button></Link>
-                <Link className={roles.find(r => r.name === 'J5 - Milpac Staff' || r.name === 'Dedi Admin') ? 'visible' : 'hidden'} href='/dashboard/milpac'><Button variant='contained' fullWidth startIcon={<MilitaryTech />}>MILPAC Admin</Button></Link>
-                <Link className={roles.find(r => r.name === 'J5-Media' || r.name === 'Dedi Admin') ? 'visible' : 'hidden'} href='/dashboard/gallery'><Button variant='contained' fullWidth startIcon={<Collections />}>Gallery Manager</Button></Link>
+                <Link className={auth.hasRoles(['J5 - Milpac Staff', 'Dedi Admin']) ? 'visible' : 'hidden'} href='/dashboard/milpac'><Button variant='contained' fullWidth startIcon={<MilitaryTech />}>MILPAC Admin</Button></Link>
+                <Link className={auth.hasRoles(['J5-Media', 'Dedi Admin']) ? 'visible' : 'hidden'} href='/dashboard/gallery'><Button variant='contained' fullWidth startIcon={<Collections />}>Gallery Manager</Button></Link>
 
             </div>
         </div>
