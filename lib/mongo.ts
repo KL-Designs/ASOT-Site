@@ -13,4 +13,8 @@ export default {
     stats: () => client.db(process.env.MONGO_DB!).stats().then(console.table).catch(console.error),
 
     users: client.db(process.env.MONGO_DB!).collection('users') as MongoCollection<User>,
+
+    roles: client.db(process.env.MONGO_DB!).collection('roles') as MongoCollection<Role>,
+    sections: client.db(process.env.MONGO_DB!).collection('sections') as MongoCollection<Section>,
+    platoons: client.db(process.env.MONGO_DB!).collection('platoons') as MongoCollection<Platoon>,
 }

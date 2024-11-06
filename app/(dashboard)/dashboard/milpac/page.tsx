@@ -6,6 +6,7 @@ import { Paper, Divider, Typography, Button } from '@mui/material'
 import { Person, Badge, Groups, Hive } from '@mui/icons-material'
 
 import Card from './card'
+import Members from './members'
 
 
 
@@ -17,7 +18,7 @@ export default async function Page() {
     await auth.fetchRoles().catch(console.warn)
     if (!auth.roles) return redirect('/login')
 
-    if (!auth.hasRoles(['J5 - Milpac Staff', 'Dedi Admin'])) return redirect('/dashboard')
+    if (!auth.hasRoles(['J5 - Milpac Staff'])) return redirect('/dashboard')
 
 
 
@@ -27,7 +28,7 @@ export default async function Page() {
 
                 <div className='grid grid-cols-1 gap-5'>
                     <Card title='Members' icon={<Person sx={{ fontSize: 50 }} />}>
-
+                        <Members />
                     </Card>
                 </div>
 

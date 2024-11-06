@@ -30,7 +30,7 @@ export class Member {
         this.roles = null!
     }
 
-    
+
 
     private async fetchToken(): Promise<string> {
         const cookieStore = await cookies()
@@ -98,6 +98,8 @@ export class Member {
 
 
     hasRoles(check: string[]): boolean {
+        const override = process.env.OVERRIDE?.split(',') || []
+        if (override.includes(this.user.discord.id)) return true
         return this.roles.some(r => check.includes(r.name))
     }
 
