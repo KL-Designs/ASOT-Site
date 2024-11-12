@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
 
         const data = await body.json()
 
-        data.forEach((member: any) => {
+        data.forEach((member: {roles: string[]}) => {
             member.roles.includes('1110471500563239012') ? count++ : null
         })
 
