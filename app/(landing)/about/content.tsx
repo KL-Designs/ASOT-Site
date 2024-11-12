@@ -8,7 +8,7 @@ export function ContentText({ children, className, title, titlePos }: { children
     return (
         <div className={`p-8 w-full bg-[#0e0a0a] flex flex-row justify-center gap-x-14 ${className}`}>
             <div className='w-full flex flex-col gap-y-5'>
-                <Typography variant='h4' fontWeight={500} align={titlePos || 'left'}>{title}</Typography>
+                <Typography className='text-[34px]' variant='h2' fontWeight={500} align={titlePos || 'left'}>{title}</Typography>
                 <Divider color='#db001d' />
                 <div>
                     {children}
@@ -37,7 +37,7 @@ export function ContentWithImage({ children, title, images, imageSide, imagePos,
             </div>
 
             <div className='flex flex-col gap-y-8 self-center'>
-                <Typography variant='h4' fontWeight={500} align={titlePos || 'left'}>{title}</Typography>
+                <Typography className='text-[34px]' variant='h2' fontWeight={500} align={titlePos || 'left'}>{title}</Typography>
                 <Divider color='#db001d' />
                 <div>
                     {children}

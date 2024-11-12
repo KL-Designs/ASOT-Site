@@ -54,10 +54,15 @@ export default function Page() {
 
 						<Divider className='mx-8' />
 
-						<ContentWithImage title='Largest Milsim In Australia' images={[LargestMilsim]} imageSide='left'>
-							<Typography>With <MemberCount /> members strong and growing.</Typography>
+						<ContentWithImage title='Largest Milsim In Australia' images={[LargestMilsim]} titlePos='center' imageSide='left'>
+
+							<div className='flex flex-col gap-1'>
+								<Typography fontWeight={600} align='center'>Current Active Members</Typography>
+								<Typography className='text-[20px] text-[#db001d]' variant='h3' fontWeight={600} align='center'><MemberCount /></Typography>
+							</div>
+
 							<br />
-							<Typography>We are proudly the largest milsim unit not only in Australia, but the entire Oceanic Region. With new recruits each week joining from across Australia, New-Zealand, Asia and more, our operations boast numbers of 50+ every week.</Typography>
+							<Typography align='center'>We are proudly the largest milsim unit not only in Australia, but the entire Oceanic Region. With new recruits each week joining from across Australia, New-Zealand, Asia and more, our operations boast numbers of 50+ every week.</Typography>
 						</ContentWithImage>
 
 						<Divider className='mx-8' />
