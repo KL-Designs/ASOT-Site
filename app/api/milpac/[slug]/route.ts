@@ -22,10 +22,10 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
 
     switch (slug) {
-        case 'members': return GetMembers(body)
-        case 'roles': return GetRoles(body)
-        case 'sections': return GetSections(body)
-        case 'platoons': return GetPlatoons(body)
+        case 'members': return GetMembers()
+        case 'roles': return GetRoles()
+        case 'sections': return GetSections()
+        case 'platoons': return GetPlatoons()
 
         default: return NextResponse.json({ error: 'Invalid Slug' }, { status: 400 })
     }
@@ -34,22 +34,22 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
 
 
-async function GetMembers(body: any) {
+async function GetMembers() {
     const Members = await Db.users.find({}, { projection: { token: 0, oauth: 0 } }).toArray()
     return NextResponse.json(Members, { status: 200 })
 }
 
-async function GetRoles(body: any) {
+async function GetRoles() {
     const Roles = await Db.roles.find({}).toArray()
     return NextResponse.json(Roles, { status: 200 })
 }
 
-async function GetSections(body: any) {
+async function GetSections() {
     const Sections = await Db.sections.find({}).toArray()
     return NextResponse.json(Sections, { status: 200 })
 }
 
-async function GetPlatoons(body: any) {
+async function GetPlatoons() {
     const Platoons = await Db.platoons.find({}).toArray()
     return NextResponse.json(Platoons, { status: 200 })
 }
