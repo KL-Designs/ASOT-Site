@@ -18,7 +18,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     await auth.fetchRoles().catch(console.warn)
     if (!auth.roles) return NextResponse.json({ error: 'No Roles Found, User might not be in the Discord Server' }, { status: 401 })
 
-    if (!auth.hasRoles(['J5 - Milpac Staff'])) return NextResponse.json({ error: 'You do not have the authorized roles to access this data' }, { status: 401 })
+    if (!auth.hasRoles(['All Staff'])) return NextResponse.json({ error: 'You do not have the authorized roles to access this data' }, { status: 401 })
 
 
     switch (slug) {

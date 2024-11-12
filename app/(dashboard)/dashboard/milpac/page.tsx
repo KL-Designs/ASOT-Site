@@ -18,7 +18,7 @@ export default async function Page() {
     await auth.fetchRoles().catch(console.warn)
     if (!auth.roles) return redirect('/login')
 
-    if (!auth.hasRoles(['J5 - Milpac Staff'])) return redirect('/dashboard')
+    if (!auth.hasRoles(['All Staff'])) return redirect('/dashboard')
 
 
 

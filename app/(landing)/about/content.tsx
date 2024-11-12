@@ -4,11 +4,11 @@ import { Button, IconButton, Typography, Divider } from '@mui/material'
 
 
 
-export function ContentText({ children, title, className }: { children: React.ReactNode, title: string, className?: string }) {
+export function ContentText({ children, className, title, titlePos }: { children: React.ReactNode, className?: string, title: string, titlePos?: 'center' | 'left' | 'right' }) {
     return (
         <div className={`p-8 w-full bg-[#0e0a0a] flex flex-row justify-center gap-x-14 ${className}`}>
             <div className='w-full flex flex-col gap-y-5'>
-                <Typography variant='h4' fontWeight={500}>{title}</Typography>
+                <Typography variant='h4' fontWeight={500} align={titlePos || 'left'}>{title}</Typography>
                 <Divider color='#db001d' />
                 <div>
                     {children}
