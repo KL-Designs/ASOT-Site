@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 import * as Icon from '@mui/icons-material'
-import { Button, IconButton, Typography, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Menu, MenuItem } from '@mui/material'
+import { Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider } from '@mui/material'
 import { ThemeProvider } from '@mui/material'
 
 import DarkTheme from '@/themes/dark'

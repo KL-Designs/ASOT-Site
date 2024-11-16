@@ -1,10 +1,8 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import { Metadata } from "next"
 
-import * as Icon from '@mui/icons-material'
-import { Button, IconButton, Typography, Divider } from '@mui/material'
+import { Typography, Divider } from '@mui/material'
 
-import { ContentWithImage } from '../content'
+import { ContentWithImage } from '../../content'
 
 import Image_0A from '@/public/images/home/callsigns/0A.jpg'
 import Image_10 from '@/public/images/home/callsigns/10.jpg'
@@ -21,11 +19,15 @@ import Image_GM from '@/public/images/home/callsigns/GM.jpg'
 import Image_R from '@/public/images/home/callsigns/R.jpg'
 
 
+export const metadata: Metadata = {
+	title: "Callsigns | Australian Special Operations Taskforce"
+}
+
+
 
 export default function Tab() {
 	return (
-		<div className='w-full'>
-
+		<>
 			<ContentWithImage title='0-A' images={[Image_0A]} imageSide='left' imagePos='center' titlePos='center'>
 				<Typography>India 0-A is the headquarters commander and unit owner callsign that oversees management and operation of the entire unit.</Typography>
 				<br />
@@ -202,7 +204,6 @@ export default function Tab() {
 				<br />
 				<Typography>We have a flexible number of reservist slots.</Typography>
 			</ContentWithImage>
-
-		</div>
+		</>
 	)
 }

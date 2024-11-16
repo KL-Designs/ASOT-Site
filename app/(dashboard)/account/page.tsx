@@ -25,7 +25,7 @@ export default async function Page() {
 
                 <Paper elevation={1} className='p-5 flex flex-col gap-5'>
                     <div className='flex gap-5'>
-                        <img src={`https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}?size=128`} style={{ borderRadius: '100%', border: `2px solid ${member.user.banner_color}` }} />
+                        <img alt='Profile Picture' src={`https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}?size=128`} style={{ borderRadius: '100%', border: `2px solid ${member.user.banner_color}` }} />
 
                         <Divider orientation='vertical' flexItem />
 

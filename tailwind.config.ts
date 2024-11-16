@@ -12,6 +12,15 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+
+      height: {
+        'banner-sm': '20vh',
+        'banner-sm-md': '40vh',
+        'banner-md': '40vh',
+        'banner-md-md': '60vh',
+        'banner-lg': '60vh',
+        'banner-lg-md': '80vh',
+      }
     },
   },
   plugins: [],

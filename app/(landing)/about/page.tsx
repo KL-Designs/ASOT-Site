@@ -1,10 +1,14 @@
+import { Metadata } from "next"
 import Link from 'next/link'
-import Image from 'next/image'
 
-import * as Icon from '@mui/icons-material'
-import { Button, IconButton, Typography, Divider } from '@mui/material'
+import { Typography, Divider } from '@mui/material'
 
-import Content from './content'
+import Content from '../content'
+
+
+export const metadata: Metadata = {
+	title: "About Us | Australian Special Operations Taskforce"
+}
 
 
 
@@ -23,8 +27,7 @@ export default function Tab() {
 	const Times = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })
 
 	return (
-		<div className='w-full'>
-
+		<>
 			<Content title='WHO ARE WE?'>
 				<Typography>We are an ARMA 3 community that aims to achieve realistic yet enjoyable game play in what we call a semi-hardcore game style. What this means is we use real to life military tactics, procedures and structure whilst still maintaining a relaxed approach. We do not expect members to address staff by rank or ‘Sir/Ma’am’.</Typography>
 				<br />
@@ -57,7 +60,7 @@ export default function Tab() {
 				<br />
 				<Typography>If you wish to check the times for your state, you can use the link below to assist.</Typography>
 				<br />
-				<Typography><Link className='underline' style={{ wordBreak: 'break-all' }} href='https://www.timeanddate.com/worldclock/converter.html' target='_blank'>https://www.timeanddate.com/worldclock/converter.html</Link></Typography>
+				<Typography><Link className='underline break-words' href='https://www.timeanddate.com/worldclock/converter.html' target='_blank'>https://www.timeanddate.com/worldclock/converter.html</Link></Typography>
 			</Content>
 
 			<Divider className='mx-8 my-5' />
@@ -67,7 +70,6 @@ export default function Tab() {
 				<br />
 				<Typography>Although primarily focused on the modern era ADF/military, we also run missions based throughout the ages for both our main operations and mid-week missions/events. One week it could be WWII, next could be futuristic. The same ORBAT, structure and procedures are kept relatively the same, but this allows us to play as ASOT during any period of humanity. Fictional missions are also an option.</Typography>
 			</Content>
-
-		</div>
+		</>
 	)
 }

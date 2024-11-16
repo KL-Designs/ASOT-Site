@@ -1,16 +1,19 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import { Metadata } from "next"
 
-import * as Icon from '@mui/icons-material'
-import { Button, IconButton, Typography, Divider } from '@mui/material'
+import { Typography } from '@mui/material'
 
-import Content from '../content'
+import Content from '../../content'
+
+
+export const metadata: Metadata = {
+	title: "FAQ | Australian Special Operations Taskforce"
+}
 
 
 
 export default function Tab() {
 	return (
-		<div className='w-full grid grid-cols-1 md:grid-cols-2'>
+		<div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
 
 			<Content title='Is there an age requirement to join ASOT?'>
 				<Typography>You must be 17+ in order to join our group or be vouched for by a current member. We will consider mature younger players.</Typography>
@@ -53,7 +56,7 @@ export default function Tab() {
 				<Typography>We currently have 1 mod list that we use for our missions and on our training server.</Typography>
 				<br />
 				<Typography>Main Modlist:</Typography>
-				<Typography><a className='underline' href='https://steamcommunity.com/sharedfiles/filedetails/?id=2461898157' target='_blank'>https://steamcommunity.com/sharedfiles/filedetails/?id=2461898157</a></Typography>
+				<Typography><a className='underline break-words' href='https://steamcommunity.com/sharedfiles/filedetails/?id=2461898157' target='_blank'>https://steamcommunity.com/sharedfiles/filedetails/?id=2461898157</a></Typography>
 				<br />
 				<Typography>Any other mission mod lists will be posted in the discord noticeboard channel.</Typography>
 			</Content>

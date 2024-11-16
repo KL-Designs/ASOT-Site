@@ -1,17 +1,19 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import { Metadata } from "next"
 
-import * as Icon from '@mui/icons-material'
-import { Button, IconButton, Typography, Divider } from '@mui/material'
+import { Typography, Divider } from '@mui/material'
 
-import Content from '../content'
+import Content from '../../content'
+
+
+export const metadata: Metadata = {
+	title: "Rules | Australian Special Operations Taskforce"
+}
 
 
 
 export default function Tab() {
 	return (
-		<div className='w-full'>
-
+		<>
 			<Content title='SECTION 1 - GENERAL'>
 				<div className='flex flex-col gap-y-2'>
 					<Typography>- All members must treat everyone, including guests with the utmost respect.</Typography>
@@ -78,7 +80,6 @@ export default function Tab() {
 					<Typography>- Use the correct channels for the correct content.</Typography>
 				</div>
 			</Content>
-
-		</div>
+		</>
 	)
 }

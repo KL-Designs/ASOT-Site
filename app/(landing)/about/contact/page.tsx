@@ -1,16 +1,20 @@
+import { Metadata } from "next"
 import Link from 'next/link'
-import Image from 'next/image'
 
-import * as Icon from '@mui/icons-material'
-import { Button, IconButton, Typography, Divider } from '@mui/material'
+import { Typography } from '@mui/material'
 
-import Content from '../content'
+import Content from '../../content'
+
+
+export const metadata: Metadata = {
+	title: "Contact | Australian Special Operations Taskforce"
+}
 
 
 
 export default function Tab() {
 	return (
-		<div className='w-full grid grid-cols-1 md:grid-cols-2'>
+		<div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
 
 			<Content title='TEAMSPEAK' >
 				<Typography><b>Address:</b> <Link className='underline' href='ts3server://103.193.80.60'>103.193.80.60</Link></Typography>

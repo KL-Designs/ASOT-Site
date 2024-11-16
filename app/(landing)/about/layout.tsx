@@ -1,47 +1,74 @@
-import { Metadata, Viewport } from "next"
+'use client'
 
-import * as Icon from '@mui/icons-material'
-import { Button, IconButton, Typography, Divider } from '@mui/material'
+import { usePathname } from 'next/navigation'
+import { StaticImageData } from 'next/image'
+import Link from "next/link"
 
-import { Navigation, Banner } from './navigation'
+import { Button } from "@mui/material"
+
+import Container from "../container"
 
 
-export const viewport: Viewport = {
-	themeColor: "#9d000c"
-}
+import ImgAbout from '@/public/images/home/training2.png'
+import ImgCallsigns from '@/public/images/home/Gopro3.png'
+import ImgContact from '@/public/images/home/Mike1440.png'
+import ImgRules from '@/public/images/home/ADFField1.png'
+import ImgFAQ from '@/public/images/home/SPEAR_OVERCAST_Final.png'
 
-export const metadata: Metadata = {
-	title: "About Us | Australian Special Operations Taskforce",
-	description: "Australia's premiere ARMA 3 mil sim community. Recruiting now! 17+ unless vouched for by a current member. Any experience level welcome and no DLC is required.",
-	keywords: ["arma", "arma 3", "australian", "special", "operations", "taskforce", "asot", "milsim"],
-	twitter: {
-		images: `${process.env.NEXT_PUBLIC_BASEURL}/logo.png`
+
+
+const Pages: { href: string, title: string, background: StaticImageData, subtitle?: string }[] = [
+	{
+		href: '/about',
+		title: 'ABOUT US',
+		background: ImgAbout,
 	},
-	openGraph: {
-		images: `${process.env.NEXT_PUBLIC_BASEURL}/logo.png`
+	{
+		href: '/about/callsigns',
+		title: 'CALL SIGNS',
+		subtitle: 'Here you can see the current call signs we have and some basic information on how they are utilised in missions.',
+		background: ImgCallsigns,
+	},
+	{
+		href: '/about/contact',
+		title: 'CONTACT US',
+		subtitle: 'If you have any questions, queries, want to join or simply want to say hello, you can contact us any way you like. The best way is generally through our Discord but we are also active in all our media outlets.',
+		background: ImgContact,
+	},
+	{
+		href: '/about/rules',
+		title: 'RULES & EXPECTATIONS',
+		subtitle: 'These are some of the more basic rules and expectations we have for all members within the community. A more in depth version will be provided upon recruitment.',
+		background: ImgRules,
+	},
+	{
+		href: '/about/faq',
+		title: 'FREQUENTLY ASKED QUESTIONS',
+		subtitle: 'Here are some commonly asked questions that may help answer some our your queries. If you cannot find the answer to your questions, please feel free to contact us to seek clarification.',
+		background: ImgFAQ,
 	}
-}
+]
 
 
 
 export default function AboutLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+
+	const pathname = usePathname()
+    const page = Pages.find(page => page.href === pathname)
+
 	return (
-		<div className='h-full w-full'>
+		<Container title={page?.title} subtitle={page?.subtitle} background={page?.background} sx={{ bannerHeight: 'md', maxWidth: '1200px' }}>
 
-			<Banner />
-
-			<div className="w-full" style={{ borderTop: '1px solid #db001d' }}>
-				<div className='py-5 m-auto max-w-[1200px]'>
-
-					<div className='px-10 py-3 w-full flex flex-row flex-wrap justify-center gap-5'>
-						<Navigation />
-					</div>
-
-					{children}
-
-				</div>
+			<div className='py-3 w-full flex flex-row flex-wrap justify-center gap-5'>
+				{Pages.map((p, i) => (
+					<Link className='flex-grow' key={i} href={p.href}>
+						<Button fullWidth variant='contained' disabled={page?.href === p.href ? true : false}>{p.title}</Button>
+					</Link>
+				))}
 			</div>
 
-		</div>
+			{children}
+
+		</Container>
 	)
 }
