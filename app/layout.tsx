@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 	description: "Australia's premiere ARMA 3 mil sim community. Recruiting now! 17+ unless vouched for by a current member. Any experience level is welcome!",
 	keywords: ["arma", "arma 3", "australian", "special", "operations", "taskforce", "asot", "milsim"],
 	twitter: {
-		images: `${process.env.NEXT_PUBLIC_BASEURL}/logo.png`
+		images: `${process.env.NEXT_PUBLIC_BASEURL}/banner.jpg`
 	},
 	openGraph: {
-		images: `${process.env.NEXT_PUBLIC_BASEURL}/logo.png`
+		images: `${process.env.NEXT_PUBLIC_BASEURL}/banner.jpg`
 	}
 }
 
@@ -28,10 +28,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en">
-			<body className={`${montserrat.className} antialiased h-full`}>
+			<head>
+				<link rel="apple-touch-icon" href="/banner.jpg" />
+			</head>
 
+			<body className={`${montserrat.className} antialiased h-full`}>
 				{children}
-				
 			</body>
 		</html>
 	)
