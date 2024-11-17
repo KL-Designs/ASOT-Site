@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 	description: "Australia's premiere ARMA 3 mil sim community. Recruiting now! 17+ unless vouched for by a current member. Any experience level is welcome!",
 	keywords: ["arma", "arma 3", "australian", "special", "operations", "taskforce", "asot", "milsim"],
 	twitter: {
-		images: `${process.env.NEXT_PUBLIC_BASEURL}/banner.jpg`
+		images: `${process.env.NEXT_PUBLIC_BASEURL}/banner.jpg?update=true`
 	},
 	openGraph: {
-		images: `${process.env.NEXT_PUBLIC_BASEURL}/banner.jpg`
+		images: `${process.env.NEXT_PUBLIC_BASEURL}/banner.jpg?update=true`
 	}
 }
 
