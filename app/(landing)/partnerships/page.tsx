@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<Container title="PARTNERSHIPS" background={Banner} sx={{ bannerHeight: 'md', maxWidth: '1200px', gap: 'gap-16' }}>
+		<Container title="PARTNERSHIPS" background={Banner} sx={{ bannerHeight: 'md', maxWidth: 'max-w-md', gap: 'gap-16' }}>
 
 			<ContentText title="It's About Community">
 				<Typography>ASOT prides itself on being open and willing to work with and have relations with like-minded gaming communities and ARMA units.</Typography>

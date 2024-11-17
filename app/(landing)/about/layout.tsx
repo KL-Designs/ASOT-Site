@@ -57,7 +57,7 @@ export default function AboutLayout({ children }: Readonly<{ children: React.Rea
     const page = Pages.find(page => page.href === pathname)
 
 	return (
-		<Container title={page?.title} subtitle={page?.subtitle} background={page?.background} sx={{ bannerHeight: 'md', maxWidth: '1200px' }}>
+		<Container title={page?.title} subtitle={page?.subtitle} background={page?.background} sx={{ bannerHeight: 'md', maxWidth: 'max-w-md' }}>
 
 			<div className='w-full flex flex-row flex-wrap justify-center gap-5'>
 				{Pages.map((p, i) => (

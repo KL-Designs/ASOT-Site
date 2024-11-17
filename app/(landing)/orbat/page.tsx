@@ -22,7 +22,7 @@ export default function Page() {
 			title="OUR ORBAT"
 			subtitle="Our order of battle (ORBAT) is based around the current Australian Defense Force (ADF) structure with some custom changes that suit our style of game play and desires."
 			background={Banner}
-			sx={{ bannerHeight: 'md', padding: '2rem', gap: 'gap-5' }}
+			sx={{ bannerHeight: 'md', maxWidth: 'max-w-lg', padding: '2rem', gap: 'gap-5' }}
 		>
 
 			<div className="m-auto w-full flex justify-center max-w-[1330px]">

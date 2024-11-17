@@ -19,7 +19,7 @@ import CustomFeatures from '@/public/images/home/Droneteam7.png'
 export default function Page() {
 
 	return (
-		<Container title='AUSTRALIAN SPECIAL OPERATIONS TASKFORCE' background={Banner} sx={{ maxWidth: '1200px', bannerHeight: 'lg' }}>
+		<Container title='AUSTRALIAN SPECIAL OPERATIONS TASKFORCE' background={Banner} sx={{ maxWidth: 'max-w-md', bannerHeight: 'lg' }}>
 			
 			<ContentText title='Recruiting Now!' titlePos='center'>
 				<Typography align='center'>If you’re looking for a real to life and serious, yet fun approach to ARMA 3 military simulation game play, then your search is over!</Typography>

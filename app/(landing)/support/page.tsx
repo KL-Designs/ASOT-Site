@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<Container title="ASOT SUPPORT" background={Banner} sx={{ bannerHeight: 'md', maxWidth: '1200px', gap: 'gap-16' }}>
+		<Container title="ASOT SUPPORT" background={Banner} sx={{ bannerHeight: 'md', maxWidth: 'max-w-md', gap: 'gap-16' }}>
 
 			<ContentText title="You're not alone">
 				<Typography>ASOT and it’s members understand that everyone, no matter your lifestyle, history or current situation, goes through hard times in life. Mental and physical health is extremely important and although most of us understand that, we can often neglect that fact and find ourselves struggling from time to time. And that is completely fine.</Typography>

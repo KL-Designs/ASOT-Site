@@ -10,7 +10,7 @@ export default function Container({ children, title, subtitle, background, sx }:
     subtitle?: string,
     background?: StaticImageData,
     sx?: {
-        maxWidth?: string,
+        maxWidth?: 'max-w-sm' | 'max-w-md' | 'max-w-lg' | 'max-w-xl' | (string & {}),
         bannerHeight?: 'sm' | 'md' | 'lg',
         padding?: string,
         gap?: string | undefined
@@ -57,7 +57,7 @@ export default function Container({ children, title, subtitle, background, sx }:
 
 
             <div style={{ borderTop: '1px solid #db001d' }}>
-                <div className={`m-auto flex flex-col ${sx?.gap ? sx.gap : 'gap-10'} ${sx?.maxWidth ? `max-w-[${sx.maxWidth}]` : null}`} style={{ padding: sx?.padding || '2rem 2rem' }}>
+                <div className={`m-auto flex flex-col ${sx?.gap ? sx.gap : 'gap-10'} ${sx?.maxWidth || 'max-w-md'}`} style={{ padding: sx?.padding || '2rem 2rem' }}>
 
                     {children}
 

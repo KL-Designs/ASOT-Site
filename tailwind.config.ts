@@ -20,6 +20,13 @@ const config: Config = {
         'banner-md-md': '60vh',
         'banner-lg': '60vh',
         'banner-lg-md': '80vh',
+      },
+
+      maxWidth: {
+        'sm': '800px',
+        'md': '1200px',
+        'lg': '1500px',
+        'xl': '1800px',
       }
     },
   },
