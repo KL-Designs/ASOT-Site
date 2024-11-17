@@ -6,7 +6,7 @@ import { Typography, Divider } from '@mui/material'
 
 export function ContentText({ children, className, title, titlePos }: { children: React.ReactNode, className?: string, title: string, titlePos?: 'center' | 'left' | 'right' }) {
     return (
-        <div className={`py-8 w-full bg-[#0e0a0a] flex flex-row justify-center gap-x-14 ${className}`}>
+        <div className={`w-full flex flex-row justify-center gap-x-14 ${className}`}>
             <div className='w-full flex flex-col gap-y-5'>
                 <Typography className='text-[34px]' variant='h2' fontWeight={500} align={titlePos || 'left'}>{title}</Typography>
                 <Divider color='#db001d' />
@@ -31,7 +31,7 @@ export function ContentWithImage({ children, title, images, imageSide, imagePos,
 
 
     return (
-        <div className='py-8 w-full grid grid-cols-1 md:grid-cols-2 gap-14 bg-[#0e0a0a]'>
+        <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-14'>
             <div className={`hidden self-center ${imageSide === 'left' || !imageSide ? 'md:block' : 'md:hidden'}`}>
                 <ImageWrapper />
             </div>
@@ -47,6 +47,25 @@ export function ContentWithImage({ children, title, images, imageSide, imagePos,
             <div className={`self-center ${imageSide === 'right' ? 'md:block' : 'md:hidden'}`}>
                 <ImageWrapper />
             </div>
+        </div>
+    )
+}
+
+
+export function ContentBanner({ children, title, image }: { children: React.ReactNode, title: string, image: StaticImageData }) {
+    return (
+        <div className='relative w-full h-[500px] md:h-[400px] lg:h-[300px] flex flex-col overflow-hidden'>
+
+            <Image src={image} alt='Banner' fill className='object-cover blur-[1px] rounded-lg' />
+
+            <div className='p-5 absolute flex flex-col gap-y-8 self-center' style={{background: 'linear-gradient(#0a0a0a, transparent)'}}>
+                <Typography className='text-[34px]' align='center' variant='h2' fontWeight={600} letterSpacing={10}>{title.toUpperCase()}</Typography>
+                <Divider color='#db001d' />
+                <div>
+                    {children}
+                </div>
+            </div>
+
         </div>
     )
 }

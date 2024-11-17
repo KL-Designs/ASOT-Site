@@ -34,13 +34,13 @@ export default function Tab() {
 				<Typography>With many years experience and tens of thousands of hours of experience throughout the group, our knowledge is vast. We have a number of previous and currently serving members of the armed forces who have helped develop our game play into a good balance of realism and playability.</Typography>
 			</Content>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<Content title='WHO WE PLAY AS'>
 				<Typography>We are based on a fictional department/corps of the Australian Defence Force (ADF). Our ORBAT, procedures and structure are created to resemble closely to the ADF. Being fictional has allowed us to create a flexible and varied ORBAT including many vehicles, air frames and weapons used by other countries. Essentially, it allows us to use what we want, when we want.</Typography>
 			</Content>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<Content title='WHEN DO WE RUN MISSIONS?'>
 				<Typography>Our primary missions are run every Saturday and Sunday.</Typography>
@@ -63,7 +63,7 @@ export default function Tab() {
 				<Typography><Link className='underline break-words' href='https://www.timeanddate.com/worldclock/converter.html' target='_blank'>https://www.timeanddate.com/worldclock/converter.html</Link></Typography>
 			</Content>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<Content title='MISSION TYPES AND STYLES'>
 				<Typography>Our missions are created by our highly skilled mission creation team and lead by our dedicated Zeus team. This allows for well balanced, challenging yet enjoyable game play.</Typography>

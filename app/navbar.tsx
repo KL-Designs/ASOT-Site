@@ -65,7 +65,7 @@ export default function Navbar() {
                 </div>
 
                 <div className='flex self-center gap-x-5'>
-                    <Link href='https://www.paypal.com/donate?business=JLAN3RDW9BEAJ&no_recurring=0&item_name=Thankyou from the bottom of our hearts for supporting ASOT. Every cents goes towards ASOT costs or other features.&currency_code=AUD' target='_blank' title='Donate'>
+                    <Link href='/donate' title='Donate'>
                         <IconButton>
                             <Icon.VolunteerActivism />
                         </IconButton>

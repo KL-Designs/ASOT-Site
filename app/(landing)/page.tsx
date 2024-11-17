@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Button, Typography, Divider } from '@mui/material'
 
 import Container from './container'
-import { ContentText, ContentWithImage } from './content'
+import { ContentText, ContentWithImage, ContentBanner } from './content'
 import MemberCount from './membercount'
 
 
@@ -20,16 +20,14 @@ export default function Page() {
 
 	return (
 		<Container title='AUSTRALIAN SPECIAL OPERATIONS TASKFORCE' background={Banner} sx={{ maxWidth: '1200px', bannerHeight: 'lg' }}>
+			
 			<ContentText title='Recruiting Now!' titlePos='center'>
-				<Typography>If you’re looking for a real to life and serious, yet fun approach to ARMA 3 military simulation game play, then your search is over!</Typography>
+				<Typography align='center'>If you’re looking for a real to life and serious, yet fun approach to ARMA 3 military simulation game play, then your search is over!</Typography>
 				<br />
 				<Link href="https://discord.gg/asot" target='_blank'><Button className='bg-[#5d64ef]' variant='contained' size='large' fullWidth>Join our Discord</Button></Link>
 			</ContentText>
 
-			<Divider className='mx-8' />
-
-			<ContentWithImage title='Largest Milsim In Australia' images={[LargestMilsim]} titlePos='center' imageSide='left'>
-
+			<ContentBanner title='Largest Milsim In Australia' image={LargestMilsim}>
 				<div className='flex flex-col gap-1'>
 					<Typography fontWeight={600} align='center'>Current Active Members</Typography>
 					<Typography className='text-[20px] text-[#db001d]' variant='h3' fontWeight={600} align='center'><MemberCount /></Typography>
@@ -37,9 +35,9 @@ export default function Page() {
 
 				<br />
 				<Typography align='center'>We are proudly the largest milsim unit not only in Australia, but the entire Oceania Region. With new recruits each week joining from across Australia, New-Zealand, Asia and more, our operations boast numbers of 50+ every week.</Typography>
-			</ContentWithImage>
+			</ContentBanner>
 
-			<Divider className='mx-8' />
+			<Divider />
 
 			<ContentWithImage title='Years of Experience' images={[YearsOfExperience]} imageSide='right'>
 				<Typography>Our staff and members have a wealth of knowledge and experience behind them in running a community and of course, lots of hours within ARMA.</Typography>
@@ -49,7 +47,7 @@ export default function Page() {
 				<Link href='/about'><Button className='mt-5' variant='contained' fullWidth>About Us</Button></Link>
 			</ContentWithImage>
 
-			<Divider className='mx-8' />
+			<Divider />
 
 			<ContentWithImage title='Community Focussed' images={[CommunityFocussed]} imageSide='left'>
 				<Typography>Everyone has a voice.</Typography>
@@ -57,7 +55,7 @@ export default function Page() {
 				<Typography>Although we’re a large, structured unit, everyone has the chance to provide feedback in nearly everything we do. New ideas are welcomed and we foster a community that is more like a family.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8' />
+			<Divider />
 
 			<ContentWithImage title='Custom Game Features' images={[CustomFeatures]} imageSide='right'>
 				<Typography>ASOT only features.</Typography>
@@ -67,7 +65,7 @@ export default function Page() {
 				<Typography>Along with our in-game additions, we also have a custom rank and uniform system that allows members to track their progression and achievements in the unit.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8' />
+			<Divider />
 
 			<ContentWithImage title='Dynamic and Varied Gameplay' images={[DynamicGameplay]} imageSide='left'>
 				<Typography>Our missions are created with both realism and enjoyment in mind. Our full time Zeus team ensures we experience well-balanced, challenging and dynamic missions each week.</Typography>

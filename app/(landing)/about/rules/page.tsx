@@ -25,7 +25,7 @@ export default function Tab() {
 				</div>
 			</Content>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<Content title='SECTION 2 - ATTENDANCE'>
 				<div className='flex flex-col gap-y-2'>
@@ -36,7 +36,7 @@ export default function Tab() {
 				</div>
 			</Content>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<Content title='SECTION 3 - TEAMSPEAK'>
 				<div className='flex flex-col gap-y-2'>
@@ -49,7 +49,7 @@ export default function Tab() {
 				</div>
 			</Content>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<Content title='SECTION 4 - OPERATIONS AND MISSIONS'>
 				<div className='flex flex-col gap-y-2'>
@@ -69,7 +69,7 @@ export default function Tab() {
 				</div>
 			</Content>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<Content title='SECTION 5 - DISCORD OR OTHER MEDIA FORUMS'>
 				<div className='flex flex-col gap-y-2'>

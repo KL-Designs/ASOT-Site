@@ -29,57 +29,55 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<Container title="ASOT SUPPORT" background={Banner} sx={{ bannerHeight: 'md' }}>
+		<Container title="ASOT SUPPORT" background={Banner} sx={{ bannerHeight: 'md', maxWidth: '1200px', gap: 'gap-16' }}>
 
-			<div className="m-auto max-w-[1200px]">
-				<ContentText title="You're not alone">
-					<Typography>ASOT and it’s members understand that everyone, no matter your lifestyle, history or current situation, goes through hard times in life. Mental and physical health is extremely important and although most of us understand that, we can often neglect that fact and find ourselves struggling from time to time. And that is completely fine.</Typography>
-					<br />
-					<Typography>The first and often most difficult step is to reach out and ask for help. ASOT strives to create an environment where everyone has the opportunity and feels confident enough that they can reach out to ask for help, advice or to simply have someone to talk to.</Typography>
-					<br />
-					<Typography>This is our plan on how we achieve that.</Typography>
-				</ContentText>
+			<ContentText title="You're not alone">
+				<Typography>ASOT and it’s members understand that everyone, no matter your lifestyle, history or current situation, goes through hard times in life. Mental and physical health is extremely important and although most of us understand that, we can often neglect that fact and find ourselves struggling from time to time. And that is completely fine.</Typography>
+				<br />
+				<Typography>The first and often most difficult step is to reach out and ask for help. ASOT strives to create an environment where everyone has the opportunity and feels confident enough that they can reach out to ask for help, advice or to simply have someone to talk to.</Typography>
+				<br />
+				<Typography>This is our plan on how we achieve that.</Typography>
+			</ContentText>
 
-				<ContentText title="ASOT Community">
-					<Typography>We aim to provide a community where everyone is welcome, comfortable and feels accepted. This includes persons from all walks of life, across multiple countries, all sorts of sexualities, genders, religious beliefs and more.</Typography>
-					<br />
-					<Typography>Therefore, the community we’ve created for our members is the first step in providing a safe, homely and enjoyable online environment for all to enjoy.</Typography>
-				</ContentText>
+			<ContentText title="ASOT Community">
+				<Typography>We aim to provide a community where everyone is welcome, comfortable and feels accepted. This includes persons from all walks of life, across multiple countries, all sorts of sexualities, genders, religious beliefs and more.</Typography>
+				<br />
+				<Typography>Therefore, the community we’ve created for our members is the first step in providing a safe, homely and enjoyable online environment for all to enjoy.</Typography>
+			</ContentText>
 
-				<ContentText title="ASOT Chaplains">
-					<Typography>ASOT proudly boasts to have been the first Australian ARMA 3 mil sim unit to have dedicated roles for supporting it’s community members.</Typography>
-					<br />
-					<Typography>Although not professionally trained, ASOT chaplains are bound to strict confidentiality and other rules associated with protecting any members they talk to. They offer all current and ex-ASOT members an ear to talk to, a shoulder to cry on, or simply a outlet to vent to.</Typography>
-					<br />
-					<Typography>If our chaplains cannot provide the advise or care they believe is suitable or within their comfort zone, then they provide details to professional help available in that member’s area/country.</Typography>
-					<br />
-					<Typography>The ASOT chaplains can be found listed in the departments tab on the <Link href='/orbat' target="_blank" className="underline">ASOT ORBAT</Link> and can be contacted via direct message any time, any day.</Typography>
-				</ContentText>
+			<ContentText title="ASOT Chaplains">
+				<Typography>ASOT proudly boasts to have been the first Australian ARMA 3 mil sim unit to have dedicated roles for supporting it’s community members.</Typography>
+				<br />
+				<Typography>Although not professionally trained, ASOT chaplains are bound to strict confidentiality and other rules associated with protecting any members they talk to. They offer all current and ex-ASOT members an ear to talk to, a shoulder to cry on, or simply a outlet to vent to.</Typography>
+				<br />
+				<Typography>If our chaplains cannot provide the advise or care they believe is suitable or within their comfort zone, then they provide details to professional help available in that member’s area/country.</Typography>
+				<br />
+				<Typography>The ASOT chaplains can be found listed in the departments tab on the <Link href='/orbat' target="_blank" className="underline">ASOT ORBAT</Link> and can be contacted via direct message any time, any day.</Typography>
+			</ContentText>
 
-				<ContentText title="What do I do?">
-					<Typography>Self harm and suicide is sometimes a difficult topic to talk about and can be even more difficult when you or someone close to you experiences difficulties.</Typography>
-					<br />
-					<Typography>If you have someone who confides in you and either hints towards or tells you that they are considering self-harm or suicide, here are some things you can do to help.</Typography>
-					<br />
-					<Typography className="underline">If you <b>are</b> comfortable discussing it with them;</Typography>
-					<Typography>- Listen to them without judgement and encourage them to talk about their situation.</Typography>
-					<Typography>- Show empathy for their situation and take them seriously.</Typography>
-					<Typography>- Although hard to do online, do not leave them alone until someone can be with them in person or until they have contacted a health professional.</Typography>
-					<Typography>- Discuss the ways that you can get them help and if they agree, follow it up regularly.</Typography>
-					<br />
-					<Typography className="underline">If you <b>are not</b> comfortable discussing it with them;</Typography>
-					<Typography>Tell them you are willing and wanting to assist but are unable to provide the required level of assistance they may require/are asking for.</Typography>
-					<Typography>If able and with the persons permission, contact someone who may be able to assist by taking over the situation or who can provide details on the next step.</Typography>
-					<Typography>Attempt to have the person contact a health professional so they may take over the situation and provide the assistance required.</Typography>
-				</ContentText>
+			<ContentText title="What do I do?">
+				<Typography>Self harm and suicide is sometimes a difficult topic to talk about and can be even more difficult when you or someone close to you experiences difficulties.</Typography>
+				<br />
+				<Typography>If you have someone who confides in you and either hints towards or tells you that they are considering self-harm or suicide, here are some things you can do to help.</Typography>
+				<br />
+				<Typography className="underline">If you <b>are</b> comfortable discussing it with them;</Typography>
+				<Typography>- Listen to them without judgement and encourage them to talk about their situation.</Typography>
+				<Typography>- Show empathy for their situation and take them seriously.</Typography>
+				<Typography>- Although hard to do online, do not leave them alone until someone can be with them in person or until they have contacted a health professional.</Typography>
+				<Typography>- Discuss the ways that you can get them help and if they agree, follow it up regularly.</Typography>
+				<br />
+				<Typography className="underline">If you <b>are not</b> comfortable discussing it with them;</Typography>
+				<Typography>Tell them you are willing and wanting to assist but are unable to provide the required level of assistance they may require/are asking for.</Typography>
+				<Typography>If able and with the persons permission, contact someone who may be able to assist by taking over the situation or who can provide details on the next step.</Typography>
+				<Typography>Attempt to have the person contact a health professional so they may take over the situation and provide the assistance required.</Typography>
+			</ContentText>
 
-				<ContentText title="Who can help?">
-					<Typography>There are a large number of resources, hotlines and programs who can provide immediate guidance and help for a multitude of circumstances.</Typography>
-					<Typography>If you are struggling with things in your life personally, or you are in contact with someone who may be struggling, then the resources below may be able to assist.</Typography>
-				</ContentText>
-			</div>
+			<ContentText title="Who can help?">
+				<Typography>There are a large number of resources, hotlines and programs who can provide immediate guidance and help for a multitude of circumstances.</Typography>
+				<Typography>If you are struggling with things in your life personally, or you are in contact with someone who may be struggling, then the resources below may be able to assist.</Typography>
+			</ContentText>
 
-			<div className="max-w-[1500px] m-auto px-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-20">
+			<div className="m-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-20">
 				<SupportCard name="000" phone="112 (If you have no reception)" available="24/7" image={ImgEmergency}>
 					<Typography align="center">If at any time you require immediate, emergency assistance, we recommend calling triple zero.</Typography>
 					<Typography align="center">Even without ambulance cover, it’s free to have an ambulance or police come out to your location to provide care on site.</Typography>

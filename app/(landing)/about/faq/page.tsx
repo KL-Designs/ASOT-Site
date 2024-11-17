@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Tab() {
 	return (
-		<div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
+		<div className='grid grid-cols-1 md:grid-cols-2 gap-16'>
 
 			<Content title='Is there an age requirement to join ASOT?'>
 				<Typography>You must be 17+ in order to join our group or be vouched for by a current member. We will consider mature younger players.</Typography>

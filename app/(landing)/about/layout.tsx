@@ -43,8 +43,8 @@ const Pages: { href: string, title: string, background: StaticImageData, subtitl
 	},
 	{
 		href: '/about/faq',
-		title: 'FREQUENTLY ASKED QUESTIONS',
-		subtitle: 'Here are some commonly asked questions that may help answer some our your queries. If you cannot find the answer to your questions, please feel free to contact us to seek clarification.',
+		title: 'FAQ',
+		subtitle: 'If you cannot find the answer to your questions, please feel free to contact us to seek clarification.',
 		background: ImgFAQ,
 	}
 ]
@@ -59,7 +59,7 @@ export default function AboutLayout({ children }: Readonly<{ children: React.Rea
 	return (
 		<Container title={page?.title} subtitle={page?.subtitle} background={page?.background} sx={{ bannerHeight: 'md', maxWidth: '1200px' }}>
 
-			<div className='py-3 w-full flex flex-row flex-wrap justify-center gap-5'>
+			<div className='w-full flex flex-row flex-wrap justify-center gap-5'>
 				{Pages.map((p, i) => (
 					<Link className='flex-grow' key={i} href={p.href}>
 						<Button fullWidth variant='contained' disabled={page?.href === p.href ? true : false}>{p.title}</Button>

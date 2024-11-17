@@ -44,7 +44,7 @@ export default function Tab() {
 				<Typography>0-A is comprised of the headquarters commanding officer.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='1-0' images={[Image_10]} imageSide='right' imagePos='center' titlePos='center'>
 				<Typography>India 1-0 is the lead call sign and HQ of the group that manages all other call signs both in and out of game.</Typography>
@@ -60,7 +60,7 @@ export default function Tab() {
 				<Typography>1-0 is comprised of a 4 man section which includes the company OC, ADJ, RSM and CSM.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='1-1' images={[Image_11]} imageSide='left' imagePos='center' titlePos='center'>
 				<Typography>India 1-1 is one of our infantry platoons which are the main fighting force of the task force.</Typography>
@@ -73,7 +73,7 @@ export default function Tab() {
 				<Typography>1-1 is a platoon comprising of 3 x 8 man sections and a 4 man platoon headquarters.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='1-2' images={[Image_12]} imageSide='right' imagePos='center' titlePos='center'>
 				<Typography>India 1-2 is one of our infantry platoons which are the main fighting force of the task force.</Typography>
@@ -86,7 +86,7 @@ export default function Tab() {
 				<Typography>1-2 is a platoon comprising of 3 x 8 man sections and a 4 man platoon headquarters.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='1-3-0' images={[Image_130]} imageSide='left' imagePos='center' titlePos='center'>
 				<Typography>India 1-3-0 is the HQ element of the 1-3 support platoon.</Typography>
@@ -102,7 +102,7 @@ export default function Tab() {
 				<Typography>1-3-0 is comprised of a 5 man section which includes the Group Captain, Troop Commander, Battery Commander, Sapper Sergeant and a Medical Sergeant.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='1-3 Echo' images={[Image_13E]} imageSide='right' imagePos='center' titlePos='center'>
 				<Typography>1-3 Echo is our combat engineers asset that provides the task force with a wide variety of capabilities.</Typography>
@@ -118,7 +118,7 @@ export default function Tab() {
 				<Typography>1-2 is a platoon comprising of 3 x 8 man sections and a 4 man platoon headquarters.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='1-3 Golf' images={[Image_13G]} imageSide='left' imagePos='center' titlePos='center'>
 				<Typography>1-3 Golf is our direct fires support weapons (DFSW) asset that primarily provides indirect fires capability. Golf is also able to provide direct fires if required.</Typography>
@@ -132,7 +132,7 @@ export default function Tab() {
 				<Typography>Golf is a section comprised of 6 members.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='1-3 Hotel' images={[Image_13H1, Image_13H2]} imageSide='right' imagePos='center' titlePos='center'>
 				<Typography>1-3 Hotel is our rotary air support asset that provides the task force with a variety of logistical and close air support capability.</Typography>
@@ -147,7 +147,7 @@ export default function Tab() {
 				<Typography>Hotel is a section comprised of 10 pilots and 2 ground crewman.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='1-3 Mike' images={[Image_13M]} imageSide='left' imagePos='center' titlePos='center'>
 				<Typography>1-3 Mike is our medical emergency response team (MERT) who provide rapid and increased medical support to mass casualty incidents and other medical situations.</Typography>
@@ -161,7 +161,7 @@ export default function Tab() {
 				<Typography>Mike is a section comprised of 8 members.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='1-3 Victor' images={[Image_13V]} imageSide='right' imagePos='center' titlePos='center'>
 				<Typography>Victor 1-3 is the cavalry and armoured support call sign for the company.</Typography>
@@ -177,7 +177,7 @@ export default function Tab() {
 				<Typography>Victor is comprised of 2 x 3 man crews with each crew in a vehicle.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='Game Masters' images={[Image_GM]} imageSide='left' imagePos='center' titlePos='center'>
 				<Typography>Game masters are our Zeus team who provide a capability that is critical to the running and experience of our missions.</Typography>
@@ -191,7 +191,7 @@ export default function Tab() {
 				<Typography>Game Masters is a team comprised of 6 permanent members and a pool of part time members.</Typography>
 			</ContentWithImage>
 
-			<Divider className='mx-8 my-5' />
+			<Divider />
 
 			<ContentWithImage title='Reservists' images={[Image_R]} imageSide='right' imagePos='center' titlePos='center'>
 				<Typography>Reservists are our members who are awaiting a position to open in another call sign or who cannot commit to the expected attendance requirements.</Typography>
