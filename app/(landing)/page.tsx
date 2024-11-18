@@ -35,7 +35,7 @@ export default function Page() {
 	}, [])
 
 	useEffect(() => {
-		let phrase = keys.toLocaleLowerCase()
+		const phrase = keys.toLocaleLowerCase()
 		if (phrase === 'id10t') window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0'
 		if (phrase === 'thomo') setThomo(true)
 	}, [keys])
@@ -113,7 +113,7 @@ export default function Page() {
 				<Container title='Enter Major General Thomas' background={ThomoFire} sx={{ maxWidth: 'max-w-md', bannerHeight: 'lg' }}>
 					
 					<div>
-						
+
 					</div>
 
 				</Container>
