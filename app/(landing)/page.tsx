@@ -32,7 +32,7 @@ export default function Page() {
 	}, [])
 
 	useEffect(() => {
-		if (keys === 'Id10T') window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+		if (keys === 'Id10T') window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0'
 	}, [keys])
 
 	function handleKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
