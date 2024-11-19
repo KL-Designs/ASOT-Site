@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { connection } from 'next/server'
 import { redirect } from 'next/navigation'
 
-import { Member } from "@/lib/auth"
+import client from "@/lib/auth"
 
 import { ThemeProvider } from "@mui/material"
 
@@ -16,8 +16,8 @@ export default async function DashboardLayout({ children }: Readonly<{ children:
 
 	await connection()
 
-	const user = await new Member().fetchUser().catch(console.warn)
-	if (!user) return redirect('/login')
+	await client.fetchMe()
+		.catch(() => redirect('/login'))
 
 
 	return (

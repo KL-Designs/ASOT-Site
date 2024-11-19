@@ -1,4 +1,4 @@
-import { Member } from '@/lib/auth'
+import client from '@/lib/auth'
 import { connection } from 'next/server'
 import { redirect } from 'next/navigation'
 
@@ -14,11 +14,8 @@ export default async function Page() {
 
     await connection()
 
-    const auth = new Member()
-    await auth.fetchRoles().catch(console.warn)
-    if (!auth.roles) return redirect('/login')
-
-    if (!auth.hasRoles(['All Staff'])) return redirect('/dashboard')
+    const member = await client.fetchMe()
+    if (!member.hasRoles(['All Staff'])) return redirect('/dashboard')
 
 
 

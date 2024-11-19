@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 import Db from '@/lib/mongo'
 
-import { Member } from '@/lib/auth'
+import client from '@/lib/auth'
 
 
 
@@ -14,11 +14,10 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     const token = request.cookies.get('token')?.value
     if (!token) return NextResponse.json({ error: 'No Token Found' }, { status: 401 })
 
-    const auth = new Member(token)
-    await auth.fetchRoles().catch(console.warn)
-    if (!auth.roles) return NextResponse.json({ error: 'No Roles Found, User might not be in the Discord Server' }, { status: 401 })
+    const member = await client.fetchMe(token)
+    if (!member) return NextResponse.json({ error: 'No User Found, User may not be in the Discord Server' }, { status: 401 })
 
-    if (!auth.hasRoles(['All Staff'])) return NextResponse.json({ error: 'You do not have the authorized roles to access this data' }, { status: 401 })
+    if (!member.hasRoles(['All Staff'])) return NextResponse.json({ error: 'You do not have the authorized roles to access this data' }, { status: 401 })
 
 
     switch (slug) {

@@ -11,7 +11,7 @@ export default function Members() {
 
     useEffect(() => {
 
-        fetch('/api/milpac/members')
+        fetch('/api/unit/members')
             .then(res => res.json())
             .then(data => setMembers(data))
 
