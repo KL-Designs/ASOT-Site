@@ -9,8 +9,20 @@ const nextConfig = {
 						type: 'host',
 						value: 'asotmilsim.net',
 					},
+					{
+						type: 'host',
+						value: 'asotmilsim.com',
+					},
+					{
+						type: 'host',
+						value: 'www.asotmilsim.net',
+					},
+					{
+						type: 'host',
+						value: 'www.asotmilsim.com',
+					},
 				],
-				destination: 'https://www.asotmilsim.net/:path*',
+				destination: 'https://www.asotmilsim.com/:path*',
 				permanent: true,
 			},
 			{
@@ -22,7 +34,7 @@ const nextConfig = {
 						value: 'http',
 					},
 				],
-				destination: 'https://www.asotmilsim.net/:path*',
+				destination: 'https://www.asotmilsim.com/:path*',
 				permanent: true,
 			},
 		];
