@@ -7,21 +7,10 @@ const nextConfig = {
 				has: [
 					{
 						type: 'host',
-						value: 'asotmilsim.com',
-					}
-				],
-				destination: 'https://www.asotmilsim.com/:path*',
-				permanent: true,
-			},
-			{
-				source: '/:path*',
-				has: [
-					{
-						type: 'host',
 						value: 'asotmilsim.net',
 					}
 				],
-				destination: 'https://www.asotmilsim.com/:path*',
+				destination: `${process.env.NEXT_PUBLIC_BASEURL}/:path*`,
 				permanent: true,
 			},
 			{
@@ -29,10 +18,21 @@ const nextConfig = {
 				has: [
 					{
 						type: 'host',
-						value: 'www.asotmilsim.net',
+						value: 'asotmilsim.com',
 					}
 				],
-				destination: 'https://www.asotmilsim.com/:path*',
+				destination: `${process.env.NEXT_PUBLIC_BASEURL}/:path*`,
+				permanent: true,
+			},
+			{
+				source: '/:path*',
+				has: [
+					{
+						type: 'host',
+						value: 'www.asotmilsim.com',
+					}
+				],
+				destination: `${process.env.NEXT_PUBLIC_BASEURL}/:path*`,
 				permanent: true,
 			},
 
@@ -45,7 +45,7 @@ const nextConfig = {
 						value: 'http',
 					}
 				],
-				destination: 'https://www.asotmilsim.com/:path*',
+				destination: `${process.env.NEXT_PUBLIC_BASEURL}/:path*`,
 				permanent: true,
 			},
 		];
