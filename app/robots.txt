@@ -19,4 +19,4 @@ Disallow: /dashboard/
 Disallow: /account/
 Disallow: /api/
 
-Sitemap: https://www.asotmilsim.net/sitemap.xml
+Sitemap: https://www.asotmilsim.com/sitemap.xml
