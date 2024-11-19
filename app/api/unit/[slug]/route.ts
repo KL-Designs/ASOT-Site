@@ -21,7 +21,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
 
     switch (slug) {
-        case 'members': return GetMembers()
+        case 'members': return GetMembers(request)
         case 'roles': return GetRoles()
         case 'sections': return GetSections()
         case 'platoons': return GetPlatoons()
@@ -33,9 +33,20 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
 
 
-async function GetMembers() {
-    const Members = await Db.users.find({}, { projection: { token: 0, oauth: 0 } }).toArray()
-    return NextResponse.json(Members, { status: 200 })
+async function GetMembers(request: NextRequest) {
+    let members = await client.members
+
+    const search = request.nextUrl.searchParams.get('search')?.toLocaleLowerCase()
+
+    if (search) members = members.filter(member => {
+        const id = member.discord.user.id
+        const username = member.discord.user.username.toLowerCase()
+        const nick = member.discord.nick?.toLowerCase() || ''
+
+        return id.includes(search) || username.includes(search) || nick.includes(search)
+    })
+
+    return NextResponse.json(members, { status: 200 })
 }
 
 async function GetRoles() {

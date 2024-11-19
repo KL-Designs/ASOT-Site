@@ -10,6 +10,6 @@ export default createTheme({
     },
 
     typography: {
-        fontFamily: 'Inter, sans-serif',
+        fontFamily: 'Inter, sans-serif'
     }
 })

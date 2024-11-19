@@ -23,9 +23,7 @@ async function request(route: 'members' | 'roles' | (string & {}), route2?: stri
 }
 
 
-
-export class Client {
-
+export interface IClient {
     members: {
         user: User,
         discord: GuildMember,
@@ -38,6 +36,13 @@ export class Client {
         role: GuildRole,
         date: Date
     }[]
+}
+
+
+export class Client implements IClient {
+
+    members: IClient['members']
+    roles: IClient['roles']
 
 
     constructor() {
