@@ -13,13 +13,16 @@ const nextConfig = {
 						type: 'host',
 						value: 'asotmilsim.com',
 					},
+				],
+				destination: 'https://www.asotmilsim.com/:path*',
+				permanent: true,
+			},
+			{
+				source: '/:path*',
+				has: [
 					{
 						type: 'host',
 						value: 'www.asotmilsim.net',
-					},
-					{
-						type: 'host',
-						value: 'www.asotmilsim.com',
 					},
 				],
 				destination: 'https://www.asotmilsim.com/:path*',
