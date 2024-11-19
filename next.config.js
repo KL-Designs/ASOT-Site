@@ -7,12 +7,19 @@ const nextConfig = {
 				has: [
 					{
 						type: 'host',
-						value: 'asotmilsim.net',
-					},
+						value: 'asotmilsim.com',
+					}
+				],
+				destination: 'https://www.asotmilsim.com/:path*',
+				permanent: true,
+			},
+			{
+				source: '/:path*',
+				has: [
 					{
 						type: 'host',
-						value: 'asotmilsim.com',
-					},
+						value: 'asotmilsim.net',
+					}
 				],
 				destination: 'https://www.asotmilsim.com/:path*',
 				permanent: true,
@@ -23,11 +30,12 @@ const nextConfig = {
 					{
 						type: 'host',
 						value: 'www.asotmilsim.net',
-					},
+					}
 				],
 				destination: 'https://www.asotmilsim.com/:path*',
 				permanent: true,
 			},
+
 			{
 				source: '/:path*',
 				has: [
@@ -35,7 +43,7 @@ const nextConfig = {
 						type: 'header',
 						key: 'x-forwarded-proto',
 						value: 'http',
-					},
+					}
 				],
 				destination: 'https://www.asotmilsim.com/:path*',
 				permanent: true,
