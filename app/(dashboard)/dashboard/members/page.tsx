@@ -20,16 +20,16 @@ export default function Page() {
     const [member, setMember] = useState<User | null>(null)
 
 
-    useEffect(() => {
-        if (selectedMember) {
-            fetch(`/api/unit/members?member=${selectedMember}`)
-                .then(res => res.json())
-                .then(data => {
-                    if (data.length === 0) setMember(null)
-                    else setMember(data[0])
-                })
-        }
-    }, [selectedMember])
+    // useEffect(() => {
+    //     if (selectedMember) {
+    //         fetch(`/api/unit/members?member=${selectedMember}`)
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 if (data.length === 0) setMember(null)
+    //                 else setMember(data[0])
+    //             })
+    //     }
+    // }, [selectedMember])
 
 
 
