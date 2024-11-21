@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 import Db from '@/lib/mongo'
 
-import client from '@/lib/auth'
+import client from '@/lib/discord'
 
 
 
@@ -34,17 +34,20 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
 
 async function GetMembers(request: NextRequest) {
-    let members = await client.members
-
     const search = request.nextUrl.searchParams.get('search')?.toLocaleLowerCase()
+    const member = request.nextUrl.searchParams.get('member')?.toLocaleLowerCase()
 
-    if (search) members = members.filter(member => {
-        const id = member.discord.user.id
-        const username = member.discord.user.username.toLowerCase()
-        const nick = member.discord.nick?.toLowerCase() || ''
+    let members: User[]
 
-        return id.includes(search) || username.includes(search) || nick.includes(search)
-    })
+    if (member) {
+        const user = await Db.users.findOne({ _id: member })
+        if (user) members = [user]
+        else members = []
+    }
+    else {
+        const query = search ? { $or: [{ _id: { $regex: search, $options: 'i' } }, { 'discord.nick': { $regex: search, $options: 'i' } }, { 'discord.user.username': { $regex: search, $options: 'i' } }] } : {}
+        members = await Db.users.find(query).toArray()
+    }
 
     return NextResponse.json(members, { status: 200 })
 }

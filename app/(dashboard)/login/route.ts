@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
 
-import { FetchUser } from '@/lib/auth/account'
-
 
 
 export async function GET(request: NextRequest) {

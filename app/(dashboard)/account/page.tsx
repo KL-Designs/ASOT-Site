@@ -1,10 +1,12 @@
-import client from '@/lib/auth'
+import client from '@/lib/discord'
 import { connection } from 'next/server'
 import { redirect } from 'next/navigation'
 
 import ConvertColor from '@/lib/discord/color'
 
 import { Paper, Divider, Typography } from '@mui/material'
+
+import Avatar from '@/components/member/avatar'
 
 
 
@@ -22,7 +24,9 @@ export default async function Page() {
 
                 <Paper elevation={1} className='p-5 flex flex-col gap-5'>
                     <div className='flex gap-5'>
-                        <img alt='Profile Picture' src={`https://cdn.discordapp.com/avatars/${member.discord.user.id}/${member.discord.user.avatar}?size=128`} style={{ borderRadius: '100%', border: `2px solid ${member.discord.user.banner_color}` }} />
+                        <div className='relative h-[100px] w-[100px]'>
+                            <Avatar member={member.discord} />
+                        </div>
 
                         <Divider orientation='vertical' flexItem />
 
@@ -36,7 +40,7 @@ export default async function Page() {
                     <Divider />
 
                     <div>
-                        {member.roles.map(role => <Typography key={role.id} color={role.color !== 0 ? ConvertColor(role.color) : '#fff'}>{role.name}</Typography>)}
+                        {member.roles.map(role => <Typography key={role.id} color={role.color !== 0 ? ConvertColor(role.color) : '#fff'}>{role.name}</Typography>).reverse()}
                     </div>
                 </Paper>
 

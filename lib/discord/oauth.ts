@@ -23,12 +23,12 @@ export function ExchangeToken(code: string): Promise<User['oauth']> {
     })
 }
 
-export function GetUser(oauth: User['oauth']): Promise<User['discord']> {
+export function GetUser(oauth: User['oauth']): Promise<OAuthUserResponse> {
     return new Promise((resolve, reject) => {
 
         fetch('https://discord.com/api/users/@me', {
             headers: {
-                authorization: `${oauth.token_type} ${oauth.access_token}`
+                authorization: `${oauth?.token_type} ${oauth?.access_token}`
             }
         })
             .then(res => res.json())

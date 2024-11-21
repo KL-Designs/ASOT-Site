@@ -1,8 +1,7 @@
-import type { Metadata, Viewport } from "next"
 import { connection } from 'next/server'
 import { redirect } from 'next/navigation'
 
-import client from "@/lib/auth"
+import client from "@/lib/discord"
 
 import { ThemeProvider } from "@mui/material"
 

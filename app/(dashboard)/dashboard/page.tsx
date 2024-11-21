@@ -1,4 +1,4 @@
-import client from '@/lib/auth'
+import client from '@/lib/discord'
 import { connection } from 'next/server'
 import { redirect } from 'next/navigation'
 

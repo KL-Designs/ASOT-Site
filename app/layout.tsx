@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang="en">
+		<html lang="en" className="h-full">
 			<head>
 				<link rel="apple-touch-icon" href="/banner.jpg" />
 			</head>
