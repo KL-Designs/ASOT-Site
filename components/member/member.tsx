@@ -13,16 +13,15 @@ import Avatar from './avatar'
 
 export default function Member({ member }: { member: GuildMember }) {
 
-    // const [hover, setHover] = useState<boolean>(false)
+    const [hover, setHover] = useState<boolean>(false)
 
-    // const searchParams = useSearchParams()
-    // const selectedMember = searchParams.get('member')
+    const searchParams = useSearchParams()
+    const selectedMember = searchParams.get('member')
 
 
     return (
-        <Link href={`?member=`}>
-            <div className='h-[200px] w-[500px] bg-black'>
-            {/* <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+        <Link href={`?member=${member.user.id}`}>
+            <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                 <Paper elevation={hover ? 3 : 1} className='px-5 py-2 flex justify-between cursor-pointer' style={{border: selectedMember === member.user.id ? '1px solid #db001d' : 'initial'}}>
 
                     <div className='flex flex-col justify-between'>
@@ -33,11 +32,10 @@ export default function Member({ member }: { member: GuildMember }) {
                     </div>
 
                     <div className='relative h-[50px] w-[50px]'>
-                        <Avatar member={member} />
+                        {/* <Avatar member={member} /> */}
                     </div>
 
                 </Paper>
-            </div> */}
             </div>
         </Link>
     )
