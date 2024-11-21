@@ -26,8 +26,8 @@ export default function Member({ member }: { member: GuildMember }) {
 
                     <div className='flex flex-col justify-between'>
                         <div>
-                            <Typography variant='h6'>{member.nick}</Typography>
-                            <Typography variant='caption'>{member.user.username}</Typography>
+                            {/* <Typography variant='h6'>{member.nick}</Typography> */}
+                            {/* <Typography variant='caption'>{member.user.username}</Typography> */}
                         </div>
                     </div>
 
