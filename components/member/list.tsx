@@ -14,21 +14,24 @@ export default function Members() {
     const [members, setMembers] = useState<User[]>([])
 
 
-    // useEffect(() => {
-    //     fetchMembers()
-    // }, [])
+    useEffect(() => {
+        fetchMembers()
+    }, [])
 
-    // useEffect(() => {
-    //     fetchMembers(search)
-    // }, [search])
+    useEffect(() => {
+        fetchMembers(search)
+    }, [search])
 
 
 
-    // function fetchMembers(search?: string) {
-    //     fetch(`/api/unit/members?search=${search}`)
-    //         .then(res => res.json())
-    //         .then(data => setMembers(data))
-    // }
+    function fetchMembers(search?: string) {
+        fetch(`/api/unit/members?search=${search}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) return console.error(data.error)
+                setMembers(data)
+            })
+    }
 
 
 
