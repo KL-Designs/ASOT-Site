@@ -20,16 +20,16 @@ export default function Page() {
     const [member, setMember] = useState<User | null>(null)
 
 
-    // useEffect(() => {
-    //     if (selectedMember) {
-    //         fetch(`/api/unit/members?member=${selectedMember}`)
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 if (data.length === 0) setMember(null)
-    //                 else setMember(data[0])
-    //             })
-    //     }
-    // }, [selectedMember])
+    useEffect(() => {
+        if (selectedMember) {
+            fetch(`/api/unit/members?member=${selectedMember}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.length === 0) setMember(null)
+                    else setMember(data[0])
+                })
+        }
+    }, [selectedMember])
 
 
 
@@ -40,7 +40,7 @@ export default function Page() {
 
             <div className='h-full flex gap-5'>
                 <div className='h-full w-[500px] flex flex-col gap-5'>
-                    <MemberList />
+                    {/* <MemberList /> */}
                 </div>
 
                 <Divider orientation='vertical' flexItem />
