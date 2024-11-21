@@ -13,7 +13,7 @@ export default function Members() {
     const [search, setSearch] = useState<string>('')
     const [members, setMembers] = useState<User[]>([])
 
-
+    
 
     useEffect(() => {
         fetchMembers(search)
@@ -39,7 +39,7 @@ export default function Members() {
             <div className='flex flex-col flex-grow overflow-hidden'>
                 <div className='relative flex-grow overflow-auto'>
                     <div className='absolute w-full flex flex-col gap-3 pr-5'>
-                        {/* {members.map((member, i) => <Member key={member._id} member={member.discord} />)} */}
+                        {members.map((member, i) => <Member key={member._id} member={member.discord} />)}
                     </div>
                 </div>
             </div>
