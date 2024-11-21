@@ -19,6 +19,12 @@ export default function Member({ member }: { member: GuildMember }) {
     const selectedMember = searchParams.get('member')
 
 
+    if (!member || !member.user) {
+        console.error('Member or member.user is undefined', member)
+        return null
+    }
+
+
     return (
         <Link href={`?member=${member.user.id}`}>
             <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
@@ -26,13 +32,13 @@ export default function Member({ member }: { member: GuildMember }) {
 
                     <div className='flex flex-col justify-between'>
                         <div>
-                            {/* <Typography variant='h6'>{member.nick}</Typography> */}
-                            {/* <Typography variant='caption'>{member.user.username}</Typography> */}
+                            <Typography variant='h6'>{member.nick}</Typography>
+                            <Typography variant='caption'>{member.user.username}</Typography>
                         </div>
                     </div>
 
                     <div className='relative h-[50px] w-[50px]'>
-                        {/* <Avatar member={member} /> */}
+                        <Avatar member={member} />
                     </div>
 
                 </Paper>
