@@ -32,7 +32,7 @@ export default function Member({ member }: { member: GuildMember }) {
                     </div>
 
                     <div className='relative h-[50px] w-[50px]'>
-                        <Avatar member={member} />
+                        {/* <Avatar member={member} /> */}
                     </div>
 
                 </Paper>
