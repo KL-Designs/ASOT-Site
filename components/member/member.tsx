@@ -19,11 +19,6 @@ export default function Member({ member }: { member: GuildMember }) {
     const selectedMember = searchParams.get('member')
 
 
-    if (!member || !member.user) {
-        console.error('Member or member.user is undefined', member)
-        return null
-    }
-
 
     return (
         <Link href={`?member=${member.user.id}`}>
