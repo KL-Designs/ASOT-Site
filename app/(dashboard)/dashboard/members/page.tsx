@@ -40,7 +40,7 @@ export default function Page() {
 
             <div className='h-full flex gap-5'>
                 <div className='h-full w-[500px] flex flex-col gap-5'>
-                    {/* <MemberList /> */}
+                    <MemberList />
                 </div>
 
                 <Divider orientation='vertical' flexItem />

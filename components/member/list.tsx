@@ -1,7 +1,5 @@
 'use client'
 
-import type { IClient } from '@/lib/discord'
-
 import { useEffect, useState } from 'react'
 
 import { Typography, Button, TextField } from '@mui/material'
@@ -16,21 +14,21 @@ export default function Members() {
     const [members, setMembers] = useState<User[]>([])
 
 
-    useEffect(() => {
-        fetchMembers()
-    }, [])
+    // useEffect(() => {
+    //     fetchMembers()
+    // }, [])
 
-    useEffect(() => {
-        fetchMembers(search)
-    }, [search])
+    // useEffect(() => {
+    //     fetchMembers(search)
+    // }, [search])
 
 
 
-    function fetchMembers(search?: string) {
-        fetch(`/api/unit/members?search=${search}`)
-            .then(res => res.json())
-            .then(data => setMembers(data))
-    }
+    // function fetchMembers(search?: string) {
+    //     fetch(`/api/unit/members?search=${search}`)
+    //         .then(res => res.json())
+    //         .then(data => setMembers(data))
+    // }
 
 
 
