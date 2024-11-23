@@ -1,11 +1,12 @@
 'use client'
 
+import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 
 import { useState, useEffect } from 'react'
 
 import { Paper, Divider, Typography, Button } from '@mui/material'
-import { Person, Badge, Groups, Hive } from '@mui/icons-material'
+import { Person, Badge, Groups, Hive, KeyboardReturn } from '@mui/icons-material'
 
 import MemberList from '@/components/member/list'
 import Avatar from '@/components/member/avatar'
@@ -34,18 +35,20 @@ export default function Page() {
 
 
     return (
-        <div className='h-full flex flex-col gap-5 p-10 pt-[100px]'>
+        <div className='h-full flex flex-col gap-5'>
 
             <Typography variant='h4'>Member Management</Typography>
 
+            <Divider />
+
             <div className='h-full flex gap-5'>
-                <div className='h-full w-[500px] flex flex-col gap-5'>
+                <div className={`${selectedMember ? 'hidden md:flex' : 'flex'} flex-col h-full min-w-[400px] gap-5`}>
                     <MemberList />
                 </div>
 
-                <Divider orientation='vertical' flexItem />
+                <Divider className='hidden md:flex' orientation='vertical' flexItem />
 
-                <div className='flex flex-col gap-5 flex-grow'>
+                <div className={`${!selectedMember ? 'hidden' : ''} flex flex-col gap-5 flex-grow`}>
                     <div className='flex gap-5'>
                         <div className='relative h-[100px] w-[100px]'>
                             <Avatar key={member?._id} member={member?.discord} />
@@ -82,6 +85,12 @@ export default function Page() {
                         <Paper elevation={1} className='p-5'>
                             <Typography variant='h4'>Logs</Typography>
                         </Paper>
+                    </div>
+
+                    <div className='block md:hidden'>
+                        <Link href={`?member=`}>
+                            <Button variant='contained' size='large' startIcon={<KeyboardReturn />} fullWidth>Select Member</Button>
+                        </Link>
                     </div>
                 </div>
             </div>

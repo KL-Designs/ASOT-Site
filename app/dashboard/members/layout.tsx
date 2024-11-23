@@ -16,11 +16,5 @@ export default async function PageLayout({ children }: Readonly<{ children: Reac
     const member = await client.fetchMe()
     if (!member.hasRoles(['All Staff'])) return redirect('/dashboard')
 
-
-
-    return (
-        <>
-            {children}
-        </>
-    )
+    return (children)
 }
