@@ -8,6 +8,8 @@ declare global {
     interface Platoon {
         _id: ObjectId
 
+        order: number
+
         name: string
         description: string
         color: string
@@ -18,9 +20,12 @@ declare global {
     interface Section {
         _id: ObjectId
 
+        order: number
+
         name: string
         description: string
-        logo: string
+        color: string
+        icon: string | null
 
         members: {
             user: User['_id']
@@ -31,8 +36,23 @@ declare global {
     interface Role {
         _id: ObjectId
 
+        order: number
+
         name: string
+        abbr: string
         description: string
+    }
+
+    interface Rank {
+        _id: ObjectId
+
+        order: number
+
+        name: string
+        abbr: string
+        description: string
+
+        icon: string | null
     }
 
 }

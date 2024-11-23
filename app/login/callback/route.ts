@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
 
         const Member = await client.refreshMember(User.id)
 
-        response.cookies.set('token', Member.token, { httpOnly: true, maxAge: 60 * 60 * 24 * 30 })
+        if (Member.token) response.cookies.set('token', Member.token, { httpOnly: true, maxAge: 60 * 60 * 24 * 30 })
 
         return response
     }

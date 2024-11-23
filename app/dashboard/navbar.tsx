@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 import { useState } from 'react'
 
-import { Person, MilitaryTech, ManageAccounts, Collections, Menu } from '@mui/icons-material'
+import { Menu } from '@mui/icons-material'
 import { Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider } from '@mui/material'
 import { ThemeProvider } from '@mui/material'
 
@@ -16,17 +16,9 @@ import Logo from '@/public/logo.png'
 
 
 
-export default function Navbar() {
+export default function Navbar({ links }: { links: { name: string, href: string, icon: React.ReactNode, authorized: boolean }[] }) {
 
     const [sideMenuOpen, setSideMenuOpen] = useState(false)
-
-    const Links = [
-        { name: 'My Account', href: '/dashboard/account', icon: <Person /> },
-        { name: 'Member Manager', href: '/dashboard/members', icon: <ManageAccounts /> },
-        { name: 'Gallery Manager', href: '/dashboard/gallery', icon: <Collections /> },
-        { name: 'Unit Manager', href: '/dashboard/unit', icon: <MilitaryTech /> },
-    ]
-
 
 
     return (
@@ -50,13 +42,16 @@ export default function Navbar() {
                 <Divider />
 
                 <div className='hidden md:flex md:flex-col self-center gap-1'>
-                    {Links.map((link) => (
-                        <React.Fragment key={link.name}>
-                            <Link href={link.href} target='_self' >
-                                <Button className='justify-start gap-5' color='inherit' size='large' startIcon={link.icon} fullWidth>{link.name}</Button>
-                            </Link>
-                        </React.Fragment>
-                    ))}
+                    {links.map((link) => {
+                        if (!link.authorized) return null
+                        return (
+                            <React.Fragment key={link.name}>
+                                <Link href={link.href} target='_self' >
+                                    <Button className='justify-start gap-5' color='inherit' size='large' startIcon={link.icon} fullWidth>{link.name}</Button>
+                                </Link>
+                            </React.Fragment>
+                        )
+                    })}
                 </div>
 
                 <div className='flex self-center gap-x-5'>
@@ -79,20 +74,23 @@ export default function Navbar() {
                     <Divider color='#db001d' />
 
                     <List>
-                        {Links.map((link, index) => (
-                            <ListItem key={link.name} disablePadding>
-                                <Link href={link.href}>
-                                    <ListItemButton onClick={() => setSideMenuOpen(false)}>
-                                        <div className='pl-3 pr-10 flex items-center'>
-                                            <ListItemIcon>
-                                                {link.icon}
-                                            </ListItemIcon>
-                                            <ListItemText primary={link.name} />
-                                        </div>
-                                    </ListItemButton>
-                                </Link>
-                            </ListItem>
-                        ))}
+                        {links.map((link, index) => {
+                            if (!link.authorized) return null
+                            return (
+                                <ListItem key={link.name} disablePadding>
+                                    <Link href={link.href}>
+                                        <ListItemButton onClick={() => setSideMenuOpen(false)}>
+                                            <div className='pl-3 pr-10 flex items-center'>
+                                                <ListItemIcon>
+                                                    {link.icon}
+                                                </ListItemIcon>
+                                                <ListItemText primary={link.name} />
+                                            </div>
+                                        </ListItemButton>
+                                    </Link>
+                                </ListItem>
+                            )
+                        })}
                     </List>
 
                 </div>

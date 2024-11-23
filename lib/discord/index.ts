@@ -81,7 +81,18 @@ export class Client implements IClient {
             const newMember: User = {
                 _id: id,
                 token,
+
+                unit: {
+                    rank: null,
+                    role: null,
+                    section: null,
+                    certifications: [],
+                    awards: [],
+                    logs: []
+                },
+
                 discord: member,
+                
                 created: new Date(),
                 lastEdited: new Date(),
                 lastRefreshed: new Date()

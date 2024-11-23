@@ -18,6 +18,33 @@ declare global {
             scope: string
         }
 
+        unit: {
+            rank: ObjectId | null
+            role: ObjectId | null
+            section: ObjectId | null
+
+            certifications: {
+                _id: ObjectId
+                type: ObjectId
+                signed: ObjectId
+                date: Date
+            }[]
+
+            awards: {
+                _id: ObjectId
+                type: ObjectId
+                signed: ObjectId
+                date: Date
+            }[]
+
+            logs: {
+                _id: ObjectId
+                signed: ObjectId
+                message: string
+                date: Date
+            }[]
+        }
+
         discord: GuildMember
 
         created: Date
