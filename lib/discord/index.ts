@@ -131,7 +131,7 @@ export class Client implements IClient {
         if (!user) user = await this.refreshMember(identifier)
         if (!user) throw new Error('User not found')
 
-        if (new Date().getTime() - user.lastRefreshed.getTime() > 1000 * 60 * 5) user = await this.refreshMember(identifier)
+        if (new Date().getTime() - user.lastRefreshed.getTime() > 1000 * 60 * 0.5) user = await this.refreshMember(user._id)
         if (new Date().getTime() - this.refreshDates.roles.getTime() > 1000 * 60 * 15) this.roles = await request('roles')
 
         const roles = this.roles.filter(r => user.discord.roles.includes(r.id))
