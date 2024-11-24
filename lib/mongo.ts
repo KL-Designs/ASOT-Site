@@ -1,6 +1,7 @@
 import 'server-only'
 
 import { MongoClient, Collection as MongoCollection } from 'mongodb'
+import { Certificate } from 'crypto'
 
 
 const client = new MongoClient(process.env.MONGO_URI!)
@@ -18,6 +19,8 @@ const DbInterface = {
     roles: client.db(process.env.MONGO_DB!).collection('roles') as MongoCollection<Role>,
     sections: client.db(process.env.MONGO_DB!).collection('sections') as MongoCollection<Section>,
     platoons: client.db(process.env.MONGO_DB!).collection('platoons') as MongoCollection<Platoon>,
+    certifications: client.db(process.env.MONGO_DB!).collection('certifications') as MongoCollection<Certification>,
+    awards: client.db(process.env.MONGO_DB!).collection('awards') as MongoCollection<Award>,
 }
 
 export default DbInterface

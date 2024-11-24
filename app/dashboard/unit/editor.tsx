@@ -43,7 +43,7 @@ export default function Editor({ tab }: { tab: 'ranks' | 'roles' | 'sections' | 
         switch (tab) {
             case 'ranks': setAvailable(['order', 'name', 'abbr', 'description', 'icon']); break
             case 'roles': setAvailable(['order', 'name', 'abbr', 'description']); break
-            case 'sections': setAvailable(['order', 'name', 'abbr', 'description', 'color', 'icon']); break
+            case 'sections': setAvailable(['order', 'name', 'description', 'color', 'icon']); break
             case 'platoons': setAvailable(['order', 'name', 'description', 'color']); break
             case 'certifications': setAvailable(['order', 'name', 'description']); break
             case 'awards': setAvailable(['order', 'name', 'description']); break
@@ -182,7 +182,7 @@ export function Item({ item }: { item: any }) {
             <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                 <Paper elevation={hover ? 5 : 3} className='px-5 py-2 flex justify-between cursor-pointer' style={{ border: selectedItem === item._id.toString() ? '1px solid #db001d' : 'initial' }}>
 
-                    <Typography variant='h6'>[{item.abbr}] {item.name}</Typography>
+                    <Typography variant='h6'>{item.abbr ? `[${item.abbr}] ${item.name}` : item.name}</Typography>
 
                 </Paper>
             </div>

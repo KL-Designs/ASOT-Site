@@ -55,4 +55,16 @@ declare global {
         icon: string | null
     }
 
+    interface Certification {
+        _id: ObjectId
+        name: string
+        description: string
+    }
+
+    interface Award {
+        _id: ObjectId
+        name: string
+        description: string
+    }
+
 }
