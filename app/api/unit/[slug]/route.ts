@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server"
 
+import fs from 'fs'
 import { ObjectId } from 'mongodb'
 import Db from '@/lib/mongo'
 
 import client from '@/lib/discord'
+import { Upload, Remove } from '@/lib/upload'
 
 
 
@@ -98,11 +100,9 @@ async function GetRanks(request: NextRequest) {
 }
 
 async function PostRanks(request: NextRequest) {
-    const isJson = request.headers.get('content-type') === 'application/json'
-
     const id = request.nextUrl.searchParams.get('id')
     const action = request.nextUrl.searchParams.get('action')
-    const body = isJson ? await request.json() : {}
+    const formData = await request.formData()
 
     if (action === 'create') {
         await Db.ranks.insertOne({
@@ -117,12 +117,30 @@ async function PostRanks(request: NextRequest) {
         return NextResponse.json({ status: 200 })
     }
 
-    if (id) switch (action) {
-        default: Db.ranks.updateOne({ _id: new ObjectId(id) }, { $set: body }, { upsert: true }); break
-        case 'delete': Db.ranks.deleteOne({ _id: new ObjectId(id) }); break
-        case 'create': break
+    if (id) {
+        const prevData = await Db.ranks.findOne({ _id: new ObjectId(id) })
+
+        switch (action) {
+            default: {
+                Db.ranks.updateOne({ _id: new ObjectId(id) }, {
+                    $set: {
+                        order: Number(formData.get('order')),
+                        name: formData.get('name')?.toString(),
+                        abbr: formData.get('abbr')?.toString(),
+                        description: formData.get('description')?.toString(),
+                        icon: formData.get('icon') ? await Upload(id, 'ranks', formData.get('icon') as File, prevData?.icon || undefined) : null
+                    }
+                }, { upsert: true })
+                break
+            }
+            case 'delete': Remove('ranks', prevData?.icon || undefined), Db.ranks.deleteOne({ _id: new ObjectId(id) }); break
+            case 'removeIcon': Remove('ranks', prevData?.icon || undefined), Db.ranks.updateOne({ _id: new ObjectId(id) }, { $set: { icon: null } }); break
+            case 'create': break
+        }
     }
+
     else return NextResponse.json({ error: 'No ID Provided' }, { status: 400 })
+
 
     return NextResponse.json({ status: 200 })
 }
@@ -145,11 +163,9 @@ async function GetRoles(request: NextRequest) {
 }
 
 async function PostRoles(request: NextRequest) {
-    const isJson = request.headers.get('content-type') === 'application/json'
-
     const id = request.nextUrl.searchParams.get('id')
     const action = request.nextUrl.searchParams.get('action')
-    const body = isJson ? await request.json() : {}
+    const formData = await request.formData()
 
     if (action === 'create') {
         await Db.roles.insertOne({
@@ -157,18 +173,32 @@ async function PostRoles(request: NextRequest) {
             order: 0,
             name: 'New Role',
             abbr: 'NEW',
-            description: ''
+            description: '',
         })
 
         return NextResponse.json({ status: 200 })
     }
 
-    if (id) switch (action) {
-        default: Db.roles.updateOne({ _id: new ObjectId(id) }, { $set: body }, { upsert: true }); break
-        case 'delete': Db.roles.deleteOne({ _id: new ObjectId(id) }); break
-        case 'create': break
+    if (id) {
+        switch (action) {
+            default: {
+                Db.roles.updateOne({ _id: new ObjectId(id) }, {
+                    $set: {
+                        order: Number(formData.get('order')),
+                        name: formData.get('name')?.toString(),
+                        abbr: formData.get('abbr')?.toString(),
+                        description: formData.get('description')?.toString(),
+                    }
+                }, { upsert: true })
+                break
+            }
+            case 'delete': Db.roles.deleteOne({ _id: new ObjectId(id) }); break
+            case 'create': break
+        }
     }
+
     else return NextResponse.json({ error: 'No ID Provided' }, { status: 400 })
+
 
     return NextResponse.json({ status: 200 })
 }
@@ -191,11 +221,9 @@ async function GetSections(request: NextRequest) {
 }
 
 async function PostSections(request: NextRequest) {
-    const isJson = request.headers.get('content-type') === 'application/json'
-
     const id = request.nextUrl.searchParams.get('id')
     const action = request.nextUrl.searchParams.get('action')
-    const body = isJson ? await request.json() : {}
+    const formData = await request.formData()
 
     if (action === 'create') {
         await Db.sections.insertOne({
@@ -211,12 +239,30 @@ async function PostSections(request: NextRequest) {
         return NextResponse.json({ status: 200 })
     }
 
-    if (id) switch (action) {
-        default: Db.sections.updateOne({ _id: new ObjectId(id) }, { $set: body }, { upsert: true }); break
-        case 'delete': Db.sections.deleteOne({ _id: new ObjectId(id) }); break
-        case 'create': break
+    if (id) {
+        const prevData = await Db.sections.findOne({ _id: new ObjectId(id) })
+
+        switch (action) {
+            default: {
+                Db.sections.updateOne({ _id: new ObjectId(id) }, {
+                    $set: {
+                        order: Number(formData.get('order')),
+                        name: formData.get('name')?.toString(),
+                        description: formData.get('description')?.toString(),
+                        color: formData.get('color')?.toString(),
+                        icon: formData.get('icon') ? await Upload(id, 'sections', formData.get('icon') as File, prevData?.icon || undefined) : null,
+                    }
+                }, { upsert: true })
+                break
+            }
+            case 'delete': Remove('sections', prevData?.icon || undefined), Db.sections.deleteOne({ _id: new ObjectId(id) }); break
+            case 'removeIcon': Remove('sections', prevData?.icon || undefined), Db.sections.updateOne({ _id: new ObjectId(id) }, { $set: { icon: null } }); break
+            case 'create': break
+        }
     }
+
     else return NextResponse.json({ error: 'No ID Provided' }, { status: 400 })
+
 
     return NextResponse.json({ status: 200 })
 }
@@ -239,11 +285,9 @@ async function GetPlatoons(request: NextRequest) {
 }
 
 async function PostPlatoons(request: NextRequest) {
-    const isJson = request.headers.get('content-type') === 'application/json'
-
     const id = request.nextUrl.searchParams.get('id')
     const action = request.nextUrl.searchParams.get('action')
-    const body = isJson ? await request.json() : {}
+    const formData = await request.formData()
 
     if (action === 'create') {
         await Db.platoons.insertOne({
@@ -258,12 +302,26 @@ async function PostPlatoons(request: NextRequest) {
         return NextResponse.json({ status: 200 })
     }
 
-    if (id) switch (action) {
-        default: Db.platoons.updateOne({ _id: new ObjectId(id) }, { $set: body }, { upsert: true }); break
-        case 'delete': Db.platoons.deleteOne({ _id: new ObjectId(id) }); break
-        case 'create': break
+    if (id) {
+        switch (action) {
+            default: {
+                Db.platoons.updateOne({ _id: new ObjectId(id) }, {
+                    $set: {
+                        order: Number(formData.get('order')),
+                        name: formData.get('name')?.toString(),
+                        description: formData.get('description')?.toString(),
+                        color: formData.get('color')?.toString(),
+                    }
+                }, { upsert: true })
+                break
+            }
+            case 'delete': Db.platoons.deleteOne({ _id: new ObjectId(id) }); break
+            case 'create': break
+        }
     }
+
     else return NextResponse.json({ error: 'No ID Provided' }, { status: 400 })
+
 
     return NextResponse.json({ status: 200 })
 }
@@ -280,34 +338,44 @@ async function GetCertifications(request: NextRequest) {
         if (certification) certifications = [certification]
         else certifications = []
     }
-    else certifications = await Db.certifications.find({ name: { $regex: search, $options: 'i' } }).sort({ order: 1 }).toArray()
+    else certifications = await Db.certifications.find({ name: { $regex: search, $options: 'i' } }).sort({ name: 1 }).toArray()
 
     return NextResponse.json(certifications, { status: 200 })
 }
 
 async function PostCertifications(request: NextRequest) {
-    const isJson = request.headers.get('content-type') === 'application/json'
-
     const id = request.nextUrl.searchParams.get('id')
     const action = request.nextUrl.searchParams.get('action')
-    const body = isJson ? await request.json() : {}
+    const formData = await request.formData()
 
     if (action === 'create') {
         await Db.certifications.insertOne({
             _id: new ObjectId(),
             name: 'New Certification',
-            description: ''
+            description: '',
         })
 
         return NextResponse.json({ status: 200 })
     }
 
-    if (id) switch (action) {
-        default: Db.certifications.updateOne({ _id: new ObjectId(id) }, { $set: body }, { upsert: true }); break
-        case 'delete': Db.certifications.deleteOne({ _id: new ObjectId(id) }); break
-        case 'create': break
+    if (id) {
+        switch (action) {
+            default: {
+                Db.certifications.updateOne({ _id: new ObjectId(id) }, {
+                    $set: {
+                        name: formData.get('name')?.toString(),
+                        description: formData.get('description')?.toString(),
+                    }
+                }, { upsert: true })
+                break
+            }
+            case 'delete': Db.certifications.deleteOne({ _id: new ObjectId(id) }); break
+            case 'create': break
+        }
     }
+
     else return NextResponse.json({ error: 'No ID Provided' }, { status: 400 })
+
 
     return NextResponse.json({ status: 200 })
 }
@@ -324,34 +392,44 @@ async function GetAwards(request: NextRequest) {
         if (award) awards = [award]
         else awards = []
     }
-    else awards = await Db.awards.find({ name: { $regex: search, $options: 'i' } }).sort({ order: 1 }).toArray()
+    else awards = await Db.awards.find({ name: { $regex: search, $options: 'i' } }).sort({ name: 1 }).toArray()
 
     return NextResponse.json(awards, { status: 200 })
 }
 
 async function PostAwards(request: NextRequest) {
-    const isJson = request.headers.get('content-type') === 'application/json'
-
     const id = request.nextUrl.searchParams.get('id')
     const action = request.nextUrl.searchParams.get('action')
-    const body = isJson ? await request.json() : {}
+    const formData = await request.formData()
 
     if (action === 'create') {
         await Db.awards.insertOne({
             _id: new ObjectId(),
             name: 'New Award',
-            description: ''
+            description: '',
         })
 
         return NextResponse.json({ status: 200 })
     }
 
-    if (id) switch (action) {
-        default: Db.awards.updateOne({ _id: new ObjectId(id) }, { $set: body }, { upsert: true }); break
-        case 'delete': Db.awards.deleteOne({ _id: new ObjectId(id) }); break
-        case 'create': break
+    if (id) {
+        switch (action) {
+            default: {
+                Db.awards.updateOne({ _id: new ObjectId(id) }, {
+                    $set: {
+                        name: formData.get('name')?.toString(),
+                        description: formData.get('description')?.toString(),
+                    }
+                }, { upsert: true })
+                break
+            }
+            case 'delete': Db.awards.deleteOne({ _id: new ObjectId(id) }); break
+            case 'create': break
+        }
     }
+
     else return NextResponse.json({ error: 'No ID Provided' }, { status: 400 })
+
 
     return NextResponse.json({ status: 200 })
 }
