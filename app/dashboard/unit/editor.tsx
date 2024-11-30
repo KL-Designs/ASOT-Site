@@ -231,9 +231,7 @@ export function Item({ type, item }: { type: string, item: any }) {
     const searchParams = useSearchParams()
     const selectedItem = searchParams.get('id')
 
-    function imageLoader({ src, width, quality }: ImageLoaderProps) {
-        return `${process.env.NEXT_PUBLIC_BASEURL}/api/image?type=${type}&file=${src}&w=${width}&q=${quality || 75}`
-    }
+    
 
 
     return (

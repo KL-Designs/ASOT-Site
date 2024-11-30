@@ -19,13 +19,13 @@ const MimeTypes: { [key: string]: string } = {
 
 export async function GET(request: NextRequest) {
 
-    const type = request.nextUrl.searchParams.get('type')
-    if (!type) return NextResponse.json({ error: 'No type provided' }, { status: 400 })
+    // const type = request.nextUrl.searchParams.get('type')
+    // if (!type) return NextResponse.json({ error: 'No type provided' }, { status: 400 })
 
     const file = request.nextUrl.searchParams.get('file')
     if (!file) return NextResponse.json({ error: 'No file provided' }, { status: 400 })
 
-    const fileData = fs.readFileSync(`./.uploads/${type}/${file}`)
+    const fileData = fs.readFileSync(`./.uploads/${file}`)
     if (!fileData) return NextResponse.json({ error: 'File not found' }, { status: 404 })
 
     const mimeType = MimeTypes[file.split('.').pop() || 'webp']

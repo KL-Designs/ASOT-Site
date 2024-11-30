@@ -50,9 +50,14 @@ declare global {
 
         name: string
         abbr: string
-        description: string
+        billets: {
+            name: string
+            abbr: string
+            description: string
+            logo: string | null
+        }[]
 
-        icon: string | null
+        logo: string | null
     }
 
     interface Certification {

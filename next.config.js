@@ -22,6 +22,11 @@ const nextConfig = {
 				destination: '/dashboard/account',
 				permanent: true,
 			},
+			{
+				source: '/dashboard/unit',
+				destination: '/dashboard/unit/ranks',
+				permanent: true,
+			},
 
 
 			{
