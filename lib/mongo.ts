@@ -1,7 +1,6 @@
 import 'server-only'
 
 import { MongoClient, Collection as MongoCollection } from 'mongodb'
-import { Certificate } from 'crypto'
 
 
 const client = new MongoClient(process.env.MONGO_URI!)

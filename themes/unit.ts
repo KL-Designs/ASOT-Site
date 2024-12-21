@@ -6,10 +6,17 @@ export default createTheme({
         mode: 'dark',
         primary: {
             main: '#c90620'
+        },
+        secondary: {
+            main: '#242424'
         }
     },
 
     typography: {
-        fontFamily: 'Inter, sans-serif'
+        fontFamily: 'Inter, sans-serif',
+
+        h2: {
+            fontSize: '34px'
+        }
     }
 })

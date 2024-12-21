@@ -1,3 +1,5 @@
+import "./landing.css"
+
 import Image, { StaticImageData } from 'next/image'
 
 import { Typography, Divider } from '@mui/material'
@@ -38,19 +40,12 @@ export default function Container({ children, title, subtitle, background, sx }:
                         border: '2px solid #db001d',
                         padding: '15px'
                     }}>
-                        <Typography className='text-[34px] md:text-[60px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
-                            {title || 'PAGE TITLE'}
-                        </Typography>
+                        <h1 className='container-h1'>{title || 'PAGE TITLE'}</h1>
 
-                        {subtitle ?
-                            <>
-                                <Divider flexItem color='#db001d' />
-
-                                <Typography className='max-w-[400px] text-[12px] md:max-w-[700px] md:text-[15px]' variant='h2' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={1}>
-                                    {subtitle}
-                                </Typography>
-                            </>
-                            : null}
+                        {subtitle ? <>
+                            <Divider flexItem color='#db001d' />
+                            <h2 className="container-h2 max-w-[400px] md:max-w-[700px]">{subtitle}</h2>
+                        </> : null}
                     </div>
                 </div>
             </div>

@@ -1,4 +1,3 @@
-import type { Metadata, Viewport } from "next"
 import { ThemeProvider } from "@mui/material"
 
 import UnitTheme from '@/themes/unit'
