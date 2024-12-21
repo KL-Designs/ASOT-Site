@@ -241,7 +241,7 @@ export function Item({ type, item }: { type: string, item: any }) {
 
                     {item.icon ?
                         <div className='relative h-[50px] w-[50px]'>
-                            <Image loader={imageLoader} src={item.icon} alt='Icon' fill loading='lazy' className='object-cover rounded-lg' />
+                            {/* <Image loader={imageLoader} src={item.icon} alt='Icon' fill loading='lazy' className='object-cover rounded-lg' /> */}
                         </div>
                         : null
                     }

@@ -110,8 +110,8 @@ async function PostRanks(request: NextRequest) {
             order: 0,
             name: 'New Rank',
             abbr: 'NEW',
-            description: '',
-            icon: null
+            logo: null,
+            billets: []
         })
 
         return NextResponse.json({ status: 200 })
@@ -128,13 +128,13 @@ async function PostRanks(request: NextRequest) {
                         name: formData.get('name')?.toString(),
                         abbr: formData.get('abbr')?.toString(),
                         description: formData.get('description')?.toString(),
-                        icon: formData.get('icon') ? await Upload(id, 'ranks', formData.get('icon') as File, prevData?.icon || undefined) : null
+                        // icon: formData.get('icon') ? await Upload(id, 'ranks', formData.get('icon') as File, prevData?.icon || undefined) : null
                     }
                 }, { upsert: true })
                 break
             }
-            case 'delete': Remove('ranks', prevData?.icon || undefined), Db.ranks.deleteOne({ _id: new ObjectId(id) }); break
-            case 'removeIcon': Remove('ranks', prevData?.icon || undefined), Db.ranks.updateOne({ _id: new ObjectId(id) }, { $set: { icon: null } }); break
+            // case 'delete': Remove('ranks', prevData?.icon || undefined), Db.ranks.deleteOne({ _id: new ObjectId(id) }); break
+            // case 'removeIcon': Remove('ranks', prevData?.icon || undefined), Db.ranks.updateOne({ _id: new ObjectId(id) }, { $set: { icon: null } }); break
             case 'create': break
         }
     }

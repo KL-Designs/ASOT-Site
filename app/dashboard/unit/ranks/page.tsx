@@ -11,7 +11,7 @@ import Editor from './editor'
 
 
 
-export default async function Page() {
+export default function Page() {
 
     const searchParams = useSearchParams()
     const id = searchParams.get('id')
