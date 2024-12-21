@@ -34,7 +34,7 @@ const nextConfig = {
 				has: [
 					{
 						type: 'host',
-						value: 'asotmilsim.net',
+						value: 'www.asotmilsim.net',
 					}
 				],
 				destination: `${process.env.NEXT_PUBLIC_BASEURL}/:path*`,
