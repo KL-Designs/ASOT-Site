@@ -24,8 +24,8 @@ export default function Navbar() {
         { name: 'Home', href: '/', icon: <Icon.Home /> },
         { name: 'About Us', href: '/about', icon: <Icon.School />, subLinks: ['/callsigns', '/contact', '/rules', '/faq'] },
         { name: 'ORBAT', href: '/orbat', icon: <Icon.Group /> },
-        { name: 'MILPACS', href: 'https://www.australianspecialoperationstaskforce.com/milpacs', target: '_blank', icon: <Icon.MilitaryTech /> },
-        { name: 'Gallery', href: 'https://www.australianspecialoperationstaskforce.com/gallery', target: '_blank', icon: <Icon.Collections /> },
+        { name: 'MILPACS', href: 'https://www.australianspecialoperationstaskforce.com/milpacs', target: '_self', icon: <Icon.MilitaryTech /> },
+        { name: 'Gallery', href: 'https://www.australianspecialoperationstaskforce.com/gallery', target: '_self', icon: <Icon.Collections /> },
         { name: 'Partners', href: '/partnerships', icon: <Icon.Handshake /> },
         { name: 'Support', href: '/support', icon: <Icon.Support /> },
     ]
@@ -71,11 +71,11 @@ export default function Navbar() {
                         </IconButton>
                     </Link>
 
-                    <Link href='/dashboard' title='Dashboard'>
+                    {/* <Link href='/dashboard' title='Dashboard'>
                         <IconButton>
                             <Icon.AccountCircle />
                         </IconButton>
-                    </Link>
+                    </Link> */}
 
                     <IconButton className='visible md:hidden' onClick={() => setSideMenuOpen(true)}>
                         <Icon.Menu />
