@@ -37,7 +37,7 @@ export default function Tab() {
 			</Content>
 
 
-			<Content title='Do you used forced first person?'>
+			<Content title='Do you force first person?'>
 				<Typography>Yes.</Typography>
 			</Content>
 
@@ -68,7 +68,7 @@ export default function Tab() {
 
 
 			<Content title='Does it cost money to play?'>
-				<Typography>No, however, running the community does carry some costs that are mostly paid for by LTCOL Thomas and his head staff. Any donations are truly appreciated and will significantly help with covering those bills each month. All donations only go towards the community costs, no personal profits are kept, ever!</Typography>
+				<Typography>No, however, running the community does carry some costs that are mostly paid for by LTGEN Thomas and his head staff. Any donations are truly appreciated and will significantly help with covering those bills each month. All donations only go towards the community costs, no personal profits are kept, ever!</Typography>
 			</Content>
 
 

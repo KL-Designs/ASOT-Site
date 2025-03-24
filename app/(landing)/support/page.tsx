@@ -22,7 +22,7 @@ import ImgYouthline from '@/public/images/support/youthline.png'
 
 
 export const metadata: Metadata = {
-	title: "Gallery | Australian Special Operations Taskforce",
+	title: "Support | Australian Special Operations Taskforce",
 }
 
 

@@ -28,8 +28,8 @@ export const metadata: Metadata = {
 export default function Tab() {
 	return (
 		<>
-			<ContentWithImage title='0-A' images={[Image_0A]} imageSide='left' imagePos='center' titlePos='center'>
-				<Typography>India 0-A is the headquarters commander and unit owner callsign that oversees management and operation of the entire unit.</Typography>
+			<ContentWithImage title='0A' images={[Image_0A]} imageSide='left' imagePos='center' titlePos='center'>
+				<Typography>India 0A is the headquarters commander and unit owner callsign that oversees management and operation of the entire unit.</Typography>
 				<br />
 				<Typography>The responsibilities are;</Typography>
 				<br />
@@ -39,9 +39,9 @@ export default function Tab() {
 				<Typography>- Management of all group departments and staff.</Typography>
 				<Typography>- Oversees all staff and unit management.</Typography>
 				<br />
-				<Typography>If not operating on the ground as a HQ element., 0-A assists call signs by filling empty staff slots for missions, helping out Zeus’s when required and then simply filling empty spots in other call signs.</Typography>
+				<Typography>If not operating on the ground as a HQ element., 0A assists call signs by filling empty staff slots for missions, helping out Zeus’s when required and then simply filling empty spots in other call signs.</Typography>
 				<br />
-				<Typography>0-A is comprised of the headquarters commanding officer.</Typography>
+				<Typography>0A is comprised of the headquarters commanding officer.</Typography>
 			</ContentWithImage>
 
 			<Divider />
@@ -115,7 +115,7 @@ export default function Tab() {
 				<Typography>- Providing ground based logistical support.</Typography>
 				<Typography>- Managing and providing transport for prisoners, high value targets and VIP’s.</Typography>
 				<br />
-				<Typography>1-2 is a platoon comprising of 3 x 8 man sections and a 4 man platoon headquarters.</Typography>
+				<Typography>Echo is comprised of 2x 5 man sections.</Typography>
 			</ContentWithImage>
 
 			<Divider />
@@ -129,7 +129,7 @@ export default function Tab() {
 				<Typography>- Providing an increased anti-tank and anti-air capability with the use of mobile launchers.</Typography>
 				<Typography>- Supporting ground forces with the use of direct fires including HMG, MMG and GMG static weaponry.</Typography>
 				<br />
-				<Typography>Golf is a section comprised of 6 members.</Typography>
+				<Typography>Golf is comprised of a 6 man section.</Typography>
 			</ContentWithImage>
 
 			<Divider />
@@ -144,7 +144,7 @@ export default function Tab() {
 				<Typography>- Providing battlefield commentary to the CO via observation.</Typography>
 				<Typography>- Providing close air support to ground units.</Typography>
 				<br />
-				<Typography>Hotel is a section comprised of 10 pilots and 2 ground crewman.</Typography>
+				<Typography>Hotel is comprised of 2x 6 man sections.</Typography>
 			</ContentWithImage>
 
 			<Divider />
@@ -158,7 +158,7 @@ export default function Tab() {
 				<Typography>- Providing resupply of medical equipment and supplies to call signs.</Typography>
 				<Typography>- Conducting handling and backloading of severely wounded and/or deceased members, civilians, HVT’s and VIP’s.</Typography>
 				<br />
-				<Typography>Mike is a section comprised of 8 members.</Typography>
+				<Typography>Mike is comprised of 2x 4 man sections.</Typography>
 			</ContentWithImage>
 
 			<Divider />
@@ -174,7 +174,7 @@ export default function Tab() {
 				<br />
 				<Typography>The Victor call sign usually operates in a mounted role utilising APC’s, tanks, IFV’s and other vehicles. Although, the Victor crews are able to dismount and operate as one or multiple teams when required.</Typography>
 				<br/>
-				<Typography>Victor is comprised of 2 x 3 man crews with each crew in a vehicle.</Typography>
+				<Typography>Victor is comprised of 4x 3 man crews.</Typography>
 			</ContentWithImage>
 
 			<Divider />

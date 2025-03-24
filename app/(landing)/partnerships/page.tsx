@@ -14,7 +14,7 @@ import Img2A from '@/public/images/partners/2AM.png'
 
 
 export const metadata: Metadata = {
-	title: "Gallery | Australian Special Operations Taskforce",
+	title: "Partnerships | Australian Special Operations Taskforce",
 }
 
 
