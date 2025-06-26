@@ -83,7 +83,7 @@ export default function Tab() {
 				<br />
 				<Typography>We also run mid-week missions and trainings but these are optional.</Typography>
 				<br />
-				<Typography>Additionally, new recruits will attend the initial training sessions before they are allowed to attend operations and will receive the rank of Private. These sessions are hosted regularly.</Typography>
+				<Typography>New recruits are only required to complete Basic Combat Training Stage 1 (BCT1) to participate in operations. Training sessions are held regularly, and upon completing Stage 2 (BCT2), recruits will be promoted to the rank of Private.</Typography>
 			</Content>
 
 
