@@ -32,7 +32,7 @@ export default function Page() {
 
 	useEffect(() => {
 		if (ref.current) {
-			ref.current.focus()
+			ref.current.focus({ preventScroll: true })
 		}
 	}, [])
 
@@ -54,12 +54,17 @@ export default function Page() {
 
 			{!thomo ? (
 				<>
-					<div className='h-[50vh] md:h-[80vh] w-full relative'>
+					<div
+						className='h-[50vh] md:h-[80vh] w-full relative my-[-5px]'
+						style={{
+							zIndex: -1
+						}}
+					>
 						<Image src={Banner} alt='Banner' fill className='object-cover object-center blur-[2px]' />
 
-						<div className='absolute w-full h-full bg-black opacity-10'/>
+						<div className='absolute w-full h-full bg-black opacity-10' />
 
-						<div className='h-full pt-[100px] pb-[30px] px-[50px] flex flex-col justify-center'>
+						<div className='h-full py-[100px] px-[50px] flex flex-col justify-center'>
 							<div className='relative h-full w-full max-h-[350px] min-h-[200px]'>
 								<Image src={LargeLogo} alt='Large Logo' fill className='object-contain object-center' />
 							</div>
@@ -67,7 +72,11 @@ export default function Page() {
 
 					</div>
 
-					<div style={{ borderTop: '1px solid #db001d' }}>
+					<div style={{
+						borderTop: '1px solid #db001d',
+						background: 'rgb(10,10,10)',
+						zIndex: 0
+					}}>
 						<div className={'m-auto flex flex-col gap-10 max-w-md'} style={{ padding: '2rem 2rem' }}>
 
 							<ContentText title='Recruiting Now!' titlePos='center'>

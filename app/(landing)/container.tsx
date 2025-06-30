@@ -33,7 +33,7 @@ export default function Container({ children, title, subtitle, background, sx }:
             <div className={`relative w-full ${bannerHeight} flex flex-col justify-center items-center`}>
                 <Image src={background || '/images/fallback.webp'} alt='Banner' fill className='object-cover object-center blur-[2px]' loading='eager' />
 
-                <div className='max-w-[1000px] mt-[70px] mx-10 flex flex-col justify-center gap-5'>
+                <div className='max-w-[1000px] mx-10 flex flex-col justify-center gap-5'>
                     <div className='flex flex-col justify-center items-center gap-3' style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                         backdropFilter: 'blur(10px)',

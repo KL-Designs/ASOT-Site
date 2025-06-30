@@ -12,9 +12,11 @@ export default function LandingLayout({ children }: Readonly<{ children: React.R
 		<ThemeProvider theme={UnitTheme}>
 			<div className="h-full flex flex-col">
 
-				<Navbar />
+				<div style={{ zIndex: 1 }}>
+					<Navbar />
+				</div>
 
-				<div className="flex-grow">
+				<div className="flex-grow" style={{ zIndex: 0 }}>
 					{children}
 				</div>
 
