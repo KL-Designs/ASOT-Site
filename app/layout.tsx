@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
 	title: "Australian Special Operations Taskforce",
-	description: "Australia's premiere ARMA 3 mil sim community. Recruiting now! 17+ unless vouched for by a current member. Any experience level is welcome!",
+	description: "Australia's premiere ARMA 3 milsim community. Recruiting now! 17+ unless vouched for by a current member. Any experience level is welcome!",
 	keywords: ["arma", "arma 3", "australian", "special", "operations", "taskforce", "asot", "milsim"],
 	twitter: {
 		images: `${process.env.NEXT_PUBLIC_BASEURL}/meta_banner.png`

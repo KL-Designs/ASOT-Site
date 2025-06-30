@@ -54,13 +54,13 @@ export default function Page() {
 
 			{!thomo ? (
 				<>
-					<div className='h-banner-lg-md w-full relative'>
+					<div className='h-[50vh] md:h-[80vh] w-full relative'>
 						<Image src={Banner} alt='Banner' fill className='object-cover object-center blur-[2px]' />
 
 						<div className='absolute w-full h-full bg-black opacity-10'/>
 
-						<div className='h-full pt-[250px] pb-[150px] px-[30px] flex flex-col justify-center'>
-							<div className='relative h-full w-full max-h-[400px] min-h-[200px]'>
+						<div className='h-full pt-[100px] pb-[30px] px-[50px] flex flex-col justify-center'>
+							<div className='relative h-full w-full max-h-[350px] min-h-[200px]'>
 								<Image src={LargeLogo} alt='Large Logo' fill className='object-contain object-center' />
 							</div>
 						</div>
