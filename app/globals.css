@@ -39,15 +39,15 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: #252525;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #bebebe;
+  background: #464646;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #888888;
+  background: #474747;
 }
