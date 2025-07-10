@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { Button } from '@mui/material'
 
-import Container from '../container'
+import Container from "@/components/container"
 
 
 import Banner from '@/public/images/home/3DMA_Final2.png'

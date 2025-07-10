@@ -8,8 +8,8 @@ export function ContentText({ children, className, title, titlePos }: { children
     return (
         <div className={`w-full flex flex-row justify-center gap-x-14 ${className}`}>
             <div className='w-full flex flex-col gap-y-5'>
-                <Typography variant='h2' fontWeight={500} align={titlePos || 'left'}>{title}</Typography>
-                <Divider color='#db001d' />
+                <h2>{title}</h2>
+                <Divider style={{backgroundColor: 'var(--red)'}} />
                 <div>
                     {children}
                 </div>
@@ -37,8 +37,8 @@ export function ContentWithImage({ children, title, images, imageSide, imagePos,
             </div>
 
             <div className='flex flex-col gap-y-8 self-center'>
-                <Typography variant='h2' fontWeight={500} align={titlePos || 'left'}>{title}</Typography>
-                <Divider color='#db001d' />
+                <h2>{title}</h2>
+                <Divider style={{backgroundColor: 'var(--red)'}} />
                 <div>
                     {children}
                 </div>
@@ -58,9 +58,9 @@ export function ContentBanner({ children, title, image }: { children: React.Reac
 
             <Image src={image} alt='Banner' fill className='object-cover blur-[1px] rounded-lg' />
 
-            <div className='p-5 absolute flex flex-col gap-y-8 self-center' style={{background: 'linear-gradient(#0a0a0a, transparent)'}}>
+            <div className='p-5 absolute flex flex-col gap-y-8 self-center' style={{ background: 'linear-gradient(#0a0a0a, transparent)' }}>
                 <Typography className='text-[34px]' align='center' variant='h2' fontWeight={600} letterSpacing={10}>{title.toUpperCase()}</Typography>
-                <Divider color='#db001d' />
+                <Divider style={{backgroundColor: 'var(--red)'}} />
                 <div>
                     {children}
                 </div>

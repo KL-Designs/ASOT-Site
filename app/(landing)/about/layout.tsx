@@ -6,7 +6,7 @@ import Link from "next/link"
 
 import { Button } from "@mui/material"
 
-import Container from "../container"
+import Container from "@/components/container"
 
 
 import ImgAbout from '@/public/images/home/training2.png'

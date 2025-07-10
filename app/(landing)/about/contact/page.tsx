@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { Typography } from '@mui/material'
 
-import Content from '../../content'
+import Content from '@/components/content'
 
 
 export const metadata: Metadata = {

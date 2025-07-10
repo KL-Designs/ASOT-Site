@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { Typography, Button } from '@mui/material'
 import { VolunteerActivism } from '@mui/icons-material'
 
-import Container from "../container"
-import { ContentText } from '../content'
+import Container from "@/components/container"
+import { ContentText } from '@/components/content'
 
 import Banner from '@/public/images/home/Rooftopincert.jpg'
 

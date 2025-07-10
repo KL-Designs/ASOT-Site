@@ -2,7 +2,7 @@ import { Metadata } from "next"
 
 import { Typography, Divider } from '@mui/material'
 
-import { ContentWithImage } from '../../content'
+import { ContentWithImage } from '@/components/content'
 
 import Image_0A from '@/public/images/home/callsigns/0A.jpg'
 import Image_10 from '@/public/images/home/callsigns/10.jpg'
