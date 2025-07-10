@@ -1,7 +1,6 @@
 import { Typography, Divider } from '@mui/material'
 
 
-
 export default function Footer() {
     return (
         <div className='p-8 px-10 w-full bg-[#131313] flex flex-col justify-center gap-y-2'

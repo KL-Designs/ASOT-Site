@@ -7,9 +7,8 @@ import { useRef, useEffect, useState } from 'react'
 
 import { Button, Typography, Divider } from '@mui/material'
 
-import Container from './container'
-import { ContentText, ContentWithImage, ContentBanner } from './content'
-import MemberCount from './membercount'
+import Container from '@/components/container'
+import { ContentText, ContentWithImage, ContentBanner } from '@/components/content'
 
 
 import LargeLogo from '@/public/ASOT.svg'
@@ -56,9 +55,7 @@ export default function Page() {
 				<>
 					<div
 						className='h-[50vh] md:h-[80vh] w-full relative my-[-5px]'
-						style={{
-							zIndex: -1
-						}}
+						style={{ zIndex: -1 }}
 					>
 						<Image src={Banner} alt='Banner' fill className='object-cover object-center blur-[2px]' />
 
@@ -73,7 +70,7 @@ export default function Page() {
 					</div>
 
 					<div style={{
-						borderTop: '1px solid #db001d',
+						borderTop: '1px solid var(--red)',
 						background: 'rgb(10,10,10)',
 						zIndex: 0
 					}}>
@@ -88,7 +85,7 @@ export default function Page() {
 							<ContentBanner title='Largest Milsim In Australia' image={LargestMilsim}>
 								<div className='flex flex-col gap-1'>
 									<Typography fontWeight={600} align='center'>Current Active Members</Typography>
-									<Typography className='text-[20px] text-[#db001d]' variant='h3' fontWeight={600} align='center'><MemberCount /></Typography>
+									<Typography className='text-[20px] text-[var(--red)]' variant='h3' fontWeight={600} align='center'><MemberCount /></Typography>
 								</div>
 
 								<br />
@@ -170,5 +167,23 @@ export default function Page() {
 				</Container>
 			) : null}
 		</div>
+	)
+}
+
+
+
+function MemberCount() {
+
+	const [count, setCount] = useState<number | null>(null)
+
+	useEffect(() => {
+		fetch('/api/membercount')
+			.then(res => res.json())
+			.then(data => setCount(data.count))
+	})
+
+
+	return (
+		<>{count || '---'}</>
 	)
 }

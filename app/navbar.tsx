@@ -6,11 +6,11 @@ import Image from 'next/image'
 
 import { useState } from 'react'
 
-import { Home, School, Group, MilitaryTech, Collections, Handshake, Support, VolunteerActivism, Menu } from '@mui/icons-material'
 import { Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider } from '@mui/material'
-import { ThemeProvider } from '@mui/material'
+import { Home, School, Group, MilitaryTech, Collections, Handshake, Support, VolunteerActivism, Menu } from '@mui/icons-material'
 
-import DarkTheme from '@/themes/dark'
+
+import Navigation from '@/styles/navigation.module.css'
 
 import Logo from '@/public/logo.png'
 import Honeycomb from '@/public/designs/Honeycombs.svg'
@@ -32,16 +32,14 @@ export default function Navbar() {
     ]
 
 
-
     return (
-        <ThemeProvider theme={DarkTheme}>
+        <>
             <div
                 className='relative'
                 style={{
                     width: '100%',
-                    borderBottom: '1px solid #db001d',
-                    // backdropFilter: 'blur(10px)',
-                    backgroundColor: 'rgba(15, 15, 15, 255)',
+                    borderBottom: '1px solid var(--red)',
+                    backgroundColor: 'var(--background)',
                 }}
             >
 
@@ -49,7 +47,7 @@ export default function Navbar() {
                     <Image src={Honeycomb} alt='honeycomb' fill className='object-cover opacity-10' />
                 </div>
 
-                <div className='flex flex-row justify-between gap-10 p-[15px] px-[30px]'>
+                <div className='flex flex-row justify-between gap-10 p-[15px] px-[30px]' style={{ zIndex: 1 }}>
                     <div className='min-w-[50px] self-center flex flex-row items-center gap-x-3'>
                         <Link href='/'>
                             <IconButton style={{ padding: 0 }}>
@@ -58,26 +56,29 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    <div className='hidden md:flex flex-row flex-wrap justify-end gap-x-10 gap-y-1 self-center'>
+                    <div className='hidden md:flex flex-row flex-wrap justify-end gap-x-10 gap-y-2 self-center'>
                         {Links.map((link) => (
                             <React.Fragment key={link.name}>
-                                <Link href={link.href} target={link.target || '_self'} >
-                                    <Button color='inherit' startIcon={link.icon}>{link.name}</Button>
+                                <Link href={link.href} target={link.target || '_self'}>
+                                    <div className={Navigation['nav-button']}>
+                                        {link.icon}
+                                        <p>{link.name}</p>
+                                    </div>
                                 </Link>
                             </React.Fragment>
                         ))}
                     </div>
 
-                    <div className='flex self-center gap-x-5'>
+                    <div className='flex self-center gap-x-2'>
                         <Link href='/donate' title='Donate'>
-                            <IconButton>
+                            <div className={Navigation['nav-button']}>
                                 <VolunteerActivism />
-                            </IconButton>
+                            </div>
                         </Link>
 
-                        <IconButton className='visible md:hidden' onClick={() => setSideMenuOpen(true)}>
+                        <div className={Navigation['nav-button'] + ' visible md:hidden'} onClick={() => setSideMenuOpen(true)}>
                             <Menu />
-                        </IconButton>
+                        </div>
                     </div>
                 </div>
 
@@ -120,6 +121,6 @@ export default function Navbar() {
 
                 </div>
             </Drawer>
-        </ThemeProvider>
+        </>
     )
 }

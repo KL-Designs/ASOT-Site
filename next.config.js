@@ -13,20 +13,25 @@ const nextConfig = {
 	async redirects() {
 		return [
 			{
-				source: '/login',
-				destination: `https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(process.env.NEXT_PUBLIC_BASEURL + process.env.DISCORD_REDIRECT_URI)}&scope=${process.env.DISCORD_SCOPE.split(' ').join('+')}`,
+				source: '/ts',
+				destination: `ts3server://ts.asotmilsim.com`,
 				permanent: true,
 			},
-			{
-				source: '/dashboard',
-				destination: '/dashboard/account',
-				permanent: true,
-			},
-			{
-				source: '/dashboard/unit',
-				destination: '/dashboard/unit/ranks',
-				permanent: true,
-			},
+			// {
+			// 	source: '/login',
+			// 	destination: `https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(process.env.NEXT_PUBLIC_BASEURL + process.env.DISCORD_REDIRECT_URI)}&scope=${process.env.DISCORD_SCOPE.split(' ').join('+')}`,
+			// 	permanent: true,
+			// },
+			// {
+			// 	source: '/dashboard',
+			// 	destination: '/dashboard/account',
+			// 	permanent: true,
+			// },
+			// {
+			// 	source: '/dashboard/unit',
+			// 	destination: '/dashboard/unit/ranks',
+			// 	permanent: true,
+			// },
 
 
 			{

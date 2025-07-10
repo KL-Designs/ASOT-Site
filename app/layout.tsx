@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next"
 import { Montserrat } from "next/font/google"
-import "./globals.css"
+import "@/styles/globals.css"
+
+
+import Navbar from './navbar'
+import Footer from "./footer"
 
 
 const montserrat = Montserrat({ subsets: ["latin"] })
-
-
 
 export const viewport: Viewport = {
 	themeColor: "#9d000c"
@@ -33,7 +35,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 			</head>
 
 			<body className={`${montserrat.className} antialiased h-full`}>
-				{children}
+
+				<div style={{ zIndex: 1 }}>
+					<Navbar />
+				</div>
+
+				<div  style={{ zIndex: 0 }}>
+					{children}
+				</div>
+
+				<div style={{ zIndex: 1 }}>
+					<Footer />
+				</div>
+
 			</body>
 		</html>
 	)
