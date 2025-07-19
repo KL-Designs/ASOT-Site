@@ -92,7 +92,7 @@ export default function Page() {
 								<Typography align='center'>We are proudly the largest milsim unit not only in Australia, but the entire Oceania Region. With new recruits each week joining from across Australia, New-Zealand, Asia and more, our operations boast numbers of 50+ every week.</Typography>
 							</ContentBanner>
 
-							<Divider />
+							<Divider style={{backgroundColor: 'var(--grey)'}} />
 
 							<ContentWithImage title='Years of Experience' images={[YearsOfExperience]} imageSide='right'>
 								<Typography>Our staff and members have a wealth of knowledge and experience behind them in running a community and of course, lots of hours within ARMA.</Typography>
@@ -102,7 +102,7 @@ export default function Page() {
 								<Link href='/about'><Button className='mt-5' variant='contained' fullWidth>About Us</Button></Link>
 							</ContentWithImage>
 
-							<Divider />
+							<Divider style={{backgroundColor: 'var(--grey)'}} />
 
 							<ContentWithImage title='Community Focussed' images={[CommunityFocussed]} imageSide='left'>
 								<Typography>Everyone has a voice.</Typography>
@@ -110,7 +110,7 @@ export default function Page() {
 								<Typography>Although we’re a large, structured unit, everyone has the chance to provide feedback in nearly everything we do. New ideas are welcomed and we foster a community that is more like a family.</Typography>
 							</ContentWithImage>
 
-							<Divider />
+							<Divider style={{backgroundColor: 'var(--grey)'}} />
 
 							<ContentWithImage title='Custom Game Features' images={[CustomFeatures]} imageSide='right'>
 								<Typography>ASOT only features.</Typography>
@@ -120,7 +120,7 @@ export default function Page() {
 								<Typography>Along with our in-game additions, we also have a custom rank and uniform system that allows members to track their progression and achievements in the unit.</Typography>
 							</ContentWithImage>
 
-							<Divider />
+							<Divider style={{backgroundColor: 'var(--grey)'}} />
 
 							<ContentWithImage title='Dynamic and Varied Gameplay' images={[DynamicGameplay]} imageSide='left'>
 								<Typography>Our missions are created with both realism and enjoyment in mind. Our full time Zeus team ensures we experience well-balanced, challenging and dynamic missions each week.</Typography>

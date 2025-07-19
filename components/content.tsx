@@ -8,13 +8,15 @@ export function ContentText({ children, className, title, titlePos }: { children
     return (
         <div className={`w-full flex flex-row justify-center gap-x-14 ${className}`}>
             <div className='w-full flex flex-col gap-y-5'>
-                <h2>{title}</h2>
-                <Divider style={{backgroundColor: 'var(--red)'}} />
+                <h2 style={{ textAlign: titlePos }}>
+                    {title}
+                </h2>
+                <Divider style={{ backgroundColor: 'var(--red)' }} />
                 <div>
                     {children}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
@@ -38,7 +40,7 @@ export function ContentWithImage({ children, title, images, imageSide, imagePos,
 
             <div className='flex flex-col gap-y-8 self-center'>
                 <h2>{title}</h2>
-                <Divider style={{backgroundColor: 'var(--red)'}} />
+                <Divider style={{ backgroundColor: 'var(--red)' }} />
                 <div>
                     {children}
                 </div>
@@ -60,7 +62,7 @@ export function ContentBanner({ children, title, image }: { children: React.Reac
 
             <div className='p-5 absolute flex flex-col gap-y-8 self-center' style={{ background: 'linear-gradient(#0a0a0a, transparent)' }}>
                 <Typography className='text-[34px]' align='center' variant='h2' fontWeight={600} letterSpacing={10}>{title.toUpperCase()}</Typography>
-                <Divider style={{backgroundColor: 'var(--red)'}} />
+                <Divider style={{ backgroundColor: 'var(--red)' }} />
                 <div>
                     {children}
                 </div>
