@@ -6,6 +6,9 @@
 	--background: #0a0a0a;
 	--foreground: #ededed;
 
+	--primary: #bd0918;
+	--secondary: #242424;
+
 	--red: #db001d;
 	--grey: rgba(255, 255, 255, 0.12);
 	--dark-grey: #131313;
@@ -94,7 +97,31 @@ body {
 		font-size: 1rem;
 		font-weight: 250;
 	}
-	
+
+	.pButton {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		width: 230px;
+		padding: 0.7rem 1rem;
+		gap: 1rem;
+		cursor: pointer;
+		user-select: none;
+
+		background-color: var(--primary);
+		transition: width 0.2s ease;
+	}
+
+	.pButton:hover {
+		width: 125%;
+	}
+
+	.pButton p {
+		font-size: 1.2rem;
+		font-weight: 550;
+		letter-spacing: 0.1rem;
+	}
+
 }
 
 

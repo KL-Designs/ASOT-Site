@@ -62,7 +62,7 @@ export default function AboutLayout({ children }: Readonly<{ children: React.Rea
 			<div className='w-full flex flex-row flex-wrap justify-center gap-5'>
 				{Pages.map((p, i) => (
 					<Link className='flex-grow' key={i} href={p.href}>
-						<Button fullWidth variant='contained' color={page?.href === p.href ? 'primary' : 'secondary'}>{p.title}</Button>
+						<Button fullWidth variant='contained' style={{backgroundColor: page?.href === p.href ? 'var(--primary)' : 'var(--secondary)'}}>{p.title}</Button>
 					</Link>
 				))}
 			</div>

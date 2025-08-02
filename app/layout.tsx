@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next"
-import { Montserrat } from "next/font/google"
+import { Montserrat, IBM_Plex_Sans } from "next/font/google"
 import "@/styles/globals.css"
 
 
@@ -8,6 +8,7 @@ import Footer from "./footer"
 
 
 const montserrat = Montserrat({ subsets: ["latin"] })
+const plex = IBM_Plex_Sans({ weight: "500", subsets: ["latin"] })
 
 export const viewport: Viewport = {
 	themeColor: "#9d000c"
@@ -34,13 +35,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 				<link rel="apple-touch-icon" href="/banner.jpg" />
 			</head>
 
-			<body className={`${montserrat.className} antialiased h-full`}>
+			<body className={`${montserrat.className}  antialiased h-full`}>
 
 				<div style={{ zIndex: 1 }}>
 					<Navbar />
 				</div>
 
-				<div  style={{ zIndex: 0 }}>
+				<div style={{ zIndex: 0 }}>
 					{children}
 				</div>
 
