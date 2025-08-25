@@ -10,7 +10,6 @@ import { ChevronRight } from '@mui/icons-material'
 
 import { ContentText, ContentWithImage, ContentBanner } from '@/components/content'
 
-
 import LargeLogo from '@/public/ASOT.svg'
 import Banner from '@/public/images/home/PHQ2.png'
 import YearsOfExperience from '@/public/images/home/yearsofexperience.jpg'
@@ -99,7 +98,7 @@ export default function Page() {
 						<h2 className='text-center' style={{ fontSize: '4rem', fontWeight: 600, lineHeight: '3.5rem', letterSpacing: '0.1rem' }}>JOIN OUR PLATOONS</h2>
 
 						<div className='h-full min-h-[650px] flex flex-wrap gap-[2rem]'>
-							<PlatoonCard title='1-1' image={Droneteam7} link=''>
+							<PlatoonCard title='1-1' image={Droneteam7} link='/about/callsigns#1-1'>
 								1-1 is our primary infantry platoon, providing the main fighting
 								force for the task force. They utilize a variety of weapons, vehicles,
 								and equipment to enhance the task force's overall capability. The
@@ -108,7 +107,7 @@ export default function Page() {
 								power.
 							</PlatoonCard>
 
-							<PlatoonCard title='1-2' image={SPEAR_OVERCAST_Final} link=''>
+							<PlatoonCard title='1-2' image={SPEAR_OVERCAST_Final} link='/about/callsigns#1-2'>
 								1-2 mirrors the structure and role of 1-1, serving as a core infantry
 								platoon in ASOT. They are equipped with diverse combat assets and
 								are responsible for tactical operations. Like 1-1, they consist of three
@@ -116,7 +115,7 @@ export default function Page() {
 								platoon in all ground operations.
 							</PlatoonCard>
 
-							<PlatoonCard title='1-3' image={Mike1440} link=''>
+							<PlatoonCard title='1-3' image={Mike1440} link='/about/callsigns#1-3'>
 								1-3 Platoon is ASOT's support platoon, providing essential
 								capabilities such as combat engineering, indirect fire support, rotary
 								air support, medical aid, and armoured cavalry. Their specialized
@@ -135,7 +134,7 @@ export default function Page() {
 						<br />
 						<Typography>We have a number of previous and currently serving members of the armed forces who have helped develop our game play into a good balance of realism and playability.</Typography>
 
-						<Link href='/about'><Button className='mt-5' variant='contained' fullWidth style={{backgroundColor: 'var(--primary)'}}>About Us</Button></Link>
+						<Link href='/about'><Button className='mt-5' variant='contained' fullWidth>About Us</Button></Link>
 					</ContentWithImage>
 
 					<Divider style={{ backgroundColor: 'var(--grey)' }} />
@@ -163,7 +162,7 @@ export default function Page() {
 						<br />
 						<Typography>We use a multitude of different weapons, equipment, vehicles and aircraft to create a truly combined arms approach to game play. There’s something for everyone.</Typography>
 
-						<Link href='/about/callsigns'><Button className='mt-5' variant='contained' fullWidth style={{backgroundColor: 'var(--primary)'}}>Call Signs</Button></Link>
+						<Link href='/about/callsigns'><Button className='mt-5' variant='contained' fullWidth>Call Signs</Button></Link>
 					</ContentWithImage>
 
 				</div>
@@ -193,10 +192,10 @@ function PlatoonCard({ children, title, link, image }: { children: React.ReactNo
 
 				<div className='flex flex-col items-center gap-8'>
 					<p className='text-center'>{children}</p>
-					<div className='pButton'>
+					<Link href={link} className='pButton'>
 						<p>LEARN MORE</p>
 						<ChevronRight />
-					</div>
+					</Link>
 				</div>
 			</div>
 		</div>

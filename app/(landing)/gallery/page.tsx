@@ -3,6 +3,8 @@ import Image from 'next/image'
 
 import { Typography } from '@mui/material'
 
+import Banner from '@/public/images/home/snowwalk1.png'
+
 
 
 export const viewport: Viewport = {
@@ -28,7 +30,7 @@ export default function Page() {
 		<div className='h-full w-full'>
 
 			<div className='relative w-full h-[40vh] md:h-[60vh] flex flex-col justify-center items-center'>
-				<Image src={'/images/home/snowwalk1.png'} alt='Banner' fill className='object-cover object-center blur-[2px]' loading='eager' />
+				<Image src={Banner} alt='Banner' fill className='object-cover object-center blur-[2px]' loading='eager' />
 
 				<div className='max-w-[1000px] mt-[70px] mx-10 flex flex-col justify-center gap-5'>
 					<div className='flex flex-col justify-center items-center gap-3' style={{

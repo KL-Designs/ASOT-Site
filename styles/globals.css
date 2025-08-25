@@ -14,6 +14,10 @@
 	--dark-grey: #131313;
 }
 
+:target {
+	/* scroll-margin-top: 200px; */
+}
+
 
 
 html {

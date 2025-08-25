@@ -26,7 +26,7 @@ export default function Navbar() {
         { name: 'About Us', href: '/about', icon: <School />, subLinks: ['/callsigns', '/contact', '/rules', '/faq'] },
         { name: 'ORBAT', href: '/orbat', icon: <Group /> },
         { name: 'MILPACS', href: 'https://www.australianspecialoperationstaskforce.com/milpacs', target: '_self', icon: <MilitaryTech /> },
-        { name: 'Gallery', href: 'https://www.australianspecialoperationstaskforce.com/gallery', target: '_self', icon: <Collections /> },
+        { name: 'Gallery', href: '/gallery', target: '_self', icon: <Collections /> },
         { name: 'Partners', href: '/partnerships', icon: <Handshake /> },
         { name: 'Support', href: '/support', icon: <Support /> },
     ]

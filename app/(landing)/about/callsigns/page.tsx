@@ -63,7 +63,7 @@ export default function Tab() {
 			<Divider />
 
 			<ContentWithImage title='1-1' images={[Image_11]} imageSide='left' imagePos='center' titlePos='center'>
-				<Typography>India 1-1 is one of our infantry platoons which are the main fighting force of the task force.</Typography>
+				<Typography id='1-1'>India 1-1 is one of our infantry platoons which are the main fighting force of the task force.</Typography>
 				<br />
 				<Typography>They are responsible for;</Typography>
 				<br />
@@ -76,7 +76,7 @@ export default function Tab() {
 			<Divider />
 
 			<ContentWithImage title='1-2' images={[Image_12]} imageSide='right' imagePos='center' titlePos='center'>
-				<Typography>India 1-2 is one of our infantry platoons which are the main fighting force of the task force.</Typography>
+				<Typography id='1-2'>India 1-2 is one of our infantry platoons which are the main fighting force of the task force.</Typography>
 				<br />
 				<Typography>They are responsible for;</Typography>
 				<br />
@@ -89,7 +89,7 @@ export default function Tab() {
 			<Divider />
 
 			<ContentWithImage title='1-3-0' images={[Image_130]} imageSide='left' imagePos='center' titlePos='center'>
-				<Typography>India 1-3-0 is the HQ element of the 1-3 support platoon.</Typography>
+				<Typography id='1-3'>India 1-3-0 is the HQ element of the 1-3 support platoon.</Typography>
 				<br />
 				<Typography>They are responsible for;</Typography>
 				<br />
