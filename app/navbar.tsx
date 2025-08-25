@@ -13,7 +13,7 @@ import { Home, School, Group, MilitaryTech, Collections, Handshake, Support, Vol
 import Navigation from '@/styles/navigation.module.css'
 
 import Logo from '@/public/logo.png'
-import Honeycomb from '@/public/designs/Honeycombs.svg'
+import Honeycomb from '@/public/designs/honeycombs.svg'
 
 
 
