@@ -101,7 +101,7 @@ export default function Page() {
 							<PlatoonCard title='1-1' image={Droneteam7} link='/about/callsigns#1-1'>
 								1-1 is our primary infantry platoon, providing the main fighting
 								force for the task force. They utilize a variety of weapons, vehicles,
-								and equipment to enhance the task force's overall capability. The
+								and equipment to enhance the task force’s overall capability. The
 								platoon consists of three 8-man sections and a 4-man platoon
 								headquarters. responsible for delivering effective ground combat
 								power.
@@ -116,7 +116,7 @@ export default function Page() {
 							</PlatoonCard>
 
 							<PlatoonCard title='1-3' image={Mike1440} link='/about/callsigns#1-3'>
-								1-3 Platoon is ASOT's support platoon, providing essential
+								1-3 Platoon is ASOT’s support platoon, providing essential
 								capabilities such as combat engineering, indirect fire support, rotary
 								air support, medical aid, and armoured cavalry. Their specialized
 								teams handle explosive disposal, artillery, airlift, casualty evacuation,
