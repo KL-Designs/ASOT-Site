@@ -5,11 +5,22 @@ export { }
 
 declare global {
 
-    interface Gallery {
-        title: string
-        description: string
+    interface GalleryAPI {
+        info: string
+        updated: string
 
-        created: Date
+        years: {
+            year: string
+
+            operations: {
+                operation: string
+
+                stages: {
+                    stage: string
+                    media: string[]
+                }[]
+            }[]
+        }[]
     }
 
 }

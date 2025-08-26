@@ -139,7 +139,7 @@ export default function Page() {
 
 					<Divider style={{ backgroundColor: 'var(--grey)' }} />
 
-					<ContentWithImage title='Community Focussed' images={[CommunityFocussed]} imageSide='left'>
+					<ContentWithImage title='Community Focused' images={[CommunityFocussed]} imageSide='left'>
 						<Typography>Everyone has a voice.</Typography>
 						<br />
 						<Typography>Although we’re a large, structured unit, everyone has the chance to provide feedback in nearly everything we do. New ideas are welcomed and we foster a community that is more like a family.</Typography>

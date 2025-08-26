@@ -39,3 +39,4 @@ next-env.d.ts
 # local
 config.ts
 /.uploads
+/gallery
