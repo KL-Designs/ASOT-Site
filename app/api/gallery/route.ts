@@ -5,7 +5,7 @@ import fs from 'fs'
 
 export async function GET(request: NextRequest) {
 
-    let json: GalleryAPI = {
+    const json: GalleryAPI = {
         info: 'Gallery API',
         updated: new Date().toISOString(),
         years: []
@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
     for (const year of years) {
         const operations = fs.readdirSync(`./gallery/${year}`)
 
-        let yearData = {
+        const yearData = {
             year,
             operations: [] as GalleryAPI['years'][0]['operations']
         }
@@ -24,13 +24,13 @@ export async function GET(request: NextRequest) {
         for (const operation of operations) {
             const stages = fs.readdirSync(`./gallery/${year}/${operation}`)
 
-            let operationData = {
+            const operationData = {
                 operation,
                 stages: [] as GalleryAPI['years'][0]['operations'][0]['stages']
             }
 
             for (const stage of stages) {
-                let stageData = {
+                const stageData = {
                     stage,
                     media: [] as string[]
                 }
