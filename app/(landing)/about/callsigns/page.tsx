@@ -69,6 +69,7 @@ export default function Tab() {
 				<Typography>- Control and placement of enemy, civilian and independent forces for the duration of the mission.</Typography>
 				<Typography>- Setting up of objectives and events relating to the missions story line.</Typography>
 				<Typography>- Ensuring members experience a well-balanced, active and enjoyable mission.</Typography>
+				<Typography>- Maintaining and adjusting mission flow to ensure a steady pace, preventing long periods of inactivity while keeping the mission challenging from start to finish.</Typography>
 				<br />
 				<Typography>Game Masters is a team comprised of 6 permanent members and a pool of part time members.</Typography>
 			</ContentWithImage>
