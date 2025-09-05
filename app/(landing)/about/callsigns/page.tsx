@@ -119,14 +119,14 @@ export default function Tab() {
 			<Divider />
 
 			<ContentWithImage title='1-3 Echo' images={[Image_13E]} imageSide='left' imagePos='center' titlePos='center'>
-				<Typography>1-3 Echo is our combat engineers asset that provides the task force with a wide variety of capabilities.</Typography>
+				<Typography>1-3 Echo is our combat engineers asset that provides the unit with a wide variety of capabilities.</Typography>
 				<br />
 				<Typography>They are responsible for;</Typography>
 				<br />
 				<Typography>- Providing explosive detection, disposal and demolitions.</Typography>
 				<Typography>- Providing CBRN protection equipment and decontamination for personnel, assets and vehicles.</Typography>
-				<Typography>- Constructing FOB’s, defences and other required structures.</Typography>
-				<Typography>- Providing ground based logistical support.</Typography>
+				<Typography>- Constructing FOB’s, defenses and other required structures.</Typography>
+				<Typography>- Providing ground based logistical support (Repair, Refuel, Rearm)</Typography>
 				<Typography>- Managing and providing transport for prisoners, high value targets and VIP’s.</Typography>
 				<br />
 				<Typography>Echo is comprised of 2x 5 man sections.</Typography>
@@ -135,7 +135,7 @@ export default function Tab() {
 			<Divider />
 
 			<ContentWithImage title='1-3 Golf' images={[Image_13G]} imageSide='right' imagePos='center' titlePos='center'>
-				<Typography>1-3 Golf is our direct fires support weapons (DFSW) asset that primarily provides indirect fires capability. Golf is also able to provide direct fires if required.</Typography>
+				<Typography>1-3 Golf is our indirect fire (IDF) and direct fire support weapons (DFSW) capability while allowing us having AA and IDF Detection for defensive postures.</Typography>
 				<br />
 				<Typography>They are responsible for;</Typography>
 				<br />
