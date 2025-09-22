@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--background: rgb(10, 10, 10);
+	--foreground: rgb(237, 237, 237);
+
+	--primary: rgb(189, 9, 24);
+	--secondary: rgb(36, 36, 36);
+
+	--red: rgb(219, 0, 29);
+	--grey: rgba(255, 255, 255, 0.12);
+	--dark-grey: rgb(19, 19, 19);
+}
+
+:target {
+	/* scroll-margin-top: 200px; */
+}
+
+
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+
+@layer base {
+
+	:where(h1, h2, h3, h4, h5, h6, p, b, span, label) {
+		color: var(--foreground);
+		line-height: normal;
+		text-align: left;
+	}
+
+	.title:where(h1, h2, h3, h4, h5, h6) {
+		font-size: 3rem;
+		font-weight: 600;
+	}
+
+	.title span {
+		display: block;
+		font-size: 2.5rem;
+		font-weight: 300;
+	}
+
+	.sub-title:where(h1, h2, h3, h4, h5, h6) {
+		font-size: 1rem;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+
+	:where(p, a) {
+		font-size: 1rem;
+	}
+
+	p a {
+		/* color: var(--foreground); */
+		font-weight: 600;
+	}
+
+	a.underline {
+		/* color: var(--accent2); */
+		text-decoration: underline;
+	}
+
+	h1 {
+		font-size: 3rem;
+		font-weight: 350;
+	}
+
+	h2 {
+		font-size: 2.5rem;
+		font-weight: 400;
+	}
+
+	h2.heavy {
+		font-size: 2rem;
+		font-weight: 500;
+		letter-spacing: 0.3rem;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+		font-weight: 250;
+	}
+
+	h4 {
+		font-size: 1rem;
+		font-weight: 250;
+	}
+
+	.pButton {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		width: 230px;
+		padding: 0.7rem 1rem;
+		gap: 1rem;
+		cursor: pointer;
+		user-select: none;
+
+		background-color: var(--primary);
+		transition: width 0.2s ease;
+	}
+
+	.pButton:hover {
+		width: 125%;
+	}
+
+	.pButton p {
+		font-size: 1.2rem;
+		font-weight: 550;
+		letter-spacing: 0.1rem;
+	}
+
+}
+
+
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #252525;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #464646;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #474747;
+}

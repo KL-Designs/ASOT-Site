@@ -3,8 +3,8 @@ import Image, { StaticImageData } from 'next/image'
 
 import { Divider, Typography } from '@mui/material'
 
-import Container from "../container"
-import { ContentText } from '../content'
+import Container from "@/components/container"
+import { ContentText } from '@/components/content'
 
 import Banner from '@/public/images/home/snowwalk1.png'
 import ImgAPCA from '@/public/images/partners/APCA.png'

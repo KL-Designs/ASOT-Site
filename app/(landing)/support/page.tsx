@@ -4,8 +4,8 @@ import Image, { StaticImageData } from 'next/image'
 
 import { Typography } from '@mui/material'
 
-import Container from "../container"
-import { ContentText } from '../content'
+import Container from "@/components/container"
+import { ContentText } from '@/components/content'
 
 
 import Banner from '@/public/images/home/support.jpg'
