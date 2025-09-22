@@ -48,14 +48,20 @@ export default function Page() {
                     )).reverse()}
                 </div>
 
-                <div className='flex flex-col gap-2 flex-grow'>
+                <div className='flex flex-col gap-2 flex-grow max-w-[50%]'>
                     <Typography className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
                         OPERATION
                     </Typography>
 
-                    {data.find(g => g.year === year)?.operations.map(op => (
-                        <Button key={op.operation} fullWidth variant='contained' color={op.operation === operation ? 'primary' : 'secondary'} onClick={() => setOperation(op.operation)}>{op.operation}</Button>
-                    ))}
+                    <div className='flex flex-row gap-2 flex-wrap justify-evenly'>
+                        {data.find(g => g.year === year)?.operations.slice().sort((a, b) => {
+                            const numA = parseInt(a.operation.match(/^\d+/)?.[0] || "0", 10)
+                            const numB = parseInt(b.operation.match(/^\d+/)?.[0] || "0", 10)
+                            return numA - numB
+                        }).map(op => (
+                            <Button key={op.operation} className='flex-grow' variant='contained' color={op.operation === operation ? 'primary' : 'secondary'} onClick={() => setOperation(op.operation)}>{op.operation}</Button>
+                        ))}
+                    </div>
                 </div>
 
                 <div className='flex flex-col gap-2 flex-grow'>
@@ -70,7 +76,7 @@ export default function Page() {
             </div>
 
 
-            <div className='flex flex-row flex-wrap gap-4 justify-center'>
+            <div className='w-full flex flex-row flex-wrap gap-4 justify-center'>
                 {data.find(g => g.year === year)?.operations.find(op => op.operation === operation)?.stages.find(s => s.stage === stage)?.media.map(img => (
                     <Image key={img} className='h-[200px] w-auto object-contain rounded-sm' src={`/api/gallery/fetch?img=${img}&stage=${stage}&operation=${operation}&year=${year}`} alt={img} width={0} height={200} unoptimized />
                 ))}
