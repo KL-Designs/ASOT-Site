@@ -122,7 +122,7 @@ export default function Page() {
                         height={200}
                         loading='lazy'
                         unoptimized
-                        onClick={() => setOpenImg(`/api/gallery/fetch?stage=${stage}&operation=${operation}&year=${year}&img=${img}`)}
+                        onClick={() => setOpenImg(`/api/gallery/fetch?stage=${encodeURIComponent(stage)}&operation=${encodeURIComponent(operation)}&year=${encodeURIComponent(year)}&img=${encodeURIComponent(img)}`)}
                     />
                 ))}
             </div>
@@ -134,7 +134,10 @@ export default function Page() {
                         <div className='h-full w-full md:w-[80%] p-5 md:p-10 flex flex-col justify-center' style={{ border: '1px solid red', backdropFilter: 'blur(5px)', background: 'rgba(0,0,0,0.5)' }}>
 
                             <div className='absolute top-5 right-5 flex gap-5'>
-                                <Button variant='contained' color='info' onClick={() => {navigator.clipboard.writeText(process.env.NEXT_PUBLIC_BASEURL + encodeURIComponent(openImg)); alert('Image copied to clipboard!')}}><Reply /></Button>
+                                <Button variant='contained' color='info' onClick={() => {
+                                    navigator.clipboard.writeText(process.env.NEXT_PUBLIC_BASEURL + openImg)
+                                    alert('Image copied to clipboard!')
+                                }}><Reply /></Button>
                                 <Button variant='contained' onClick={() => setOpenImg('')}><Close /></Button>
                             </div>
 
