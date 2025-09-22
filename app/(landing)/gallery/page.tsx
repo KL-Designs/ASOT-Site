@@ -92,7 +92,7 @@ export default function Page() {
 
             <div className='w-full flex flex-row flex-wrap gap-4 justify-center'>
                 {data.find(g => g.year === year)?.operations.find(op => op.operation === operation)?.stages.find(s => s.stage === stage)?.media.map(img => (
-                    <Image key={img} className='h-[200px] w-auto object-contain rounded-sm' src={`/api/gallery/fetch?img=${img}&stage=${stage}&operation=${operation}&year=${year}`} alt={img} width={0} height={200} loading='lazy' unoptimized />
+                    <Image key={img} className='h-[200px] w-auto object-contain rounded-sm' src={`/api/gallery/fetch?img=${img}&stage=${stage}&operation=${operation}&year=${year}`} alt={img} width={200} height={200} loading='lazy' unoptimized />
                 ))}
             </div>
 
