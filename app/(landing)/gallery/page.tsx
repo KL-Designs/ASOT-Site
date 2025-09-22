@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useSearchParams, useRouter } from 'next/navigation'
 
 import { Typography, Button } from '@mui/material'
 
@@ -9,10 +10,15 @@ import { useEffect, useState } from "react"
 
 export default function Page() {
 
+    const searchParams = useSearchParams()
+    const router = useRouter()
+
     const [data, setData] = useState<GalleryAPI['years']>([] as GalleryAPI['years'])
-    const [year, setYear] = useState('')
-    const [operation, setOperation] = useState('')
-    const [stage, setStage] = useState('')
+    const [year, setYear] = useState(searchParams.get('year') || '')
+    const [operation, setOperation] = useState(searchParams.get('operation') || '')
+    const [stage, setStage] = useState(searchParams.get('stage') || '')
+
+    console.log(year, operation, stage)
 
     useEffect(() => {
         fetch('/api/gallery')
@@ -25,14 +31,18 @@ export default function Page() {
                 const operationI = json.years[yearI].operations.length - 1
                 const stageI = json.years[yearI].operations[operationI].stages.length - 1
 
-                setYear(json.years[yearI].year)
-                setOperation(json.years[yearI].operations[operationI].operation)
-                setStage(json.years[yearI].operations[operationI].stages[stageI].stage)
+                if (!year) setYear(json.years[yearI].year)
+                if (!operation) setOperation(json.years[yearI].operations[operationI].operation)
+                if (!stage) setStage(json.years[yearI].operations[operationI].stages[stageI].stage)
             })
             .catch(err => {
                 console.error('Failed to fetch gallery data:', err)
             })
     }, [])
+
+    useEffect(() => {
+        router.push(`?year=${year}&operation=${operation}&stage=${stage}`)
+    }, [year, operation, stage])
 
     return (
         <div className='min-h-[600px] w-full flex flex-row flex-wrap justify-center gap-5'>
