@@ -72,7 +72,7 @@ export default function Page() {
 
             <div className='flex flex-row flex-wrap gap-4 justify-center'>
                 {data.find(g => g.year === year)?.operations.find(op => op.operation === operation)?.stages.find(s => s.stage === stage)?.media.map(img => (
-                    <img key={img} className='max-h-[200px]' src={`/api/gallery/fetch?img=${img}&stage=${stage}&operation=${operation}&year=${year}`} />
+                    <Image key={img} className='h-[200px] w-auto object-contain rounded-sm' src={`/api/gallery/fetch?img=${img}&stage=${stage}&operation=${operation}&year=${year}`} alt={img} width={0} height={200} unoptimized />
                 ))}
             </div>
 
