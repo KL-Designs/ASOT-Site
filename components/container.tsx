@@ -12,7 +12,7 @@ export default function Container({ children, title, subtitle, background, sx }:
     subtitle?: string,
     background?: StaticImageData,
     sx?: {
-        maxWidth?: 'max-w-sm' | 'max-w-md' | 'max-w-lg' | 'max-w-xl' | (string & {}),
+        maxWidth?: 'max-w-sm' | 'max-w-md' | 'max-w-lg' | 'max-w-xl' | 'max-w-full' | (string & {}),
         bannerHeight?: 'sm' | 'md' | 'lg',
         padding?: string,
         gap?: string | undefined

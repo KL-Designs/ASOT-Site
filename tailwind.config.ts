@@ -27,6 +27,7 @@ const config: Config = {
         'md': '1200px',
         'lg': '1500px',
         'xl': '1800px',
+        'full': '100%',
       }
     },
   },

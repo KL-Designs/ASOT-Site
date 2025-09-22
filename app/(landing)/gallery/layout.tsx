@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function Page({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<Container title='GALLERY' background={Banner} sx={{ bannerHeight: 'sm', maxWidth: '100%', padding: '0px' }}>
+		<Container title='GALLERY' background={Banner} sx={{ bannerHeight: 'sm', maxWidth: 'max-w-full', padding: '0px' }}>
 			<div className='py-5 m-auto px-10'>
 
 				{children}
