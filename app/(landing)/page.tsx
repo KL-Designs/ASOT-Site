@@ -177,9 +177,9 @@ function PlatoonCard({ children, title, link, image }: { children: React.ReactNo
 		<div className='relative flex-grow overflow-hidden' style={{ width: 'clamp(320px, 340px, 400px)' }}>
 
 			<Image src={image} alt='PlatoonCard' fill className='object-cover object-center blur-[1px]' />
-			<div className='absolute w-full h-full bg-black opacity-20' />
+			<div className='absolute w-full h-full bg-black opacity-10' />
 
-			<div className='h-full relative flex flex-col justify-between p-10 overflow-hidden' style={{ zIndex: 1 }}>
+			<div className='h-full relative flex flex-col justify-between py-10 overflow-hidden' style={{ zIndex: 1 }}>
 				<h2
 					className='text-center'
 					style={{
@@ -190,8 +190,19 @@ function PlatoonCard({ children, title, link, image }: { children: React.ReactNo
 					{title}
 				</h2>
 
-				<div className='flex flex-col items-center gap-8'>
-					<p className='text-center'>{children}</p>
+				<div className='flex flex-col items-center gap-8 px-0'>
+					<div
+						className='p-3'
+						style={{
+							borderTop: '1px solid var(--primary)',
+							borderBottom: '1px solid var(--primary)',
+							background: 'rgba(25, 25, 25, 0.5)',
+							backdropFilter: 'blur(2px)'
+						}}
+					>
+						<p className='text-center'>{children}</p>
+					</div>
+
 					<Link href={link} className='pButton'>
 						<p>LEARN MORE</p>
 						<ChevronRight />

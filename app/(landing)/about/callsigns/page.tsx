@@ -149,16 +149,16 @@ export default function Tab() {
 			<Divider />
 
 			<ContentWithImage title='1-3 Hotel' images={[Image_13H1, Image_13H2]} imageSide='left' imagePos='center' titlePos='center'>
-				<Typography>1-3 Hotel is our rotary air support asset that provides the task force with a variety of logistical and close air support capability.</Typography>
+				<Typography>1-3 Hotel is our rotary air support wing / asset that provides the task force with a variety of logistical and close air support capability.</Typography>
 				<br />
 				<Typography>They are responsible for;</Typography>
 				<br />
 				<Typography>- Providing air lift capability of personnel and vehicles into the area of operations.</Typography>
 				<Typography>- Providing an air logistical capability by conducting supply drops.</Typography>
-				<Typography>- Providing battlefield commentary to the CO via observation.</Typography>
+				<Typography>- Providing battlefield commentary to FO’s and Command via observation.</Typography>
 				<Typography>- Providing close air support to ground units.</Typography>
 				<br />
-				<Typography>Hotel is comprised of 2x 6 man sections.</Typography>
+				<Typography>Hotel is comprised of 2x 6 man flights.</Typography>
 			</ContentWithImage>
 
 			<Divider />

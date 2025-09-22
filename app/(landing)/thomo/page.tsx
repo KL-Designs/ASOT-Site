@@ -11,6 +11,7 @@ export default function Page() {
 			<div className='grid grid-cols-2 md:grid-cols-4 gap-5'>
 				{[
 					'tred.png',
+					'tred-uwu.png',
 					'meme.gif',
 					'gifPerms.gif',
 					'mci.gif',

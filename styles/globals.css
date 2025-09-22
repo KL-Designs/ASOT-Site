@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-	--background: #0a0a0a;
-	--foreground: #ededed;
+	--background: rgb(10, 10, 10);
+	--foreground: rgb(237, 237, 237);
 
-	--primary: #bd0918;
-	--secondary: #242424;
+	--primary: rgb(189, 9, 24);
+	--secondary: rgb(36, 36, 36);
 
-	--red: #db001d;
+	--red: rgb(219, 0, 29);
 	--grey: rgba(255, 255, 255, 0.12);
-	--dark-grey: #131313;
+	--dark-grey: rgb(19, 19, 19);
 }
 
 :target {

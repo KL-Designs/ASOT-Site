@@ -47,7 +47,7 @@ export default function Page({ children }: Readonly<{ children: React.ReactNode 
 
 
 			<div className="w-full" style={{ borderTop: '1px solid #db001d' }}>
-				<div className='py-5 m-auto'>
+				<div className='py-5 m-auto px-10'>
 
 					{children}
 
