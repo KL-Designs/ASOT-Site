@@ -7,6 +7,8 @@ import { useRef, useEffect, useState } from 'react'
 
 import { Button, Typography, Divider } from '@mui/material'
 import { ChevronRight } from '@mui/icons-material'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 
 import { ContentText, ContentWithImage, ContentBanner } from '@/components/content'
 
@@ -76,12 +78,6 @@ export default function Page() {
 			}}>
 				<div className={'m-auto flex flex-col gap-10 max-w-[1400px]'} style={{ padding: '3rem 2rem' }}>
 
-					{/* <ContentText title='Recruiting Now!' titlePos='center'>
-						<Typography align='center'>If you’re looking for a real to life and serious, yet fun approach to ARMA 3 military simulation game play, then your search is over!</Typography>
-						<br />
-						<Link href="https://discord.gg/asot" target='_blank'><Button className='bg-[#5d64ef]' variant='contained' size='large' fullWidth>Join our Discord</Button></Link>
-					</ContentText> */}
-
 					<ContentBanner title='The Largest Milsim In Australia' image={LargestMilsim}>
 						<div className='flex flex-col gap-1'>
 							<Typography fontWeight={600} align='center'>Current Active Members</Typography>
@@ -91,6 +87,10 @@ export default function Page() {
 						<br />
 						<Typography align='center'>We are proudly the largest milsim unit not only in Australia, but the entire Oceania Region. With new recruits each week joining from across Australia, New-Zealand, Asia and more, our operations boast numbers of 50+ every week.</Typography>
 					</ContentBanner>
+
+					<Link href="https://discord.gg/asot" target='_blank'><Button variant='contained' color='secondaryGrey' size='large' fullWidth>
+						<Typography className='text-[30px]' variant='h3' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}><FontAwesomeIcon className='animate-bounce' icon={faDiscord} size='1x'/> Join our Discord <FontAwesomeIcon className='animate-bounce' icon={faDiscord} size='1x'/></Typography>
+					</Button></Link>
 
 					<Divider style={{ backgroundColor: 'var(--grey)' }} />
 

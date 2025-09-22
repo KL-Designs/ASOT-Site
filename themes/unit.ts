@@ -9,7 +9,11 @@ export default createTheme({
         },
         secondary: {
             main: '#242424'
+        },
+        secondaryGrey: {
+            main: '#3a629c'
         }
+
     },
 
     typography: {
@@ -20,3 +24,22 @@ export default createTheme({
         }
     }
 })
+
+
+declare module '@mui/material/styles' {
+    interface Palette {
+        secondaryGrey: Palette['primary'];
+        // ocean: Palette['primary'];
+    }
+    interface PaletteOptions {
+        secondaryGrey?: PaletteOptions['primary'];
+        // ocean?: PaletteOptions['primary'];
+    }
+}
+
+declare module '@mui/material/Button' {
+    interface ButtonPropsColorOverrides {
+        secondaryGrey: true;
+        // ocean: true;
+    }
+}
