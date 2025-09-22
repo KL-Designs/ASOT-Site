@@ -4,18 +4,22 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 import { Typography, Button } from '@mui/material'
+import { Reply, Close } from '@mui/icons-material'
 
-import { useEffect, useState } from "react"
+import { use, useEffect, useState } from "react"
 
 
 export default function Page() {
 
     const router = useRouter()
 
+    const [ready, setReady] = useState(false)
     const [data, setData] = useState<GalleryAPI['years']>([] as GalleryAPI['years'])
     const [year, setYear] = useState('')
     const [operation, setOperation] = useState('')
     const [stage, setStage] = useState('')
+
+    const [openImg, setOpenImg] = useState('')
 
     useEffect(() => {
 
@@ -38,6 +42,8 @@ export default function Page() {
                 if (!searchParams.get('year')) setYear(json.years[yearI].year)
                 if (!searchParams.get('operation')) setOperation(json.years[yearI].operations[operationI].operation)
                 if (!searchParams.get('stage')) setStage(json.years[yearI].operations[operationI].stages[stageI].stage)
+
+                setReady(true)
             })
             .catch(err => {
                 console.error('Failed to fetch gallery data:', err)
@@ -47,6 +53,21 @@ export default function Page() {
     useEffect(() => {
         router.push(`?year=${year}&operation=${operation}&stage=${stage}`)
     }, [year, operation, stage])
+
+    useEffect(() => {
+        if (!ready) return
+        const operation = data.find(y => y.year === year)?.operations[0].operation || ''
+        const stage = data.find(y => y.year === year)?.operations[0].stages[0].stage || ''
+
+        setOperation(operation)
+        setStage(stage)
+    }, [year])
+
+    useEffect(() => {
+        if (!ready) return
+        const stage = data.find(y => y.year === year)?.operations[0].stages[0].stage || ''
+        setStage(stage)
+    }, [operation])
 
     return (
         <div className='min-h-[600px] w-full flex flex-row flex-wrap justify-center gap-5'>
@@ -92,9 +113,48 @@ export default function Page() {
 
             <div className='w-full flex flex-row flex-wrap gap-4 justify-center'>
                 {data.find(g => g.year === year)?.operations.find(op => op.operation === operation)?.stages.find(s => s.stage === stage)?.media.map(img => (
-                    <Image key={img} className='h-[200px] w-auto object-contain rounded-sm' src={`/api/gallery/fetch?img=${img}&stage=${stage}&operation=${operation}&year=${year}`} alt={img} width={200} height={200} loading='lazy' unoptimized />
+                    <Image
+                        key={img}
+                        className='h-[200px] w-auto object-contain rounded-sm cursor-pointer'
+                        src={`/api/gallery/fetch?stage=${stage}&operation=${operation}&year=${year}&img=${img}`}
+                        alt={img}
+                        width={200}
+                        height={200}
+                        loading='lazy'
+                        unoptimized
+                        onClick={() => setOpenImg(`/api/gallery/fetch?stage=${stage}&operation=${operation}&year=${year}&img=${img}`)}
+                    />
                 ))}
             </div>
+
+
+            {openImg ?
+                (
+                    <div className='fixed top-0 w-full h-full bg-[rgba(0,0,0,0.5)] p-5 md:p-20 flex justify-center' onClick={(e) => e.target === e.currentTarget ? setOpenImg('') : null}>
+                        <div className='h-full w-full md:w-[80%] p-5 md:p-10 flex flex-col justify-center' style={{ border: '1px solid red', backdropFilter: 'blur(5px)', background: 'rgba(0,0,0,0.5)' }}>
+
+                            <div className='absolute top-5 right-5 flex gap-5'>
+                                <Button variant='contained' color='info' onClick={() => {navigator.clipboard.writeText(openImg); alert('Image copied to clipboard!')}}><Reply /></Button>
+                                <Button variant='contained' onClick={() => setOpenImg('')}><Close /></Button>
+                            </div>
+
+                            <div className='relative h-[90%]'>
+                                <Image
+                                    key={openImg}
+                                    className='w-auto object-contain rounded-sm'
+                                    src={openImg}
+                                    alt={openImg}
+                                    loading='lazy'
+                                    fill
+                                    unoptimized
+                                />
+                            </div>
+                        </div>
+                    </div>
+                )
+                : null
+            }
+
 
         </div>
     )
