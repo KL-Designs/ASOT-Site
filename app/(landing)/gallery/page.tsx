@@ -48,7 +48,7 @@ export default function Page() {
                     )).reverse()}
                 </div>
 
-                <div className='flex flex-col gap-2 flex-grow max-w-[clamp(300px, 50%, 50%)]'>
+                <div className='flex flex-col gap-2 flex-grow max-w-[700px] md:max-w-[50%]'>
                     <Typography className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
                         OPERATION
                     </Typography>
