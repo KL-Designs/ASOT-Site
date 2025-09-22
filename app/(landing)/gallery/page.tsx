@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 import { Typography, Button } from '@mui/material'
 
@@ -10,17 +10,21 @@ import { useEffect, useState } from "react"
 
 export default function Page() {
 
-    const searchParams = useSearchParams()
     const router = useRouter()
 
     const [data, setData] = useState<GalleryAPI['years']>([] as GalleryAPI['years'])
-    const [year, setYear] = useState(searchParams.get('year') || '')
-    const [operation, setOperation] = useState(searchParams.get('operation') || '')
-    const [stage, setStage] = useState(searchParams.get('stage') || '')
-
-    console.log(year, operation, stage)
+    const [year, setYear] = useState('')
+    const [operation, setOperation] = useState('')
+    const [stage, setStage] = useState('')
 
     useEffect(() => {
+
+        const searchParams = new URLSearchParams(window.location.search);
+
+        setYear(searchParams.get('year') || '')
+        setOperation(searchParams.get('operation') || '')
+        setStage(searchParams.get('stage') || '')
+
         fetch('/api/gallery')
             .then(res => res.json())
             .then((json: GalleryAPI) => {
@@ -31,9 +35,9 @@ export default function Page() {
                 const operationI = json.years[yearI].operations.length - 1
                 const stageI = json.years[yearI].operations[operationI].stages.length - 1
 
-                if (!year) setYear(json.years[yearI].year)
-                if (!operation) setOperation(json.years[yearI].operations[operationI].operation)
-                if (!stage) setStage(json.years[yearI].operations[operationI].stages[stageI].stage)
+                if (!searchParams.get('year')) setYear(json.years[yearI].year)
+                if (!searchParams.get('operation')) setOperation(json.years[yearI].operations[operationI].operation)
+                if (!searchParams.get('stage')) setStage(json.years[yearI].operations[operationI].stages[stageI].stage)
             })
             .catch(err => {
                 console.error('Failed to fetch gallery data:', err)
