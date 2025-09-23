@@ -120,6 +120,7 @@ export default function Page() {
                         alt={img}
                         width={200}
                         height={200}
+                        quality={75}
                         loading='lazy'
                         onClick={() => setOpenImg(`/api/gallery/fetch?stage=${encodeURIComponent(stage)}&operation=${encodeURIComponent(operation)}&year=${encodeURIComponent(year)}&img=${encodeURIComponent(img)}`)}
                     />
@@ -146,6 +147,7 @@ export default function Page() {
                                     className='w-auto object-contain rounded-sm'
                                     src={process.env.NEXT_PUBLIC_BASEURL + openImg}
                                     alt={openImg}
+                                    quality={100}
                                     loading='lazy'
                                     fill
                                 />
