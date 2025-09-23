@@ -19,4 +19,3 @@ xcopy "%SOURCE%" "%BACKUP%\" /s /e /h /y
 
 echo Backup complete.
 endlocal
-pause
