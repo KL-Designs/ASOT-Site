@@ -116,12 +116,11 @@ export default function Page() {
                     <Image
                         key={img}
                         className='h-[200px] w-auto object-contain rounded-sm cursor-pointer'
-                        src={`/api/gallery/fetch?stage=${stage}&operation=${operation}&year=${year}&img=${img}`}
+                        src={`${process.env.NEXT_PUBLIC_BASEURL}/api/gallery/fetch?stage=${stage}&operation=${operation}&year=${year}&img=${img}`}
                         alt={img}
                         width={200}
                         height={200}
                         loading='lazy'
-                        unoptimized
                         onClick={() => setOpenImg(`/api/gallery/fetch?stage=${encodeURIComponent(stage)}&operation=${encodeURIComponent(operation)}&year=${encodeURIComponent(year)}&img=${encodeURIComponent(img)}`)}
                     />
                 ))}
@@ -145,11 +144,10 @@ export default function Page() {
                                 <Image
                                     key={openImg}
                                     className='w-auto object-contain rounded-sm'
-                                    src={openImg}
+                                    src={process.env.NEXT_PUBLIC_BASEURL + openImg}
                                     alt={openImg}
                                     loading='lazy'
                                     fill
-                                    unoptimized
                                 />
                             </div>
                         </div>

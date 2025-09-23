@@ -28,7 +28,8 @@ export async function GET(request: NextRequest) {
     return new NextResponse(output as BodyInit, {
         status: 200,
         headers: {
-            "Content-Type": contentType
+            "Content-Type": contentType,
+            "Cache-Control": "public, max-age=31536000, immutable"
         }
     })
 }
