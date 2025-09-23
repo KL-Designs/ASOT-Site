@@ -120,7 +120,7 @@ export default function Page() {
                         alt={img}
                         width={200}
                         height={200}
-                        quality={75}
+                        // quality={75}
                         loading='lazy'
                         onClick={() => setOpenImg(`/api/gallery/fetch?stage=${encodeURIComponent(stage)}&operation=${encodeURIComponent(operation)}&year=${encodeURIComponent(year)}&img=${encodeURIComponent(img)}`)}
                     />
