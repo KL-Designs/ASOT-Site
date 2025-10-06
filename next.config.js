@@ -10,6 +10,12 @@ const nextConfig = {
 
 			{
 				protocol: 'https',
+				hostname: 'cdn.discordapp.com',
+				pathname: '/banners/**/**',
+			},
+
+			{
+				protocol: 'https',
 				hostname: 'www.asotmilsim.com',
 				pathname: '/api/gallery/fetch/**',
 			},

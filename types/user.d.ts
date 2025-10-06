@@ -7,50 +7,74 @@ declare global {
 
     interface User {
         _id: string
+        id: string
 
-        token: string
+        hexAccentColor: string
+        accentColor: number
+        avatar: string
+        avatarURL: string
+        banner: string
+        bannerURL: string
+        
+        globalName: string
+        tag: string
+        username: string
 
-        oauth?: {
-            token_type: string
-            access_token: string
-            expires_in: number
-            refresh_token: string
-            scope: string
+        guild: {
+            nickname: string
+            avatar: string
+            avatarURL: string
+            displayName: string
+            roles: string[]
         }
-
-        unit: {
-            rank: ObjectId | null
-            role: ObjectId | null
-            section: ObjectId | null
-
-            certifications: {
-                _id: ObjectId
-                type: ObjectId
-                signed: ObjectId
-                date: Date
-            }[]
-
-            awards: {
-                _id: ObjectId
-                type: ObjectId
-                signed: ObjectId
-                date: Date
-            }[]
-
-            logs: {
-                _id: ObjectId
-                signed: ObjectId
-                message: string
-                date: Date
-            }[]
-        }
-
-        discord: GuildMember
-
-        created: Date
-        lastEdited: Date
-        lastRefreshed: Date
     }
+
+    // interface User {
+    //     _id: string
+
+    //     token: string
+
+    //     oauth?: {
+    //         token_type: string
+    //         access_token: string
+    //         expires_in: number
+    //         refresh_token: string
+    //         scope: string
+    //     }
+
+    //     unit: {
+    //         rank: ObjectId | null
+    //         role: ObjectId | null
+    //         section: ObjectId | null
+
+    //         certifications: {
+    //             _id: ObjectId
+    //             type: ObjectId
+    //             signed: ObjectId
+    //             date: Date
+    //         }[]
+
+    //         awards: {
+    //             _id: ObjectId
+    //             type: ObjectId
+    //             signed: ObjectId
+    //             date: Date
+    //         }[]
+
+    //         logs: {
+    //             _id: ObjectId
+    //             signed: ObjectId
+    //             message: string
+    //             date: Date
+    //         }[]
+    //     }
+
+    //     discord: GuildMember
+
+    //     created: Date
+    //     lastEdited: Date
+    //     lastRefreshed: Date
+    // }
 
     interface OAuthUserResponse {
         id: string

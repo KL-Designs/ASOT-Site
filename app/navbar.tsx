@@ -59,7 +59,7 @@ export default function Navbar() {
                     <div className='hidden md:flex flex-row flex-wrap justify-end gap-x-10 gap-y-2 self-center'>
                         {Links.map((link) => (
                             <React.Fragment key={link.name}>
-                                <Link href={link.href} target={link.target || '_self'}>
+                                <Link href={link.href} target={/*link.target || */'_self'}>
                                     <div className={Navigation['nav-button']}>
                                         {link.icon}
                                         <p>{link.name}</p>

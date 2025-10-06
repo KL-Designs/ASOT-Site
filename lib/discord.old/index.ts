@@ -1,5 +1,3 @@
-import 'server-only'
-
 import { cookies } from 'next/headers'
 import { GenerateToken } from '@/lib/encryption'
 import Db from '@/lib/mongo'

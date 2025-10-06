@@ -1,33 +1,36 @@
 import { NextRequest, NextResponse } from "next/server"
+import Db from '@/lib/mongo'
 
 
-let cache: [number, Date] = [0, new Date(0)]
+// let cache: [number, Date] = [0, new Date(0)]
 
 
 export async function GET(request: NextRequest) {
 
-    if (new Date().getTime() - cache[1].getTime() >= 1000 * 60 * 30) {
+    const members = await Db.users.find({}).toArray()
 
-        let count = 0
+    // if (new Date().getTime() - cache[1].getTime() >= 1000 * 60 * 30) {
 
-        const body = await fetch(`https://discord.com/api/guilds/${process.env.DISCORD_GUILD_ID}/members?limit=1000`, {
-            headers: {
-                authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
-                'Content-Type': 'application/json'
-            }
-        })
+    //     let count = 0
 
-        const data = await body.json()
+    //     const body = await fetch(`https://discord.com/api/guilds/${process.env.DISCORD_GUILD_ID}/members?limit=1000`, {
+    //         headers: {
+    //             authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
 
-        data.forEach((member: { roles: string[] }) => {
-            if (member.roles.includes('1110471500563239012')) count++
-        })
+    //     const data = await body.json()
 
-        cache = [count, new Date()]
+    //     data.forEach((member: { roles: string[] }) => {
+    //         if (member.roles.includes('1110471500563239012')) count++
+    //     })
 
-        console.log('Updated member count:', count)
-    }
+    //     cache = [count, new Date()]
 
-    return NextResponse.json({ count: cache[0] }, { status: 200 })
+    //     console.log('Updated member count:', count)
+    // }
+
+    return NextResponse.json({ count: members.length }, { status: 200 })
 
 }
