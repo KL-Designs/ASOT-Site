@@ -1,4 +1,5 @@
 import fs from 'fs'
+import Db from '@/lib/mongo'
 
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
@@ -10,17 +11,18 @@ import Card from './card'
 
 
 
-export default function Page() {
+export default async function Page() {
 
-	const members: Milpac[] = []
-	const sections = fs.readdirSync('./milpacs')
-	sections.forEach(s => {
-		fs.readdirSync(`./milpacs/${s}`).forEach(m => {
-			const c: Milpac = JSON.parse(fs.readFileSync(`./milpacs/${s}/${m}`, 'utf8'))
-			c['section'] = s
-			members.push(c)
-		})
-	})
+	const members = await Db.milpacs.find({}).toArray()
+	
+	// const sections = fs.readdirSync('./milpacs')
+	// sections.forEach(s => {
+	// 	fs.readdirSync(`./milpacs/${s}`).forEach(m => {
+	// 		const c: Milpac = JSON.parse(fs.readFileSync(`./milpacs/${s}/${m}`, 'utf8'))
+	// 		c['section'] = s
+	// 		members.push(c)
+	// 	})
+	// })
 
 	return (
 		<div className='flex flex-col gap-20'>
@@ -30,17 +32,17 @@ export default function Page() {
 				</Typography>
 
 				<div className='flex justify-center gap-5'>
-					<Card milpac={members.find(m => m.id === '224086573560365057')} />
+					<Card milpac={members.find(m => m._id === '224086573560365057')} />
 				</div>
 
 				<div className='flex justify-center gap-5'>
-					<Card milpac={members.find(m => m.id === '325502946781691916')} />
+					<Card milpac={members.find(m => m._id === '325502946781691916')} />
 				</div>
 
 				<div className='flex justify-center gap-5'>
-					<Card milpac={members.find(m => m.id === '166798494424760320')} />
-					<Card milpac={members.find(m => m.id === '1344770342006034595')} />
-					<Card milpac={members.find(m => m.id === '256691919969714176')} />
+					<Card milpac={members.find(m => m._id === '166798494424760320')} />
+					<Card milpac={members.find(m => m._id === '1344770342006034595')} />
+					<Card milpac={members.find(m => m._id === '256691919969714176')} />
 				</div>
 			</div>
 
@@ -54,7 +56,7 @@ export default function Page() {
 				</Typography>
 
 				<div className='flex flex-wrap justify-center gap-5'>
-					{members.map(m => m.section === '1-1' ? <Card key={m.id} milpac={m} /> : null)}
+					{members.map(m => m.section === '1-1' ? <Card key={m._id} milpac={m} /> : null)}
 				</div>
 			</div>
 
@@ -64,7 +66,7 @@ export default function Page() {
 				</Typography>
 
 				<div className='flex flex-wrap justify-center gap-5'>
-					{members.map(m => m.section === '1-1-1' ? <Card key={m.id} milpac={m} /> : null)}
+					{members.map(m => m.section === '1-1-1' ? <Card key={m._id} milpac={m} /> : null)}
 				</div>
 			</div>
 
@@ -74,7 +76,7 @@ export default function Page() {
 				</Typography>
 
 				<div className='flex flex-wrap justify-center gap-5'>
-					{members.map(m => m.section === '1-1-2' ? <Card key={m.id} milpac={m} /> : null)}
+					{members.map(m => m.section === '1-1-2' ? <Card key={m._id} milpac={m} /> : null)}
 				</div>
 			</div>
 
@@ -84,7 +86,7 @@ export default function Page() {
 				</Typography>
 
 				<div className='flex flex-wrap justify-center gap-5'>
-					{members.map(m => m.section === '1-1-3' ? <Card key={m.id} milpac={m} /> : null)}
+					{members.map(m => m.section === '1-1-3' ? <Card key={m._id} milpac={m} /> : null)}
 				</div>
 			</div>
 
@@ -98,7 +100,7 @@ export default function Page() {
 				</Typography>
 
 				<div className='flex flex-wrap justify-center gap-5'>
-					{members.map(m => m.section === '1-2' ? <Card key={m.id} milpac={m} /> : null)}
+					{members.map(m => m.section === '1-2' ? <Card key={m._id} milpac={m} /> : null)}
 				</div>
 			</div>
 
@@ -108,7 +110,7 @@ export default function Page() {
 				</Typography>
 
 				<div className='flex flex-wrap justify-center gap-5'>
-					{members.map(m => m.section === '1-2-1' ? <Card key={m.id} milpac={m} /> : null)}
+					{members.map(m => m.section === '1-2-1' ? <Card key={m._id} milpac={m} /> : null)}
 				</div>
 			</div>
 
@@ -118,7 +120,7 @@ export default function Page() {
 				</Typography>
 
 				<div className='flex flex-wrap justify-center gap-5'>
-					{members.map(m => m.section === '1-2-2' ? <Card key={m.id} milpac={m} /> : null)}
+					{members.map(m => m.section === '1-2-2' ? <Card key={m._id} milpac={m} /> : null)}
 				</div>
 			</div>
 
@@ -128,7 +130,7 @@ export default function Page() {
 				</Typography>
 
 				<div className='flex flex-wrap justify-center gap-5'>
-					{members.map(m => m.section === '1-2-3' ? <Card key={m.id} milpac={m} /> : null)}
+					{members.map(m => m.section === '1-2-3' ? <Card key={m._id} milpac={m} /> : null)}
 				</div>
 			</div>
 		</div>

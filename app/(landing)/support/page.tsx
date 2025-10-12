@@ -8,7 +8,7 @@ import Container from "@/components/container"
 import { ContentText } from '@/components/content'
 
 
-import Banner from '@/public/images/home/support.jpg'
+import Banner from '@/public/images/home/mikeretreat2.png'
 import ImgEmergency from '@/public/images/support/tripleZero.jpg'
 import ImgLifeline from '@/public/images/support/lifeline.png'
 import ImgBeyondBlue from '@/public/images/support/BeyondBlue.png'

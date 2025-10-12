@@ -40,4 +40,5 @@ next-env.d.ts
 config.ts
 /.uploads
 /gallery
+/milpacs
 /.backup

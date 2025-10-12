@@ -4,7 +4,7 @@ import { connection } from 'next/server'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
-import { fetchMember } from "@/lib/discord"
+import client from "@/lib/discord"
 import Avatar from '@/components/member/avatar'
 import Banner from '@/components/member/banner'
 
@@ -17,7 +17,7 @@ export default async function Card({ milpac }: { milpac?: Milpac }) {
     if (!milpac) return null
 
     await connection()
-    const member = await fetchMember(milpac.id).catch(e => console.error(e))
+    const member = await client.fetchMember(milpac._id).catch(e => console.error(e))
     if (!member) return null
 
 

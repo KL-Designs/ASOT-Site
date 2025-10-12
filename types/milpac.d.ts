@@ -6,7 +6,7 @@ export { }
 declare global {
 
     interface Milpac {
-        id: string
+        _id: string
         title: string
         section: string
     }
