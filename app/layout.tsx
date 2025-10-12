@@ -3,6 +3,8 @@ import { Montserrat, IBM_Plex_Sans } from "next/font/google"
 import "@/styles/globals.css"
 
 
+import { ThemeProvider } from "@mui/material"
+import UnitTheme from '@/themes/unit'
 import Navbar from './navbar'
 import Footer from "./footer"
 
@@ -36,19 +38,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 			</head>
 
 			<body className={`${montserrat.className}  antialiased h-full`}>
+				<ThemeProvider theme={UnitTheme}>
+					
+					<div style={{ zIndex: 1 }}>
+						<Navbar />
+					</div>
 
-				<div style={{ zIndex: 1 }}>
-					<Navbar />
-				</div>
+					<div style={{ zIndex: 0 }}>
+						{children}
+					</div>
 
-				<div style={{ zIndex: 0 }}>
-					{children}
-				</div>
+					<div style={{ zIndex: 1 }}>
+						<Footer />
+					</div>
 
-				<div style={{ zIndex: 1 }}>
-					<Footer />
-				</div>
-
+				</ThemeProvider>
 			</body>
 		</html>
 	)

@@ -1,4 +1,4 @@
-export function ExchangeToken(code: string): Promise<User['oauth']> {
+export function ExchangeToken(code: string): Promise<OAuth> {
     return new Promise((resolve, reject) => {
 
         fetch('https://discord.com/api/oauth2/token', {
@@ -23,7 +23,7 @@ export function ExchangeToken(code: string): Promise<User['oauth']> {
     })
 }
 
-export function GetUser(oauth: User['oauth']): Promise<OAuthUserResponse> {
+export function GetUser(oauth: OAuth): Promise<OAuthUserResponse> {
     return new Promise((resolve, reject) => {
 
         fetch('https://discord.com/api/users/@me', {

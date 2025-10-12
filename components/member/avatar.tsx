@@ -8,9 +8,9 @@ import Fallback from '@/public/images/fallback_pfp.png'
 
 
 
-export default function Avatar({ member }: { member?: GuildMember }) {
+export default function Avatar({ user }: { user?: User }) {
 
-    const [image, setImage] = useState<string | StaticImageData>(member ? `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}?size=256` : Fallback)
+    const [image, setImage] = useState<string | StaticImageData>(user ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}?size=256` : Fallback)
 
     return (
         <Image

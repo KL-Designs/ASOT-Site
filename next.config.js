@@ -10,6 +10,12 @@ const nextConfig = {
 
 			{
 				protocol: 'https',
+				hostname: 'cdn.discordapp.com',
+				pathname: '/banners/**/**',
+			},
+
+			{
+				protocol: 'https',
 				hostname: 'www.asotmilsim.com',
 				pathname: '/api/gallery/fetch/**',
 			},
@@ -28,13 +34,13 @@ const nextConfig = {
 			{
 				source: '/ts',
 				destination: `ts3server://ts.asotmilsim.com`,
-				permanent: true,
+				permanent: false,
 			},
-			// {
-			// 	source: '/login',
-			// 	destination: `https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(process.env.NEXT_PUBLIC_BASEURL + process.env.DISCORD_REDIRECT_URI)}&scope=${process.env.DISCORD_SCOPE.split(' ').join('+')}`,
-			// 	permanent: true,
-			// },
+			{
+				source: '/login',
+				destination: `https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(process.env.NEXT_PUBLIC_BASEURL + process.env.DISCORD_REDIRECT_URI)}&scope=${process.env.DISCORD_SCOPE.split(' ').join('+')}`,
+				permanent: false,
+			},
 			// {
 			// 	source: '/dashboard',
 			// 	destination: '/dashboard/account',
