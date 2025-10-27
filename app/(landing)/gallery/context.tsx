@@ -1,14 +1,14 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react'
+// import React, { createContext, useContext, useState, ReactNode } from 'react'
 
 
-interface Gallery {
+// interface Gallery {
 
-}
+// }
 
-interface GalleryContextType {
+// interface GalleryContextType {
 
-}
+// }
 
 
-const GalleryContext = createContext<GalleryContextType | undefined>(undefined)
+// const GalleryContext = createContext<GalleryContextType | undefined>(undefined)
 
