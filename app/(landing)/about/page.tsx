@@ -16,7 +16,7 @@ export default function Tab() {
 
 	const localTime = new Date()
 	localTime.setHours(18, 0, 0, 0)
-	
+
 	const formattedTime = new Intl.DateTimeFormat('en-AU', {
 		hour: '2-digit',
 		minute: '2-digit',
@@ -51,10 +51,19 @@ export default function Tab() {
 				<br />
 				<Typography className='underline'>When Daylight savings is not observed.</Typography>
 				<br />
-				<Typography><b>Load into server:</b> No later than 1800 AEST</Typography>
-				<Typography><b>Op briefing:</b> 1815 AEST</Typography>
-				<Typography><b>Step off:</b> 1830 AEST</Typography>
+				<Typography><b>Staff load in:</b> 1745 AEST</Typography>
+				<Typography><b>Staff briefing:</b> 1750 AEST</Typography>
+				<Typography><b>All members load in:</b> 1800 AEST</Typography>
+				<Typography><b>Step off:</b> 1810 AEST</Typography>
 				<Typography><b>Mission end:</b> 2030 - 2130 AEST</Typography>
+				<br />
+				<Typography className='underline'>When Daylight savings is observed.</Typography>
+				<br />
+				<Typography><b>Staff load in:</b> 1815 AEST</Typography>
+				<Typography><b>Staff briefing:</b> 1820 AEST</Typography>
+				<Typography><b>All members load in:</b> 1830 AEST</Typography>
+				<Typography><b>Step off:</b> 1840 AEST</Typography>
+				<Typography><b>Mission end:</b> 2100 - 2200 AEST</Typography>
 				<br />
 				<Typography>We also run missions and trainings throughout the week but these are optional.</Typography>
 				<br />

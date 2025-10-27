@@ -1,7 +1,13 @@
+import { Metadata } from "next"
+
 import Container from '@/components/container'
 
 import Banner from '@/public/images/home/adf_peaking3.png'
 
+
+export const metadata: Metadata = {
+	title: "Gallery | Australian Special Operations Taskforce",
+}
 
 
 export default function Page({ children }: Readonly<{ children: React.ReactNode }>) {

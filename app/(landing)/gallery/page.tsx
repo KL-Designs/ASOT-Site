@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { Typography, Button } from '@mui/material'
 import { Reply, Close } from '@mui/icons-material'
 
-import { use, useEffect, useState } from "react"
+import { useEffect, useState} from "react"
 
 
 export default function Page() {
@@ -84,7 +84,7 @@ export default function Page() {
                 </div>
 
                 <div className='flex flex-col gap-2 flex-grow max-w-[700px] md:max-w-[50%]'>
-                    <Typography sx={{textTransform: 'none'}} className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+                    <Typography sx={{ textTransform: 'none' }} className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
                         OPERATION
                     </Typography>
 
@@ -94,7 +94,7 @@ export default function Page() {
                             const numB = parseInt(b.operation.match(/^\d+/)?.[0] || "0", 10)
                             return numA - numB
                         }).map(op => (
-                            <Button key={op.operation} sx={{textTransform: 'none'}} className='flex-grow' variant='contained' color={op.operation === operation ? 'primary' : 'secondary'} onClick={() => setOperation(op.operation)}>{op.operation}</Button>
+                            <Button key={op.operation} sx={{ textTransform: 'none' }} className='flex-grow' variant='contained' color={op.operation === operation ? 'primary' : 'secondary'} onClick={() => setOperation(op.operation)}>{op.operation}</Button>
                         ))}
                     </div>
                 </div>
@@ -105,7 +105,7 @@ export default function Page() {
                     </Typography>
 
                     {data.find(g => g.year === year)?.operations.find(op => op.operation === operation)?.stages.map(s => (
-                        <Button key={s.stage} sx={{textTransform: 'none'}} fullWidth variant='contained' color={s.stage === stage ? 'primary' : 'secondary'} onClick={() => setStage(s.stage)}>{s.stage}</Button>
+                        <Button key={s.stage} sx={{ textTransform: 'none' }} fullWidth variant='contained' color={s.stage === stage ? 'primary' : 'secondary'} onClick={() => setStage(s.stage)}>{s.stage}</Button>
                     ))}
                 </div>
             </div>
