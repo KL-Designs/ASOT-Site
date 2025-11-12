@@ -37,6 +37,12 @@ declare global {
             joinedTimestamp: number
             roles: string[]
         }
+
+        optionals?: {
+            qol: { id: string, name: string }[]
+            gfx: { id: string, name: string }[]
+            zeus: { id: string, name: string }[]
+        }
     }
 
     interface Role {
@@ -46,7 +52,7 @@ declare global {
         rawPosition: number
     }
 
-    
+
     interface OAuthUserResponse {
         id: string
         username: string

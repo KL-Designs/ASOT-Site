@@ -13,6 +13,7 @@ const DbInterface = {
     users: client.db(process.env.MONGO_DB!).collection('users') as MongoCollection<User>,
     roles: client.db(process.env.MONGO_DB!).collection('roles') as MongoCollection<Role>,
     milpacs: client.db(process.env.MONGO_DB!).collection('milpacs') as MongoCollection<Milpac>,
+    optionals: client.db(process.env.MONGO_DB!).collection('optionals') as MongoCollection<Optional>,
 
     // ranks: client.db(process.env.MONGO_DB!).collection('ranks') as MongoCollection<Rank>,
     // roles: client.db(process.env.MONGO_DB!).collection('roles') as MongoCollection<Role>,
