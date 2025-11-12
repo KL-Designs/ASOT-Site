@@ -11,6 +11,8 @@ export default function Page() {
     const [gfxList, setGfxList] = useState<{ id: string, name: string }[]>([])
     const [zeusList, setZeusList] = useState<{ id: string, name: string }[]>([])
 
+    const [qolAll, setQolAll] = useState(false)
+
     useEffect(() => {
         fetch('/optionals/fetch?type=qol')
             .then(res => res.json())
@@ -34,6 +36,44 @@ export default function Page() {
             })
     }, [])
 
+
+    function Mod({ type, details }: { type: 'qol' | 'gfx' | 'zeus', details: { id: string, name: string } }) {
+        const [enabled, setEnabled] = useState<boolean | null>(null)
+
+        useEffect(() => {
+            fetch(`/optionals/me?type=${type}&id=${details.id}&mode=check`)
+                .then(res => res.json())
+                .then(json => {
+                    if (json.error) return console.error(json.error)
+                    if (json.enabled) setEnabled(true)
+                    else setEnabled(false)
+                })
+        }, [])
+
+        useEffect(() => {
+            if (enabled === null) return
+            if (enabled) fetch(`/optionals/me?type=${type}&id=${details.id}&mode=add&name=${encodeURIComponent(details.name)}`)
+                .then(res => res.json())
+                .then(json => {
+                    if (json.error) return console.error(json.error)
+                })
+
+            else fetch(`/optionals/me?type=${type}&id=${details.id}&mode=remove`)
+                .then(res => res.json())
+                .then(json => {
+                    if (json.error) return console.error(json.error)
+                })
+        }, [enabled])
+
+        return (
+            <div className="flex flex-row justify-between items-center" style={{ borderBottom: '1px solid var(--grey)' }}>
+                <Typography fontWeight={enabled ? 600 : 400} align='left'>{details.name}</Typography>
+                <Switch checked={enabled || false} onChange={(e) => { setEnabled(e.currentTarget.checked); }} />
+            </div>
+        )
+    }
+
+
     return (
         <div>
             <Typography className="mb-5" fontWeight={700} fontSize={50} letterSpacing={4} align='center'>CONFIGURE OPTIONAL ADDONS</Typography>
@@ -42,7 +82,7 @@ export default function Page() {
                 <div className="rounded-md p-3" style={{ border: '1px solid var(--red)' }}>
                     <div className="flex flex-row justify-between">
                         <Typography fontWeight={700} fontSize={30} align='left'>Quality of Life</Typography>
-                        <Switch checked={false} onChange={(e) => { }} />
+                        {/* <Switch checked={qolAll} onChange={(e) => setQolAll(e.currentTarget.checked)} /> */}
                     </div>
 
                     <Divider className="my-3" />
@@ -55,7 +95,7 @@ export default function Page() {
                 <div className="rounded-md p-3" style={{ border: '1px solid var(--red)' }}>
                     <div className="flex flex-row justify-between">
                         <Typography fontWeight={700} fontSize={30} align='left'>Graphical Effects</Typography>
-                        <Switch checked={false} onChange={(e) => { }} />
+                        {/* <Switch checked={false} onChange={(e) => { }} /> */}
                     </div>
 
                     <Typography fontWeight={400} fontSize={15} align='left'>These addons may <b>significantly</b> effect your performance.</Typography>
@@ -70,7 +110,7 @@ export default function Page() {
                 <div className="rounded-md p-3" style={{ border: '1px solid var(--red)' }}>
                     <div className="flex flex-row justify-between">
                         <Typography fontWeight={700} fontSize={30} align='left'>Zeus</Typography>
-                        <Switch checked={false} onChange={(e) => { }} />
+                        {/* <Switch checked={false} onChange={(e) => { }} /> */}
                     </div>
 
                     <Divider className="my-3" />
@@ -80,29 +120,6 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
-
-
-function Mod({ type, details }: { type: 'qol' | 'gfx' | 'zeus', details: { id: string, name: string } }) {
-
-    const [enabled, setEnabled] = useState<boolean | null>(null)
-
-    useEffect(() => {
-        fetch(`/optionals/me?type=${type}&id=${details.id}`)
-            .then(res => res.json())
-            .then(json => {
-                if (json.error) return console.error(json.error)
-                if (json.enabled) setEnabled(true)
-                else setEnabled(false)
-            })
-    }, [])
-
-    return (
-        <div className="flex flex-row justify-between items-center" style={{ borderBottom: '1px solid var(--grey)' }}>
-            <Typography fontWeight={enabled ? 600 : 400} align='left'>{details.name}</Typography>
-            <Switch checked={enabled || false} onChange={(e) => setEnabled(e.currentTarget.checked)} />
         </div>
     )
 }

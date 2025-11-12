@@ -1,10 +1,11 @@
 import client from '@/lib/discord'
 import { connection } from 'next/server'
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 
 import ConvertColor from '@/lib/discord/color'
 
-import { Paper, Divider, Typography } from '@mui/material'
+import { Paper, Divider, Typography, Button } from '@mui/material'
 
 import Avatar from '@/components/member/avatar'
 
@@ -18,8 +19,8 @@ export default async function Page() {
     if (!me) return redirect('/login')
 
     return (
-        <div className='h-full w-full p-10 pt-[100px]'>
-            <div className='flex flex-col justify-center items-center'>
+        <div className='h-full w-full p-10'>
+            <div className='flex flex-col justify-center items-center gap-5'>
 
                 <Paper elevation={1} className='p-5 flex flex-col gap-5'>
                     <div className='flex gap-5'>
@@ -37,6 +38,8 @@ export default async function Page() {
                     </div>
 
                     <Divider />
+
+                    <Link href='/optionals'><Button fullWidth variant='contained'>📝 Configure Optionals</Button></Link>
 
                     <div>
                         {me.roles.map(role => <Typography key={role.id} color={role.color !== 0 ? ConvertColor(role.color) : '#fff'}>{role.name}</Typography>)}
