@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 
 import { Button, Typography, Divider, Switch } from '@mui/material'
+import { ChevronRight } from '@mui/icons-material'
 
 
 export default function Page() {
@@ -76,7 +77,23 @@ export default function Page() {
 
     return (
         <div>
-            <Typography className="mb-5" fontWeight={700} fontSize={50} letterSpacing={4} align='center'>CONFIGURE OPTIONAL ADDONS</Typography>
+            <div className="mb-5 flex flex-row justify-between">
+                <div>
+                    <Typography fontWeight={700} fontSize={50} letterSpacing={4} align='left'>CONFIGURE OPTIONAL ADDONS</Typography>
+                    <Typography fontWeight={300} fontSize={20} align='left'>Some addons have a big effect on performance.<br />For the best experience, only enable addons you know and use regularly.</Typography>
+                </div>
+
+                <div>
+                    <Typography fontWeight={300} fontSize={20} letterSpacing={4} align='right'>KNOWN FPS HITS</Typography>
+                    <Divider />
+                    <Typography fontWeight={200} fontSize={20} letterSpacing={4} align='right'>Athena -</Typography>
+                    <Typography fontWeight={200} fontSize={20} letterSpacing={4} align='right'>Blastcore -</Typography>
+                    <Typography fontWeight={200} fontSize={20} letterSpacing={4} align='right'>Bloodlust+ -</Typography>
+                    <Typography fontWeight={200} fontSize={20} letterSpacing={4} align='right'>Enhanced Missile Smoke -</Typography>
+                    <Typography fontWeight={200} fontSize={20} letterSpacing={4} align='right'>Depressed Lighting -</Typography>
+                    <Typography fontWeight={200} fontSize={20} letterSpacing={4} align='right'>A3 Thermal Improvement -</Typography>
+                </div>
+            </div>
 
             <div className="flex flex-row gap-5 flex-wrap justify-center">
                 <div className="rounded-md p-3" style={{ border: '1px solid var(--red)' }}>
