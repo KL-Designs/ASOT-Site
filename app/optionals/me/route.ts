@@ -19,7 +19,8 @@ export async function GET(request: NextRequest) {
         if (!me) throw new Error('Not logged in')
 
         if (!me.optionals) await Db.users.updateOne({ _id: me._id }, { $set: { optionals: { qol: [], gfx: [], zeus: [] } } })
-        const optionals = (await Db.users.findOne({ _id: me._id }))?.optionals!
+        const optionals = (await Db.users.findOne({ _id: me._id }))?.optionals
+        if (!optionals) throw new Error('Optionals Config Missing!')
 
         if (mode === 'check') {
             if (optionals[type].find(mod => mod.id === id)) return NextResponse.json({ enabled: true }, { status: 200 })
