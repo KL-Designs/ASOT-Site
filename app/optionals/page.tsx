@@ -98,7 +98,7 @@ export default function Page() {
                         {/* <Switch checked={false} onChange={(e) => { }} /> */}
                     </div>
 
-                    <Typography fontWeight={400} fontSize={15} align='left'>These addons may <b>significantly</b> effect your performance.</Typography>
+                    <Typography fontWeight={400} fontSize={15} align='left'>Some of these addons may <b>significantly</b> effect your performance.</Typography>
 
                     <Divider className="my-3" />
 
