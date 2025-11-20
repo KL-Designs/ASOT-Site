@@ -7,7 +7,7 @@ import Db from '@/lib/mongo'
 
 export async function GET(request: NextRequest) {
 
-    const type = request.nextUrl.searchParams.get('type') as 'qol' | 'gfx' | 'zeus'
+    const type = request.nextUrl.searchParams.get('type') as 'qol' | 'gfx' | 'zeus' | 'j2' | 'j5'
     const id = request.nextUrl.searchParams.get('id') as string
     const mode = request.nextUrl.searchParams.get('mode') as 'check' | 'add' | 'remove'
     const name = request.nextUrl.searchParams.get('name') as string
@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
         const me = await client.fetchMe()
         if (!me) throw new Error('Not logged in')
 
-        if (!me.optionals) await Db.users.updateOne({ _id: me._id }, { $set: { optionals: { qol: [], gfx: [], zeus: [] } } })
+        if (!me.optionals) await Db.users.updateOne({ _id: me._id }, { $set: { optionals: { qol: [], gfx: [], zeus: [], j2: [], j5: [] } } })
         const optionals = (await Db.users.findOne({ _id: me._id }))?.optionals
         if (!optionals) throw new Error('Optionals Config Missing!')
 
@@ -38,6 +38,12 @@ export async function GET(request: NextRequest) {
                 case 'zeus':
                     Db.users.updateOne({ _id: me._id }, { $addToSet: { 'optionals.zeus': { id, name } } })
                     break
+                case 'j2':
+                    Db.users.updateOne({ _id: me._id }, { $addToSet: { 'optionals.j2': { id, name } } })
+                    break
+                case 'j5':
+                    Db.users.updateOne({ _id: me._id }, { $addToSet: { 'optionals.j5': { id, name } } })
+                    break
 
                 default:
                     throw new Error('Type does not exist')
@@ -54,6 +60,12 @@ export async function GET(request: NextRequest) {
                     break
                 case 'zeus':
                     Db.users.updateOne({ _id: me._id }, { $pull: { 'optionals.zeus': { id } } })
+                    break
+                case 'j2':
+                    Db.users.updateOne({ _id: me._id }, { $pull: { 'optionals.j2': { id } } })
+                    break
+                case 'j5':
+                    Db.users.updateOne({ _id: me._id }, { $pull: { 'optionals.j5': { id } } })
                     break
 
                 default:

@@ -7,8 +7,8 @@ import Db from '@/lib/mongo'
 
 export async function GET(request: NextRequest) {
 
-    const type = request.nextUrl.searchParams.get('type') as 'qol' | 'gfx' | 'zeus'
-    if (type !== 'qol' && type !== 'gfx' && type !== 'zeus') NextResponse.json({ error: 'Incorrect type provided' }, { status: 400 })
+    const type = request.nextUrl.searchParams.get('type') as 'qol' | 'gfx' | 'zeus' | 'j2' | 'j5'
+    if (type !== 'qol' && type !== 'gfx' && type !== 'zeus' && type !== 'j2' && type !== 'j5') NextResponse.json({ error: 'Incorrect type provided' }, { status: 400 })
 
     try {
         const list = await Db.optionals.findOne({ _id: type })
