@@ -32,27 +32,31 @@ export default function TimeZones() {
     ]
 
     function convertToLocal(times: { label: string; time: string; timezone: string }[]) {
+        const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone
+
         return times.map(({ label, time, timezone }) => {
             const [hours, minutes] = time.split(':').map(Number)
-            const now = new Date()
-            const dateInTZ = new Date(
-                now.toLocaleString('en-US', { timeZone: timezone })
-            )
-            dateInTZ.setHours(hours)
-            dateInTZ.setMinutes(minutes)
 
-            const localTimeString = dateInTZ.toLocaleTimeString([], {
+            // Treat input as Sydney time
+            const sydneyDate = new Date(
+                new Date().toLocaleString('en-US', { timeZone: 'Australia/Sydney' })
+            )
+            sydneyDate.setHours(hours, minutes, 0, 0)
+
+            // Convert to user's timezone and include their timezone abbreviation
+            const localTimeString = sydneyDate.toLocaleTimeString([], {
                 hour: '2-digit',
                 minute: '2-digit',
+                hour12: false,
+                timeZone: userTZ,
+                timeZoneName: 'short', // <-- adds user's TZ abbreviation
             })
 
-            // Determine abbreviation manually
-            const isDST = dateInTZ.getTimezoneOffset() < new Date(dateInTZ.getFullYear(), 5, 1).getTimezoneOffset()
-            const tzAbbr = isDST ? 'AEDT' : 'AEST'
-
-            return { label, time: `${localTimeString} ${tzAbbr}` }
+            return { label, time: localTimeString }
         })
     }
+
+
 
 
     useEffect(() => {
