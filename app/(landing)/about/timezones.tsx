@@ -33,10 +33,10 @@ export default function TimeZones() {
     ]
 
     function convertToLocal(times: { label: string; time: string; timezone: string }[], useStandardTime = false) {
-        const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone
 
         return times.map(({ label, time, timezone }) => {
-            const [hours, minutes] = time.split(':').map(Number);
+            const [hours, minutes] = time.split(':').map(Number)
 
             // Pick a fixed date in winter (June 1) for standard times to avoid DST
             const fixedDate = useStandardTime ? { year: 2025, month: 6, day: 1 } : undefined;
@@ -50,17 +50,17 @@ export default function TimeZones() {
                 { zone: timezone }
             );
 
-            const userDT = dt.setZone(userTZ);
+            const userDT = dt.setZone(userTZ)
 
             const localTimeString = new Intl.DateTimeFormat('en-AU', {
                 hour: '2-digit',
                 minute: '2-digit',
                 timeZone: userTZ,
                 timeZoneName: 'short',
-            }).format(userDT.toJSDate());
+            }).format(userDT.toJSDate())
 
-            return { label, time: localTimeString };
-        });
+            return { label, time: localTimeString }
+        })
     }
 
 
@@ -77,6 +77,7 @@ export default function TimeZones() {
             <Typography>2 Platoon conducts missions on Sunday nights.</Typography>
             <Typography>3 Platoon(Support Platoon) supports both Saturday and Sunday night missions.</Typography>
             <br />
+            <Typography fontSize={14} className='mb-1' fontStyle={'italic'}>The times below have been converted to your local timezone.</Typography>
             <Typography className='underline'>When Daylight savings is not observed (First Sunday of April – First Sunday of October):</Typography>
             {localStandardTimes.map(({ label, time }, idx) => (
                 <Typography key={idx}>
