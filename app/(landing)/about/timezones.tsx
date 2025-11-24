@@ -32,28 +32,26 @@ export default function TimeZones() {
         { label: 'Mission end', time: '21:00', timezone: 'Australia/Sydney' },
     ]
 
-    function convertToLocal(
-        times: { label: string; time: string; timezone: string }[]
-    ) {
-        // Get the user's IANA timezone (from browser)
-        const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone
+    function convertToLocal(times: { label: string; time: string; timezone: string }[], useStandardTime = false) {
+        const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
         return times.map(({ label, time, timezone }) => {
-            const [hours, minutes] = time.split(':').map(Number)
+            const [hours, minutes] = time.split(':').map(Number);
 
-            // Create a DateTime in Sydney (with correct DST if needed)
-            const sydneyDT = DateTime.fromObject(
+            // Pick a fixed date in winter (June 1) for standard times to avoid DST
+            const fixedDate = useStandardTime ? { year: 2025, month: 6, day: 1 } : undefined;
+
+            const dt = DateTime.fromObject(
                 {
                     hour: hours,
                     minute: minutes,
+                    ...fixedDate,
                 },
                 { zone: timezone }
-            )
+            );
 
-            // Convert that Sydney time to the user's timezone
-            const userDT = sydneyDT.setZone(userTZ)
+            const userDT = dt.setZone(userTZ);
 
-            // Format into a string, including user timezone abbreviation
             const localTimeString = new Intl.DateTimeFormat('en-AU', {
                 hour: '2-digit',
                 minute: '2-digit',
@@ -61,15 +59,13 @@ export default function TimeZones() {
                 timeZoneName: 'short',
             }).format(userDT.toJSDate());
 
-            return {
-                label,
-                time: localTimeString,
-            }
-        })
+            return { label, time: localTimeString };
+        });
     }
 
+
     useEffect(() => {
-        setLocalStandardTimes(convertToLocal(standardTimes))
+        setLocalStandardTimes(convertToLocal(standardTimes, true))
         setLocalDaylightTimes(convertToLocal(daylightTimes))
     }, [])
 
