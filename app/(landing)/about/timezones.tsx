@@ -17,11 +17,11 @@ export default function TimeZones() {
     const [localDaylightTimes, setLocalDaylightTimes] = useState<LocalTime[]>([])
 
     const standardTimes = [
-        { label: 'Staff load in', time: '17:45', timezone: 'Australia/Sydney' }, // AEST
-        { label: 'Staff briefing', time: '17:50', timezone: 'Australia/Sydney' },
-        { label: 'All members load in', time: '18:00', timezone: 'Australia/Sydney' },
-        { label: 'Step off', time: '18:10', timezone: 'Australia/Sydney' },
-        { label: 'Mission end', time: '20:30', timezone: 'Australia/Sydney' },
+        { label: 'Staff load in', time: '17:45', timezone: 'Australia/Brisbane' }, // AEST
+        { label: 'Staff briefing', time: '17:50', timezone: 'Australia/Brisbane' },
+        { label: 'All members load in', time: '18:00', timezone: 'Australia/Brisbane' },
+        { label: 'Step off', time: '18:10', timezone: 'Australia/Brisbane' },
+        { label: 'Mission end', time: '20:30', timezone: 'Australia/Brisbane' },
     ]
 
     const daylightTimes = [
