@@ -47,7 +47,7 @@ export default function TimeZones() {
                     hour: hours,
                     minute: minutes,
                 },
-                { zone: 'Australia/Sydney' }
+                { zone: timezone }
             )
 
             // Convert that Sydney time to the user's timezone
