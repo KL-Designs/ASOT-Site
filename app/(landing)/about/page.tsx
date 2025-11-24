@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Typography, Divider } from '@mui/material'
 
 import Content from '@/components/content'
+import TimeZones from './timezones'
 
 
 export const metadata: Metadata = {
@@ -13,19 +14,6 @@ export const metadata: Metadata = {
 
 
 export default function Tab() {
-
-	const localTime = new Date()
-	localTime.setHours(18, 0, 0, 0)
-
-	const formattedTime = new Intl.DateTimeFormat('en-AU', {
-		hour: '2-digit',
-		minute: '2-digit',
-		timeZone: 'Australia/Sydney',
-		timeZoneName: 'short',
-	}).format(localTime)
-
-	const Times = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })
-
 	return (
 		<>
 			<Content title='WHO ARE WE?'>
@@ -43,33 +31,7 @@ export default function Tab() {
 			<Divider />
 
 			<Content title='WHEN DO WE RUN MISSIONS?'>
-				<Typography>Our primary missions are run every Saturday and Sunday.</Typography>
-				<br />
-				<Typography>1 Platoon conducts missions on Saturday nights.</Typography>
-				<Typography>2 Platoon conducts missions on Sunday nights.</Typography>
-				<Typography>3 Platoon(Support Platoon) supports both Saturday and Sunday night missions.</Typography>
-				<br />
-				<Typography className='underline'>When Daylight savings is not observed.</Typography>
-				<br />
-				<Typography><b>Staff load in:</b> 1745 AEST</Typography>
-				<Typography><b>Staff briefing:</b> 1750 AEST</Typography>
-				<Typography><b>All members load in:</b> 1800 AEST</Typography>
-				<Typography><b>Step off:</b> 1810 AEST</Typography>
-				<Typography><b>Mission end:</b> 2030 - 2130 AEST</Typography>
-				<br />
-				<Typography className='underline'>When Daylight savings is observed.</Typography>
-				<br />
-				<Typography><b>Staff load in:</b> 1815 AEDT</Typography>
-				<Typography><b>Staff briefing:</b> 1820 AEDT</Typography>
-				<Typography><b>All members load in:</b> 1830 AEDT</Typography>
-				<Typography><b>Step off:</b> 1840 AEDT</Typography>
-				<Typography><b>Mission end:</b> 2100 - 2200 AEDT</Typography>
-				<br />
-				<Typography>We also run missions and trainings throughout the week but these are optional.</Typography>
-				<br />
-				<Typography>If you wish to check the times for your state, you can use the link below to assist.</Typography>
-				<br />
-				<Typography><Link className='underline break-words' href='https://www.timeanddate.com/worldclock/converter.html' target='_blank'>https://www.timeanddate.com/worldclock/converter.html</Link></Typography>
+				<TimeZones />
 			</Content>
 
 			<Divider />
