@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		// qualities: [100, 75],
+		qualities: [100, 75],
 		remotePatterns: [
 			{
 				protocol: 'https',
@@ -104,8 +104,8 @@ const nextConfig = {
 	}
 };
 
-// const withBundleAnalyzer = require('@next/bundle-analyzer')({
-// 	enabled: process.env.ANALYZE === 'true',
-// });
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true',
+});
 
-// module.exports = withBundleAnalyzer(nextConfig);
+module.exports = withBundleAnalyzer(nextConfig);
