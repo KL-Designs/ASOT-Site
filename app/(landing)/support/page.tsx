@@ -50,7 +50,7 @@ export default function Page() {
 				<br />
 				<Typography>Although not professionally trained, ASOT chaplains are bound to strict confidentiality and other rules associated with protecting any members they talk to. They offer all current and ex-ASOT members an ear to talk to, a shoulder to cry on, or simply a outlet to vent to.</Typography>
 				<br />
-				<Typography>If our chaplains cannot provide the advise or care they believe is suitable or within their comfort zone, then they provide details to professional help available in that member’s area/country.</Typography>
+				<Typography>If our chaplains cannot provide the advice or care they believe is suitable or within their comfort zone, then they provide details to professional help available in that member’s area/country.</Typography>
 				<br />
 				<Typography>The ASOT chaplains can be found listed in the departments tab on the <Link href='/orbat' target="_blank" className="underline">ASOT ORBAT</Link> and can be contacted via direct message any time, any day.</Typography>
 			</ContentText>
