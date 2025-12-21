@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    container_name: asot-website
+    ports:
+      - "9106:3000"
+    volumes:
+      - ./gallery:/app/gallery
+    restart: unless-stopped
+    environment:
+      - MONGO_URI=mongodb://host.docker.internal:27017
