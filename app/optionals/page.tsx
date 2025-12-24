@@ -10,15 +10,13 @@ import { ChevronRight, Launch } from '@mui/icons-material'
 export default function Page() {
 
     const [agreement, setAgreement] = useState(false)
-    const [waitTime, setWaitTime] = useState(15)
+    const [waitTime, setWaitTime] = useState(10)
 
     const [qolList, setQolList] = useState<{ id: string, name: string }[]>([])
     const [gfxList, setGfxList] = useState<{ id: string, name: string }[]>([])
     const [zeusList, setZeusList] = useState<{ id: string, name: string }[]>([])
     const [j2List, setJ2List] = useState<{ id: string, name: string }[]>([])
     const [j5List, setJ5List] = useState<{ id: string, name: string }[]>([])
-
-    const [qolAll, setQolAll] = useState(false)
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -30,6 +28,12 @@ export default function Page() {
                 return prev - 1
             })
         }, 1000)
+
+        return () => clearInterval(interval)
+    }, [])
+
+    useEffect(() => {
+        if (!agreement) return
 
         fetch('/optionals/fetch?type=qol')
             .then(res => res.json())
@@ -65,7 +69,7 @@ export default function Page() {
                 if (json.error) return console.error(json.error)
                 setJ5List(json)
             })
-    }, [])
+    }, [agreement])
 
 
     function Mod({ type, details }: { type: 'qol' | 'gfx' | 'zeus' | 'j2' | 'j5', details: { id: string, name: string } }) {
@@ -107,7 +111,7 @@ export default function Page() {
 
     return (
         <div>
-            <div style={{ display: agreement ? 'none' : undefined }} className='flex flex-col justify-center max-w-[600px] h-[600px] gap-4'>
+            <div style={{ display: agreement ? 'none' : 'flex' }} className='flex-col justify-center max-w-[600px] h-[600px] gap-4'>
                 <Typography className='animate-pulse' fontWeight={700} fontSize={50} letterSpacing={4} align='center' color='red'>WARNING</Typography>
                 <Divider />
                 <Typography fontWeight={300} fontSize={20} align='center'>
@@ -122,7 +126,7 @@ export default function Page() {
 
             </div>
 
-            <div style={{ display: agreement ? undefined : 'none' }} className="flex flex-col gap-5 xl:w-[1300px]">
+            <div style={{ display: agreement ? 'flex' : 'none' }} className="flex-col gap-5 xl:w-[1300px]">
                 <div className="mb-5 flex flex-row justify-between">
                     <div>
                         <Typography fontWeight={700} fontSize={50} letterSpacing={4} align='left'>CONFIGURE OPTIONAL ADDONS</Typography>
