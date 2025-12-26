@@ -1,6 +1,5 @@
-import type { NextConfig } from "next"
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
 	images: {
 		qualities: [100, 75],
 		remotePatterns: [
@@ -28,6 +27,13 @@ const nextConfig: NextConfig = {
 				port: "3000",
 				pathname: "/api/gallery/fetch/**",
 			},
+
+			{
+				protocol: "http",
+				hostname: "localhost",
+				port: "3000",
+				pathname: "/api/gallery/featured/**",
+			},
 		]
 	},
 
@@ -40,7 +46,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/login',
-				destination: `https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(process.env.NEXT_PUBLIC_BASEURL! + process.env.DISCORD_REDIRECT_URI!)}&scope=${process.env.DISCORD_SCOPE!.split(' ').join('+')}`,
+				destination: `https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(process.env.NEXT_PUBLIC_BASEURL + process.env.DISCORD_REDIRECT_URI)}&scope=${process.env.DISCORD_SCOPE.split(' ').join('+')}`,
 				permanent: false,
 			},
 			// {
@@ -103,6 +109,10 @@ const nextConfig: NextConfig = {
 			},
 		];
 	}
-}
+};
 
-export default nextConfig
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true',
+});
+
+module.exports = withBundleAnalyzer(nextConfig);
