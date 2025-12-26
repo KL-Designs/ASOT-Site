@@ -3,7 +3,7 @@ services:
     build: .
     container_name: asot-website
     ports:
-      - "9106:3000"
+      - "3000:3000"
     volumes:
       - ./gallery:/app/gallery
     restart: unless-stopped
