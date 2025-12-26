@@ -8,4 +8,4 @@ services:
       - ./gallery:/app/gallery
     restart: unless-stopped
     environment:
-      - MONGO_URI=mongodb://host.docker.internal:27017
+      - MONGO_URI=mongodb://172.24.0.2:27017/ASOT
