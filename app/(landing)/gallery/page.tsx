@@ -3,10 +3,10 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-import { Typography, Button } from '@mui/material'
+import { Typography, Button, Divider } from '@mui/material'
 import { Reply, Close } from '@mui/icons-material'
 
-import { useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 
 
 export default function Page() {
@@ -20,10 +20,11 @@ export default function Page() {
     const [stage, setStage] = useState('')
 
     const [openImg, setOpenImg] = useState('')
+    const [featured, setFeatured] = useState<string[]>([])
 
     useEffect(() => {
 
-        const searchParams = new URLSearchParams(window.location.search);
+        const searchParams = new URLSearchParams(window.location.search)
 
         setYear(searchParams.get('year') || '')
         setOperation(searchParams.get('operation') || '')
@@ -42,6 +43,8 @@ export default function Page() {
                 if (!searchParams.get('year')) setYear(json.years[yearI].year)
                 if (!searchParams.get('operation')) setOperation(json.years[yearI].operations[operationI].operation)
                 if (!searchParams.get('stage')) setStage(json.years[yearI].operations[operationI].stages[stageI].stage)
+
+                setFeatured([...json.featured].sort(() => Math.random() - 0.5).slice(0, 4))
 
                 setReady(true)
             })
@@ -70,95 +73,119 @@ export default function Page() {
     }, [operation])
 
     return (
-        <div className='min-h-[600px] w-full flex flex-row flex-wrap justify-center gap-5'>
+        <div className='flex flex-col justify-between items-center gap-8 max-w-[1500px]'>
 
-            <div className='w-full flex flex-row flex-wrap gap-10 justify-center max-w-[1400px]'>
-                <div className='flex flex-col gap-2 flex-grow'>
-                    <Typography className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
-                        YEAR
-                    </Typography>
+            <div className='w-full flex flex-col justify-center items-center gap-5'>
+                <Typography className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={10}>FEATURED</Typography>
 
-                    {data.map((g) => (
-                        <Button key={g.year} fullWidth variant='contained' color={g.year === year ? 'primary' : 'secondary'} onClick={() => setYear(g.year)}>{g.year}</Button>
-                    )).reverse()}
+                <div className='relative h-[200px] w-full flex flex-row flex-wrap gap-4 justify-center overflow-hidden'>
+
+                    {featured.map(img => (
+                        <div key={img} className="relative h-[200px] w-[350px]">
+                            <Image
+                                className='h-[200px] w-auto object-cover rounded-sm cursor-pointer'
+                                src={`${process.env.NEXT_PUBLIC_BASEURL}/api/gallery/featured?img=${img}`}
+                                alt={img}
+                                quality={75}
+                                loading='eager'
+                                fill
+                                onClick={() => setOpenImg(`/api/gallery/featured?img=${img}`)}
+                            />
+                        </div>
+                    ))}
+
                 </div>
+            </div>
 
-                <div className='flex flex-col gap-2 flex-grow max-w-[700px] md:max-w-[50%]'>
-                    <Typography sx={{ textTransform: 'none' }} className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
-                        OPERATION
-                    </Typography>
+            <Divider flexItem />
 
-                    <div className='flex flex-row gap-2 flex-wrap justify-evenly'>
-                        {data.find(g => g.year === year)?.operations.slice().sort((a, b) => {
-                            const numA = parseInt(a.operation.match(/^\d+/)?.[0] || "0", 10)
-                            const numB = parseInt(b.operation.match(/^\d+/)?.[0] || "0", 10)
-                            return numA - numB
-                        }).map(op => (
-                            <Button key={op.operation} sx={{ textTransform: 'none' }} className='flex-grow' variant='contained' color={op.operation === operation ? 'primary' : 'secondary'} onClick={() => setOperation(op.operation)}>{op.operation}</Button>
+            <div className='min-h-[600px] w-full flex flex-row flex-wrap justify-center gap-5'>
+                <div className='w-full flex flex-row flex-wrap gap-10 justify-center max-w-[1400px]'>
+                    <div className='flex flex-col gap-2 flex-grow'>
+                        <Typography className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+                            YEAR
+                        </Typography>
+
+                        {data.map((g) => (
+                            <Button key={g.year} fullWidth variant='contained' color={g.year === year ? 'primary' : 'secondary'} onClick={() => setYear(g.year)}>{g.year}</Button>
+                        )).reverse()}
+                    </div>
+
+                    <div className='flex flex-col gap-2 flex-grow max-w-[700px] md:max-w-[50%]'>
+                        <Typography sx={{ textTransform: 'none' }} className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+                            OPERATION
+                        </Typography>
+
+                        <div className='flex flex-row gap-2 flex-wrap justify-evenly'>
+                            {data.find(g => g.year === year)?.operations.slice().sort((a, b) => {
+                                const numA = parseInt(a.operation.match(/^\d+/)?.[0] || "0", 10)
+                                const numB = parseInt(b.operation.match(/^\d+/)?.[0] || "0", 10)
+                                return numA - numB
+                            }).map(op => (
+                                <Button key={op.operation} sx={{ textTransform: 'none' }} className='flex-grow' variant='contained' color={op.operation === operation ? 'primary' : 'secondary'} onClick={() => setOperation(op.operation)}>{op.operation}</Button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className='flex flex-col gap-2 flex-grow'>
+                        <Typography className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
+                            MISSION
+                        </Typography>
+
+                        {data.find(g => g.year === year)?.operations.find(op => op.operation === operation)?.stages.map(s => (
+                            <Button key={s.stage} sx={{ textTransform: 'none' }} fullWidth variant='contained' color={s.stage === stage ? 'primary' : 'secondary'} onClick={() => setStage(s.stage)}>{s.stage}</Button>
                         ))}
                     </div>
                 </div>
 
-                <div className='flex flex-col gap-2 flex-grow'>
-                    <Typography className='text-[40px]' variant='h1' align='center' fontWeight={700} fontFamily={'inherit'} letterSpacing={4}>
-                        MISSION
-                    </Typography>
 
-                    {data.find(g => g.year === year)?.operations.find(op => op.operation === operation)?.stages.map(s => (
-                        <Button key={s.stage} sx={{ textTransform: 'none' }} fullWidth variant='contained' color={s.stage === stage ? 'primary' : 'secondary'} onClick={() => setStage(s.stage)}>{s.stage}</Button>
+                <div className='w-full flex flex-row flex-wrap gap-4 justify-center'>
+                    {data.find(g => g.year === year)?.operations.find(op => op.operation === operation)?.stages.find(s => s.stage === stage)?.media.map(img => (
+                        <Image
+                            key={img}
+                            className='h-[200px] w-auto object-contain rounded-sm cursor-pointer'
+                            src={`${process.env.NEXT_PUBLIC_BASEURL}/api/gallery/fetch?stage=${stage}&operation=${operation}&year=${year}&img=${img}`}
+                            alt={img}
+                            width={200}
+                            height={200}
+                            // quality={75}
+                            loading='lazy'
+                            onClick={() => setOpenImg(`/api/gallery/fetch?stage=${encodeURIComponent(stage)}&operation=${encodeURIComponent(operation)}&year=${encodeURIComponent(year)}&img=${encodeURIComponent(img)}`)}
+                        />
                     ))}
                 </div>
-            </div>
 
 
-            <div className='w-full flex flex-row flex-wrap gap-4 justify-center'>
-                {data.find(g => g.year === year)?.operations.find(op => op.operation === operation)?.stages.find(s => s.stage === stage)?.media.map(img => (
-                    <Image
-                        key={img}
-                        className='h-[200px] w-auto object-contain rounded-sm cursor-pointer'
-                        src={`${process.env.NEXT_PUBLIC_BASEURL}/api/gallery/fetch?stage=${stage}&operation=${operation}&year=${year}&img=${img}`}
-                        alt={img}
-                        width={200}
-                        height={200}
-                        // quality={75}
-                        loading='lazy'
-                        onClick={() => setOpenImg(`/api/gallery/fetch?stage=${encodeURIComponent(stage)}&operation=${encodeURIComponent(operation)}&year=${encodeURIComponent(year)}&img=${encodeURIComponent(img)}`)}
-                    />
-                ))}
-            </div>
+                {openImg ?
+                    (
+                        <div className='fixed top-0 w-full h-full bg-[rgba(0,0,0,0.5)] p-5 md:p-20 flex justify-center' onClick={(e) => e.target === e.currentTarget ? setOpenImg('') : null}>
+                            <div className='h-full w-full md:w-[80%] p-5 md:p-10 flex flex-col justify-center' style={{ border: '1px solid red', backdropFilter: 'blur(5px)', background: 'rgba(0,0,0,0.5)' }}>
 
+                                <div className='absolute top-5 right-5 flex gap-5'>
+                                    <Button variant='contained' color='info' onClick={() => {
+                                        navigator.clipboard.writeText(process.env.NEXT_PUBLIC_BASEURL + openImg)
+                                        alert('Image copied to clipboard!')
+                                    }}><Reply /></Button>
+                                    <Button variant='contained' onClick={() => setOpenImg('')}><Close /></Button>
+                                </div>
 
-            {openImg ?
-                (
-                    <div className='fixed top-0 w-full h-full bg-[rgba(0,0,0,0.5)] p-5 md:p-20 flex justify-center' onClick={(e) => e.target === e.currentTarget ? setOpenImg('') : null}>
-                        <div className='h-full w-full md:w-[80%] p-5 md:p-10 flex flex-col justify-center' style={{ border: '1px solid red', backdropFilter: 'blur(5px)', background: 'rgba(0,0,0,0.5)' }}>
-
-                            <div className='absolute top-5 right-5 flex gap-5'>
-                                <Button variant='contained' color='info' onClick={() => {
-                                    navigator.clipboard.writeText(process.env.NEXT_PUBLIC_BASEURL + openImg)
-                                    alert('Image copied to clipboard!')
-                                }}><Reply /></Button>
-                                <Button variant='contained' onClick={() => setOpenImg('')}><Close /></Button>
-                            </div>
-
-                            <div className='relative h-[90%]'>
-                                <Image
-                                    key={openImg}
-                                    className='w-auto object-contain rounded-sm'
-                                    src={process.env.NEXT_PUBLIC_BASEURL + openImg}
-                                    alt={openImg}
-                                    quality={100}
-                                    loading='lazy'
-                                    fill
-                                />
+                                <div className='relative h-[90%]'>
+                                    <Image
+                                        key={openImg}
+                                        className='m-auto object-contain rounded-sm'
+                                        src={process.env.NEXT_PUBLIC_BASEURL + openImg}
+                                        alt={openImg}
+                                        quality={100}
+                                        loading='lazy'
+                                        fill
+                                    />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )
-                : null
-            }
-
-
+                    )
+                    : null
+                }
+            </div>
         </div>
     )
 }

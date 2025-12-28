@@ -9,6 +9,8 @@ declare global {
         info: string
         updated: string
 
+        featured: string[]
+
         years: {
             year: string
 

@@ -13,7 +13,7 @@ export default function Container({ children, title, subtitle, background, sx }:
     background?: StaticImageData,
     sx?: {
         maxWidth?: 'max-w-sm' | 'max-w-md' | 'max-w-lg' | 'max-w-xl' | (string & {}),
-        bannerHeight?: 'sm' | 'md' | 'lg',
+        bannerHeight?: 'xsm' | 'sm' | 'md' | 'lg',
         padding?: string,
         gap?: string | undefined
     }
@@ -21,6 +21,7 @@ export default function Container({ children, title, subtitle, background, sx }:
 
     let bannerHeight: string
     switch (sx?.bannerHeight) {
+        case 'xsm': bannerHeight = 'h-banner-xsm md:h-banner-xsm-md'; break
         case 'sm': bannerHeight = 'h-banner-sm md:h-banner-sm-md'; break
         case 'md': bannerHeight = 'h-banner-md md:h-banner-md-md'; break
         case 'lg': bannerHeight = 'h-banner-lg md:h-banner-lg-md'; break

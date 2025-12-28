@@ -8,13 +8,16 @@ export async function GET(request: NextRequest) {
     const json: GalleryAPI = {
         info: 'Gallery API',
         updated: new Date().toISOString(),
+        featured: [],
         years: []
     }
 
-    const years = fs.readdirSync('./gallery')
+    json.featured = fs.readdirSync('./gallery/featured')
+    
+    const years = fs.readdirSync('./gallery/content')
 
     for (const year of years) {
-        const operations = fs.readdirSync(`./gallery/${year}`)
+        const operations = fs.readdirSync(`./gallery/content/${year}`)
 
         const yearData = {
             year,
@@ -22,7 +25,7 @@ export async function GET(request: NextRequest) {
         }
 
         for (const operation of operations) {
-            const stages = fs.readdirSync(`./gallery/${year}/${operation}`)
+            const stages = fs.readdirSync(`./gallery/content/${year}/${operation}`)
 
             const operationData = {
                 operation,
@@ -36,7 +39,7 @@ export async function GET(request: NextRequest) {
                 }
 
                 try {
-                    const media = fs.readdirSync(`./gallery/${year}/${operation}/${stage}`)
+                    const media = fs.readdirSync(`./gallery/content/${year}/${operation}/${stage}`)
                     stageData.media = media
                     console.log(`Processed ${year} - ${operation} - ${stage} with ${media.length} media files`)
                 }

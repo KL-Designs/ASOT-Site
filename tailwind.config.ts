@@ -14,6 +14,8 @@ const config: Config = {
       },
 
       height: {
+        'banner-xsm': '10vh',
+        'banner-xsm-md': '20vh',
         'banner-sm': '20vh',
         'banner-sm-md': '40vh',
         'banner-md': '40vh',

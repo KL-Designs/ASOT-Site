@@ -7,13 +7,10 @@ export async function GET(request: NextRequest) {
 
     const { searchParams } = new URL(request.url)
 
-    const year = searchParams.get('year')
-    const operation = searchParams.get('operation')
-    const stage = searchParams.get('stage')
     const img = searchParams.get('img')
 
-    if (!fs.existsSync(`./gallery/content/${year}/${operation}/${stage}/${img}`)) return NextResponse.json('Media does not exist', { status: 404 })
-    const path = `./gallery/content/${year}/${operation}/${stage}/${img}`
+    if (!fs.existsSync(`./gallery/featured/${img}`)) return NextResponse.json('Media does not exist', { status: 404 })
+    const path = `./gallery/featured/${img}`
     const ext = path.split('.').pop()?.toString().toLowerCase()
     const output = fs.readFileSync(path)
 
