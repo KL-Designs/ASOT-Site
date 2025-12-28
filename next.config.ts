@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
 			},
 
 			{
+				protocol: 'https',
+				hostname: 'www.asotmilsim.com',
+				pathname: '/api/gallery/featured/**',
+			},
+
+			{
 				protocol: "http",
 				hostname: "localhost",
 				port: "3000",
