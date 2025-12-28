@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next"
+
+const nextConfig: NextConfig = {
 	images: {
 		qualities: [100, 75],
 		remotePatterns: [
@@ -46,7 +47,7 @@ const nextConfig = {
 			},
 			{
 				source: '/login',
-				destination: `https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(process.env.NEXT_PUBLIC_BASEURL + process.env.DISCORD_REDIRECT_URI)}&scope=${process.env.DISCORD_SCOPE.split(' ').join('+')}`,
+				destination: `https://discord.com/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(process.env.NEXT_PUBLIC_BASEURL! + process.env.DISCORD_REDIRECT_URI!)}&scope=${process.env.DISCORD_SCOPE!.split(' ').join('+')}`,
 				permanent: false,
 			},
 			// {
@@ -109,10 +110,6 @@ const nextConfig = {
 			},
 		];
 	}
-};
+}
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-	enabled: process.env.ANALYZE === 'true',
-});
-
-module.exports = withBundleAnalyzer(nextConfig);
+export default nextConfig
