@@ -14,6 +14,7 @@ import ImgCallsigns from '@/public/images/home/Gopro3.png'
 import ImgContact from '@/public/images/home/Mike1440.png'
 import ImgRules from '@/public/images/home/ADFField1.png'
 import ImgFAQ from '@/public/images/home/SPEAR_OVERCAST_Final.png'
+import ImgValues from '@/public/images/home/1122.png'
 
 
 
@@ -40,6 +41,11 @@ const Pages: { href: string, title: string, background: StaticImageData, subtitl
 		title: 'RULES & EXPECTATIONS',
 		subtitle: 'These are some of the more basic rules and expectations we have for all members within the community. A more in depth version will be provided upon recruitment.',
 		background: ImgRules,
+	},
+	{
+		href: '/about/values',
+		title: 'PRINCIPLES & VALUES',
+		background: ImgValues,
 	},
 	{
 		href: '/about/faq',
