@@ -17,7 +17,7 @@ export default function Tab() {
 		<div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
 
 			<Content title='TEAMSPEAK' >
-				<Typography><b>Address:</b> <Link className='underline' href='ts3server://103.193.80.60'>103.193.80.60</Link></Typography>
+				<Typography><b>Address:</b> <Link className='underline' href='ts3server://ts.asotmilsim.com'>ts.asotmilsim.com</Link></Typography>
 			</Content>
 
 			<Content title='DISCORD'>
