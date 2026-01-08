@@ -7,6 +7,7 @@ import Container from "@/components/container"
 import { ContentText } from '@/components/content'
 
 import Banner from '@/public/images/home/snowwalk1.png'
+import ImgACOM from '@/public/images/partners/ACOM.png'
 import ImgAPCA from '@/public/images/partners/APCA.png'
 import Img7CG from '@/public/images/partners/7Cav.png'
 import Img2A from '@/public/images/partners/2AM.png'
@@ -39,6 +40,11 @@ export default function Page() {
 
 
 			<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-20">
+				<UnitCard name="Australian Combined Operations Milsim (ACOM)" branch="Australian Defence Force" region="Oceania" style="Casual Realism" image={ImgACOM}>
+					<Typography align="center">ACOM and ASOT have a long history stretching close to 8+ years. Similar to other sister units, ACOM and ASOT share common thoughts and ideas on how ARMA operations should be run. With a number of members from both units being part of each community at some point, the relationship between the two units is ongoing and stronger than ever.</Typography>
+					<Typography align="center">ACOM aims to simulate Australian Defence Force operations in a variety of theatres. They also create and run a wide variety of fictional and non-fictional missions. ACOM is a unit we can proudly recommend to both new and veteran players.</Typography>
+				</UnitCard>
+
 				<UnitCard name="Australia Pacific Combined Arms (APCA)" branch="Australian Defence Force" region="Oceania" style="Casual Realism" image={ImgAPCA}>
 					<Typography align="center">APCA and ASOT have a long and strong standing relationship that has continued to grow over the years. We have similar ideas on how ARMA operations should be run but with the execution being unique between the two units, APCA is one of the strongest relations that ASOT holds with another unit.</Typography>
 					<Typography align="center">Their attitude, behaviour and warm welcoming nature means that we see a long lasting relationship between the two units and a great place for like minded ARMA players looking for a great home. APCA is a unit we can proudly recommend.</Typography>
@@ -48,6 +54,8 @@ export default function Page() {
 					<Typography align="center">7 Cav and ASOT have a long standing partnership more based around sharing of admin, website and community management idea sharing. 7 Cav motivated ASOT to create our own version of the MILPAC system which is now a treasured aspect of the unit. Along with sharing of admin and management ideas, 7 Cav’s assistance has helped guide ASOT into the unit it is today.</Typography>
 					<Typography align="center">Operating since 2002, 7 Cav is one of the longest standing US gaming communities and has an impressive history with ARMA 3. 7 Cav operates as a combined armed Battalion with a wide variety of roles, trainings and options for it’s members.</Typography>
 				</UnitCard>
+
+				<div />
 
 				<UnitCard name="2nd Airmobile" branch="Airmobile" region="Oceania" style="Semi Realistic" image={Img2A}>
 					<Typography align="center">2nd Airmobile is a relatively new unit but has long standing relationships with a number of ASOT members and the community. With 2nd Airmobile being a newly created unit, ASOT aims to continue building bonds and joining in on events and missions into the future.</Typography>

@@ -120,6 +120,8 @@ export default function Page() {
 					<Typography align="center">If you think you, or someone you know, may be thinking about suicide, call the Suicide Crisis Helpline for support.</Typography>
 				</SupportCard>
 
+				<div />
+
 				<SupportCard name="youthline" phone="0800 376 633" link="https://www.youthline.co.nz" available="24/7" location="New Zealand" image={ImgYouthline}>
 					<Typography align="center">Youthline is an organisation that supports young people throughout Aotearoa New Zealand. Youthline is here to support all young people - this includes young people who are struggling (with their mental health or other issues), as well as young people who want to learn, grow and give back to their community.</Typography>
 					<Typography align="center">Youthline offers free helpline service, free face-to-face counselling services, youth mentoring, programmes in schools and communities to help people grow and develop.</Typography>
