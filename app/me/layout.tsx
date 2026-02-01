@@ -13,7 +13,7 @@ import Banner from '@/public/images/home/Droneteam7.png'
 
 export default function Page({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<div>
+		<div className="h-full">
 			{children}
 		</div>
 	)

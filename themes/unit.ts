@@ -22,6 +22,15 @@ export default createTheme({
         h2: {
             fontSize: '34px'
         }
+    },
+    components: {
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    borderRadius: 3
+                }
+            }
+        }
     }
 })
 

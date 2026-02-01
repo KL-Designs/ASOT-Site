@@ -111,7 +111,7 @@ export default function Page() {
 
     return (
         <div>
-            <div style={{ display: agreement ? 'none' : 'flex' }} className='flex-col justify-center max-w-[600px] h-[600px] gap-4'>
+            <div style={{ display: agreement ? 'none' : 'flex' }} className='flex-col justify-center max-w-[600px] h-full gap-4'>
                 <Typography className='animate-pulse' fontWeight={700} fontSize={50} letterSpacing={4} align='center' color='red'>WARNING</Typography>
                 <Divider />
                 <Typography fontWeight={300} fontSize={20} align='center'>

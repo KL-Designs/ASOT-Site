@@ -17,7 +17,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
 		.catch(() => redirect("/login"))
 
 	return (
-		<div className="h-full w-full p-10">
+		<div className="h-full w-full p-10 flex flex-col justify-center">
 			<div className="flex flex-col justify-center items-center">
 				{children}
 			</div>

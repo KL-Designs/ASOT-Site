@@ -39,19 +39,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
 			<body className={`${montserrat.className}  antialiased h-full`}>
 				<ThemeProvider theme={UnitTheme}>
-					
-					<div style={{ zIndex: 1 }}>
-						<Navbar />
-					</div>
+					<div className="h-full flex flex-col">
 
-					<div style={{ zIndex: 0 }}>
-						{children}
-					</div>
+						<div style={{ zIndex: 1 }}>
+							<Navbar />
+						</div>
 
-					<div style={{ zIndex: 1 }}>
-						<Footer />
-					</div>
+						<div style={{ zIndex: 0 }} className="flex-grow">
+							{children}
+						</div>
 
+						<div style={{ zIndex: 1 }}>
+							<Footer />
+						</div>
+
+					</div>
 				</ThemeProvider>
 			</body>
 		</html>
