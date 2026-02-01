@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 
 
 export const metadata: Metadata = {
-	title: "Configure Optional Mods - ASOT",
+	title: "Configure Optional Mods | Australian Special Operations Taskforce",
 }
 
 
