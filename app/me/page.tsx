@@ -22,6 +22,7 @@ export default async function Page() {
     return (
         <div className='h-full w-full p-10 flex flex-col justify-center'>
             <div className='flex flex-wrap justify-center items-center gap-5 max-w-[1000px] m-auto'>
+                
                 <Paper elevation={1} className='p-5 flex flex-col justify-between gap-5 w-full min-h-[250px] max-h-[250px] overflow-y-scroll'>
                     <div className='flex gap-5'>
                         <div className='relative h-[100px] min-w-[100px]'>
@@ -58,7 +59,7 @@ export default async function Page() {
                 <Link href={'/optionals'} className='flex-grow w-max'>
                     <Paper elevation={1} className='p-5 gap-3 flex flex-col justify-center items-center h-[250px] cursor-pointer hover:bg-blue-600 transition-colors duration-200 ease-in-out'>
                         <Tune sx={{ fontSize: 100 }} />
-                        <Typography variant='h2' fontWeight={600} letterSpacing={2} textAlign={'center'}>CONFIGURE OPTIONALS</Typography>
+                        <Typography variant='h2' fontWeight={600} letterSpacing={2} textAlign={'center'}>CONFIGURE<br/>OPTIONALS</Typography>
                     </Paper>
                 </Link>
             </div>
