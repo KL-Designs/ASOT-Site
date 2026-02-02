@@ -1,18 +1,14 @@
 import { Metadata } from "next"
 
 
-type Props = {
-	params: { slug: string }
-}
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const { slug } = await params
-
-	return {
-		title: `${slug} | Australian Special Operations Taskforce`,
-		description: `Read about ${slug}`
-	}
-}
+// export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+// 	const slug = params.slug
+// 	return {
+// 		title: `${slug} | Australian Special Operations Taskforce`,
+// 		description: `Read about ${slug}`,
+// 	}
+// }
 
 
 
