@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
 
     try {
-        const missions = await Db.operations.find({}).toArray()
+        const missions = await Db.operations.find({}).sort({date: -1}).toArray()
         return NextResponse.json({ missions }, { status: 200 })
     }
 

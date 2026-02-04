@@ -13,20 +13,19 @@ import { CreateButton, MissionList } from './list'
 export default async function Page() {
 
     await connection()
-
-    const me = await client.fetchMe()
-    if (!me) return redirect('/login')
-
     let editAccess = false
 
-    if (await client.hasRoles(me, ['HQ Staff'])) editAccess = true
+    try {
+        const me = await client.fetchMe()
+        if (await client.hasRoles(me, ['HQ Staff'])) editAccess = true
+    } catch { }
 
     return (
         <div className='h-full w-full p-5'>
 
             <div className='m-auto max-w-[500px] flex flex-col gap-5'>
                 {editAccess ? <CreateButton /> : null}
-                
+
                 <MissionList />
             </div>
 
