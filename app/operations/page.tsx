@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Paper, Divider, Typography, Button } from '@mui/material'
 import { AddBox, Tune } from '@mui/icons-material'
 
-import CreateButton from './createButton'
+import { CreateButton, MissionList } from './list'
 
 
 
@@ -22,12 +22,12 @@ export default async function Page() {
     if (await client.hasRoles(me, ['HQ Staff'])) editAccess = true
 
     return (
-        <div className='h-full w-full'>
+        <div className='h-full w-full p-5'>
 
-            <div className='m-auto'>
-
-
+            <div className='m-auto max-w-[500px] flex flex-col gap-5'>
                 {editAccess ? <CreateButton /> : null}
+                
+                <MissionList />
             </div>
 
             {/* <Paper className='m-auto w-[250px] h-[250px] p-5 flex flex-col justify-center items-center'>
