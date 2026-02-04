@@ -23,7 +23,7 @@ export default async function Page() {
     return (
         <div className='h-full w-full p-5'>
 
-            <div className='m-auto max-w-[500px] flex flex-col gap-5'>
+            <div className='m-auto max-w-[600px] flex flex-col gap-5'>
                 {editAccess ? <CreateButton /> : null}
 
                 <MissionList />
