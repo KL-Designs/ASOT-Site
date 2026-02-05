@@ -42,7 +42,7 @@ export function MissionList() {
         fetch(encodeURI(`/api/me/roles?has=HQ Staff`))
             .then(res => res.json())
             .then(json => {
-                if (json.error) return alert(json.error)
+                if (json.error) return console.error(json.error)
                 setHasAccess(json.access)
             })
 
@@ -50,7 +50,7 @@ export function MissionList() {
             fetch('/api/operations')
                 .then(res => res.json())
                 .then(json => {
-                    if (json.error) return alert(json.error)
+                    if (json.error) return console.error(json.error)
                     if (json.missions) setMissions(json.missions)
                 })
         }, 1000)
