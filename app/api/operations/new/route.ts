@@ -21,8 +21,9 @@ export async function GET(request: NextRequest) {
         const newOp = await Db.operations.insertOne({
             _id: new ObjectId(),
             title: `New Mission ${formatted}`,
-            department: 'HQ 1-0',
+            department: '1-0 HQ',
             date: new Date(),
+            loreDate: new Date(),
             fields: []
         })
 

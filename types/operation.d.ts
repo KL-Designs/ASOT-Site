@@ -10,6 +10,7 @@ declare global {
         title: string
         department: string
         date: Date
+        loreDate: Date
 
         fields: {
             title: string

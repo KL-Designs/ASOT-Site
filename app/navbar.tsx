@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
 import { Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider } from '@mui/material'
-import { Home, School, Group, MilitaryTech, Collections, Handshake, Support, VolunteerActivism, Menu, Login } from '@mui/icons-material'
+import { Home, School, Group, MilitaryTech, Collections, Handshake, Support, VolunteerActivism, Menu, AccountCircle } from '@mui/icons-material'
 
 
 import Navigation from '@/styles/navigation.module.css'
@@ -98,7 +98,7 @@ export default function Navbar() {
                             :
                             <Link href='/login' title='Login'>
                                 <div className={Navigation['nav-button']}>
-                                    <Login />
+                                    <AccountCircle />
                                 </div>
                             </Link>
                         }
