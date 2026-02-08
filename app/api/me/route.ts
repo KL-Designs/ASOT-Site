@@ -15,3 +15,27 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ error: err.message }, { status: 401 })
     }
 }
+
+
+export async function POST(request: NextRequest, response: NextResponse) {
+    try {
+        const me = await client.fetchMe()
+
+        if (!client.hasRoles(me, ['HQ Staff'])) return new Error('Access Denied')
+
+        const body = await request.json()
+
+        const update: Record<string, any> = {}
+        for (const [key, value] of Object.entries(body)) {
+            update[`bio.${key}`] = value
+        }
+
+        await Db.users.updateOne({ _id: me._id }, { $set: update }, { upsert: true })
+
+        return NextResponse.json({ success: true }, { status: 200 })
+    }
+
+    catch (err: any) {
+        return NextResponse.json({ error: err.message }, { status: 401 })
+    }
+}
