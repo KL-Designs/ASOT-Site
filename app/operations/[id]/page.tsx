@@ -12,11 +12,11 @@ import { AddBox, Tune, Api } from '@mui/icons-material'
 import { ObjectId } from "mongodb"
 
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: { id: string } }) {
     const resolvedParams = await params
     await connection()
 
-    const operation = await Db.operations.findOne({_id: new ObjectId(resolvedParams.slug)})
+    const operation = await Db.operations.findOne({_id: new ObjectId(resolvedParams.id)})
 
     return (
         <div className='h-full w-full p-5'>

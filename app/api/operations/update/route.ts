@@ -11,6 +11,7 @@ export async function GET(request: NextRequest) {
     const title = searchParams.get('title')
     const date = searchParams.get('date')
     const loreDate = searchParams.get('loreDate')
+    const department = searchParams.get('department')
 
     if (!id) return NextResponse.json({ error: 'Operation ID Missing' }, { status: 401 })
 
@@ -18,9 +19,10 @@ export async function GET(request: NextRequest) {
         const me = await client.fetchMe()
         if (!client.hasRoles(me, ['HQ Staff'])) return NextResponse.json({ error: 'Access Denied' }, { status: 403 })
 
-        if (title) await Db.operations.updateOne({ _id: new ObjectId(id) }, { $set: { title: title } })
+        if (title) await Db.operations.updateOne({ _id: new ObjectId(id) }, { $set: { title } })
         if (date) await Db.operations.updateOne({ _id: new ObjectId(id) }, { $set: { date: new Date(date) } })
         if (loreDate) await Db.operations.updateOne({ _id: new ObjectId(id) }, { $set: { loreDate: new Date(loreDate) } })
+        if (department) await Db.operations.updateOne({ _id: new ObjectId(id) }, { $set: { department } })
 
         return NextResponse.json({ success: true }, { status: 200 })
     }

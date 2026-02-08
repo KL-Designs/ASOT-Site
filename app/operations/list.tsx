@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
 import { Button, Paper, Typography } from '@mui/material'
-import { AddBox, ArrowForwardIos, Edit } from '@mui/icons-material'
+import { AddBox, ArrowForwardIos, Edit, ContentCopy, Delete } from '@mui/icons-material'
 
 export function CreateButton() {
     const [active, setActive] = useState<boolean>(false)
@@ -70,15 +70,34 @@ export function MissionList() {
 
                         <div className='flex'>
                             {hasAccess ? (
-                                <div className='h-full w-[50px] bg-blue-500 cursor-pointer hover:w-[100px] transition-[width] duration-300 ease-out'>
-                                    <Link className='h-full w-full flex flex-col justify-center items-center' href={`/operations/edit?op=${mission._id.toString()}`}>
+                                <div className='h-full w-[50px] cursor-pointer flex flex-row-reverse overflow-hidden hover:w-[150px] transition-[width] duration-300 ease-out'>
+                                    <Link className='h-full min-w-[50px] bg-blue-500 flex flex-col justify-center items-center' href={`/operations/edit?op=${mission._id.toString()}`} title='Edit'>
                                         <Edit />
+                                    </Link>
+                                    <Link className='h-full min-w-[50px] bg-green-600 flex flex-col justify-center items-center' href={`#`} onClick={() => {
+                                        fetch(`/api/operations/duplicate?id=${mission._id.toString()}`)
+                                            .then(res => res.json())
+                                            .then(json => {
+                                                if (json.error) alert(json.error)
+                                            })
+                                    }} title='Duplicate'>
+                                        <ContentCopy />
+                                    </Link>
+                                    <Link className='h-full min-w-[50px] bg-red-500 flex flex-col justify-center items-center' href={`#`} onClick={() => {
+                                        const result = confirm(`Are you sure you want to delete "${mission.title}"?`)
+                                        if (result) fetch(`/api/operations/delete?id=${mission._id.toString()}`)
+                                            .then(res => res.json())
+                                            .then(json => {
+                                                if (json.error) alert(json.error)
+                                            })
+                                    }} title='Delete'>
+                                        <Delete />
                                     </Link>
                                 </div>
                             ) : null}
 
                             <div className='h-full w-[50px] bg-red-500 rounded-r-xl cursor-pointer hover:w-[100px] transition-[width] duration-300 ease-out'>
-                                <Link className='h-full w-full flex flex-col justify-center items-center' href={`/operations/${mission._id.toString()}`}>
+                                <Link className='h-full w-full flex flex-col justify-center items-center' href={`/operations/${mission._id.toString()}`} title='View Mission'>
                                     <ArrowForwardIos />
                                 </Link>
                             </div>

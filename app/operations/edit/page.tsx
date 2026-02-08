@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, ChangeEvent, FocusEvent, Dispatch, SetStateAction } from 'react'
+import { useState, useEffect, ChangeEvent, FocusEvent, Dispatch, SetStateAction, use } from 'react'
 import { TextField, Button } from '@mui/material'
 
 import dayjs, { Dayjs } from "dayjs"
@@ -8,8 +8,12 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker"
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 
+import Fields from './fields'
+
 
 export default function Page() {
+
+    const [opID, setOpID] = useState<string>('')
 
     const [aTitle, setATitle] = useState<boolean>(false)
     const [title, setTitle] = useState<string>('')
@@ -20,10 +24,14 @@ export default function Page() {
     const [aLoreDate, setALoreDate] = useState<boolean>(false)
     const [loreDate, setLoreDate] = useState<Dayjs | null>(null)
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const searchParams = new URLSearchParams(window.location.search)
+    const [aDepartment, setADepartment] = useState<boolean>(false)
+    const [department, setDepartment] = useState<string>('')
 
+    useEffect(() => {
+        const searchParams = new URLSearchParams(window.location.search)
+        setOpID(searchParams.get('op') || '')
+        
+        const interval = setInterval(() => {
             fetch(`/api/operations?id=${searchParams.get('op')}`)
                 .then(res => res.json())
                 .then(json => {
@@ -33,6 +41,7 @@ export default function Page() {
                     if (!aTitle) setTitle(mission.title)
                     if (!aDate) setDate(dayjs(mission.date))
                     if (!aLoreDate) setLoreDate(dayjs(mission.loreDate))
+                    if (!aDepartment) setDepartment(mission.department)
                 })
         }, 1000)
 
@@ -40,20 +49,25 @@ export default function Page() {
     }, [
         title, aTitle,
         date, aDate,
-        loreDate, aLoreDate
+        loreDate, aLoreDate,
+        department, aDepartment
     ])
 
     return (
         <div className='p-5'>
             <div className='m-auto w-[800px] flex flex-col gap-3'>
 
-                <TitleField value={title} setValue={setTitle} aValue={aTitle} setAValue={setATitle} />
+                <div className='flex gap-3'>
+                    <TitleField value={title} setValue={setTitle} aValue={aTitle} setAValue={setATitle} />
+                    <DepartmentField value={department} setValue={setDepartment} aValue={aDepartment} setAValue={setADepartment} />
+                </div>
 
                 <div className='flex gap-3'>
                     <DateField value={date} setValue={setDate} aValue={aDate} setAValue={setADate} />
                     <LoreDateField value={loreDate} setValue={setLoreDate} aValue={aLoreDate} setAValue={setALoreDate} />
                 </div>
 
+                <Fields id={opID} />
 
             </div>
         </div>
@@ -187,5 +201,43 @@ function LoreDateField({
                 }}
             />
         </LocalizationProvider>
+    )
+}
+
+
+function DepartmentField(
+    {
+        value,
+        setValue,
+        aValue,
+        setAValue
+    }: {
+        value: string,
+        setValue: Dispatch<SetStateAction<string>>,
+        aValue: boolean,
+        setAValue: Dispatch<SetStateAction<boolean>>
+    }) {
+
+    function update(e: any) {
+        const searchParams = new URLSearchParams(window.location.search)
+
+        setValue(e.currentTarget.value)
+
+        fetch(`/api/operations/update?id=${searchParams.get('op')}&department=${value}`)
+            .then(res => res.json())
+            .then(json => {
+                if (json.error) return alert(json.error)
+            })
+    }
+
+    return (
+        <TextField
+            fullWidth
+            value={value}
+            label='Department'
+            onChange={update}
+            onFocus={() => setAValue(true)}
+            onBlur={(e) => { update(e); setAValue(false) }}
+        />
     )
 }
