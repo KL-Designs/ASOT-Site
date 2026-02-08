@@ -22,7 +22,7 @@ export default async function Page() {
                     if (!user.bio?.name || !user.bio?.content || !user.bio?.rank || !user.bio?.callsign) return null
 
                     return (
-                        <Paper key={user.id} className='flex justify-between w-[700px] items-center gap-5 p-3'>
+                        <Paper key={user.id} className='flex justify-between w-[700px] gap-5 p-3'>
                             <div className='relative h-[100px] min-w-[100px]'>
                                 <Image src={user.avatarURL} alt={user.username} fill className='rounded-[100%]' />
                             </div>
