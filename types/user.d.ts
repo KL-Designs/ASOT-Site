@@ -45,6 +45,13 @@ declare global {
             j2: { id: string, name: string }[]
             j5: { id: string, name: string }[]
         }
+
+        bio?: {
+            content: string
+            name: string
+            rank: string
+            callsign: string
+        }
     }
 
     interface Role {
