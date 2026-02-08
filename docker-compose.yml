@@ -10,4 +10,4 @@ services:
       - ./uploads:/app/uploads
     restart: unless-stopped
     environment:
-      - MONGO_URI=mongodb://172.24.0.2:27017/ASOT
+      - MONGO_URI=mongodb://172.24.0.11:27017/ASOT
