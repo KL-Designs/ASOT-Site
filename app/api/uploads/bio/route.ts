@@ -35,30 +35,20 @@ export async function GET(request: NextRequest) {
 
 
 export async function POST(req: Request) {
-    try {
-        const me = await client.fetchMe()
-        if (!client.hasRoles(me, ['HQ Staff'])) return new Error('Access Denied')
+    const me = await client.fetchMe().catch(() => null)
+    if (!me) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
 
-        const formData = await req.formData()
-        const file = formData.get("file") as File | null
+    if (!client.hasRoles(me, ['HQ Staff'])) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-        if (!file) {
-            return new Error("No file uploaded")
-        }
+    const formData = await req.formData()
+    const file = formData.get("file") as File | null
 
-        // if (!file.name.toLowerCase().endsWith('.jpg')) {
-        //     return new Error('Only .jpg files allowed')
-        // }
+    if (!file) return NextResponse.json({ error: 'No File provided' }, { status: 401 })
 
-        const arrayBuffer = await file.arrayBuffer()
-        const buffer = Buffer.from(arrayBuffer)
+    const arrayBuffer = await file.arrayBuffer()
+    const buffer = Buffer.from(arrayBuffer)
 
-        fs.writeFileSync(`./uploads/bio/${me.id}.jpg`, buffer)
+    fs.writeFileSync(`./uploads/bio/${me.id}.jpg`, buffer)
 
-        return NextResponse.json({ success: true })
-    }
-
-    catch (err: any) {
-        return NextResponse.json({ error: err.message }, { status: 401 })
-    }
+    return NextResponse.json({ success: true })
 }

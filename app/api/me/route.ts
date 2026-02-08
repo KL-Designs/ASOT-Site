@@ -17,25 +17,20 @@ export async function GET(request: NextRequest) {
 }
 
 
-export async function POST(request: NextRequest, response: NextResponse) {
-    try {
-        const me = await client.fetchMe()
+export async function POST(request: NextRequest) {
+    const me = await client.fetchMe().catch(() => null)
+    if (!me) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
 
-        if (!client.hasRoles(me, ['HQ Staff'])) return new Error('Access Denied')
+    if (!client.hasRoles(me, ['HQ Staff'])) return NextResponse.json({ error: 'Access Denied' }, { status: 401 })
 
-        const body = await request.json()
+    const body = await request.json()
 
-        const update: Record<string, any> = {}
-        for (const [key, value] of Object.entries(body)) {
-            update[`bio.${key}`] = value
-        }
-
-        await Db.users.updateOne({ _id: me._id }, { $set: update }, { upsert: true })
-
-        return NextResponse.json({ success: true }, { status: 200 })
+    const update: Record<string, any> = {}
+    for (const [key, value] of Object.entries(body)) {
+        update[`bio.${key}`] = value
     }
 
-    catch (err: any) {
-        return NextResponse.json({ error: err.message }, { status: 401 })
-    }
+    await Db.users.updateOne({ _id: me._id }, { $set: update }, { upsert: true })
+
+    return NextResponse.json({ success: true }, { status: 200 })
 }
